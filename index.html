@@ -604,65 +604,7 @@
   }
 
 
-  .real-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(2,120,255,0.1);
-    border: 1px solid rgba(2,120,255,0.1);
-  }
 
-  .real-card {
-    background: #04050f;
-    display: block;
-    text-decoration: none;
-    overflow: hidden;
-    transition: background 0.2s;
-  }
-
-  .real-card:hover { background: rgba(2,120,255,0.07); }
-
-  .real-sq {
-    width: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    overflow: hidden;
-    background: #0a0f1a;
-  }
-
-  .real-sq img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .real-info {
-    padding: 10px 12px 12px;
-  }
-
-  .real-type {
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #0278FF;
-    margin-bottom: 3px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 500;
-  }
-
-  .real-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #c8d8f0;
-    line-height: 1.3;
-  }
-
-  @media (max-width: 600px) { .real-grid { grid-template-columns: repeat(2, 1fr); } }
 
 
   .hl-blue { color: #0278FF; font-weight: 500; }
@@ -684,6 +626,40 @@
     .compare-block { grid-template-columns: 1fr; }
     .compare-vs { text-align: left; }
   }
+
+  .ticket-row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(2, 120, 255, 0.08);
+    transition: background 0.2s;
+  }
+
+  .ticket-row.has-img {
+    grid-template-columns: 64px 1fr 140px auto;
+  }
+
+  .ticket-preview {
+    width: 140px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .ticket-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .ticket-row:hover .ticket-preview img { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1058,93 +1034,7 @@
       <p class="bio-text" style="margin-top:14px;">Pour l'instant j'invite principalement des gens que je connais déjà, avec qui j'ai travaillé. J'ai hâte de créer cette dynamique — que vous puissiez vous révéler, construire des choses belles et impactantes, et trouver cet alignement et cette authenticité qui font toute la différence.</p>
     </div>
 
-    <div class="realisations">
-      <div class="s-label" style="margin-top:36px;margin-bottom:20px;">Quelques réalisations</div>
-      <div class="real-grid">
-
-        <a href="https://laforge-app.netlify.app" target="_blank" class="real-card">
-          <div class="real-sq"><img src="images/morpho-logo.jpeg" alt="LA FORGE"/></div>
-          <div class="real-info">
-            <div class="real-type">App mobile</div>
-            <div class="real-name">LA FORGE</div>
-          </div>
-        </a>
-
-        <a href="https://libere-ton-royaume.neoqii.com" target="_blank" class="real-card">
-          <div class="real-sq"><img src="images/varivena.png" alt="IN CARNE"/></div>
-          <div class="real-info">
-            <div class="real-type">Tunnel</div>
-            <div class="real-name">IN CARNE</div>
-          </div>
-        </a>
-
-        <a href="https://souffle-en-corps.fr" target="_blank" class="real-card">
-          <div class="real-sq"><img src="images/souffle-home.png" alt="Souffle en Corps"/></div>
-          <div class="real-info">
-            <div class="real-type">Site web</div>
-            <div class="real-name">Souffle en Corps</div>
-          </div>
-        </a>
-
-        <div class="real-card">
-          <div class="real-sq"><img src="images/juliette.jpg" alt="La Main à la Plume"/></div>
-          <div class="real-info">
-            <div class="real-type">Site web</div>
-            <div class="real-name">La Main à la Plume</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq" style="background:#fff;"><img src="images/kyosei.jpg" alt="Archipel Kyosei" style="object-fit:contain;padding:12px;"/></div>
-          <div class="real-info">
-            <div class="real-type">Logo</div>
-            <div class="real-name">Archipel Kyosei</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq"><img src="images/smoos.jpg" alt="Smoos"/></div>
-          <div class="real-info">
-            <div class="real-type">Identité visuelle</div>
-            <div class="real-name">Smoos</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq"><img src="images/saonessence.webp" alt="Saônessence"/></div>
-          <div class="real-info">
-            <div class="real-type">Identité visuelle</div>
-            <div class="real-name">Saônessence</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq" style="background:#2a1a4a;"><img src="images/anys-logo.jpg" alt="Anys Mechkar" style="object-fit:contain;padding:8px;"/></div>
-          <div class="real-info">
-            <div class="real-type">Logo</div>
-            <div class="real-name">Anys Mechkar</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq"><img src="images/coline-about.png" alt="Coline"/></div>
-          <div class="real-info">
-            <div class="real-type">Design</div>
-            <div class="real-name">Souffle en Corps</div>
-          </div>
-        </div>
-
-        <div class="real-card">
-          <div class="real-sq"><img src="images/soins.jpg" alt="Soins"/></div>
-          <div class="real-info">
-            <div class="real-type">Design</div>
-            <div class="real-name">Page soins</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+</div>
 
 </div>
 
