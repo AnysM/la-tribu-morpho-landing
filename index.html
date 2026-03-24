@@ -660,6 +660,139 @@
   }
 
   .ticket-row:hover .ticket-preview img { opacity: 1; }
+
+  /* SECTION DIFFÉRENT */
+  .diff-title { font-size: clamp(22px, 4vw, 34px); line-height: 1.3; margin-bottom: 36px; }
+
+  .diff-cols {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .diff-col {
+    padding: 24px;
+    border: 1px solid rgba(2,120,255,0.15);
+    background: rgba(2,120,255,0.03);
+  }
+
+  .diff-col-icon {
+    font-size: 18px;
+    color: #0278FF;
+    margin-bottom: 10px;
+  }
+
+  .diff-col-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e0eaff;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .diff-col-text {
+    font-size: 13px;
+    color: #6a8fc0;
+    line-height: 1.7;
+  }
+
+  .diff-plus {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #FFA53F;
+    align-self: center;
+    text-align: center;
+  }
+
+  .diff-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: 400;
+    color: #e0eaff;
+    line-height: 1.6;
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid rgba(2,120,255,0.12);
+    border-bottom: 1px solid rgba(2,120,255,0.12);
+  }
+
+  /* SLIDERS TICKETS */
+  .ticket-slider {
+    grid-column: 1 / -1;
+    padding: 16px 20px 12px;
+    background: rgba(2,120,255,0.03);
+    border-top: 1px solid rgba(2,120,255,0.06);
+    overflow: hidden;
+  }
+
+  .ts-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.35s ease;
+  }
+
+  .ts-slide {
+    flex-shrink: 0;
+    width: calc(50% - 6px);
+    position: relative;
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .ts-slide span {
+    display: block;
+    font-size: 10px;
+    color: #3a5a8a;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+  }
+
+  .ts-nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .ts-nav button {
+    background: transparent;
+    border: 1px solid rgba(2,120,255,0.25);
+    color: #0278FF;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ts-nav button:hover { background: rgba(2,120,255,0.1); border-color: #0278FF; }
+
+  .ts-note {
+    font-size: 10px;
+    color: #2d4a7a;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .diff-cols { grid-template-columns: 1fr; }
+    .diff-plus { display: none; }
+    .ts-slide { width: calc(100% - 6px); }
+  }
 </style>
 </head>
 <body>
@@ -955,17 +1088,17 @@
       </div>
       <div class="ticket-row">
         <div class="t-num">3<small>tickets</small></div>
-        <div class="t-desc">Identité visuelle ou refonte d'offre<small>Logo, palette, direction de marque</small></div>
+        <div class="t-desc">Identité visuelle<small>Logo, palette, direction de marque — exemples ci-dessous</small></div>
         <div class="t-val"><strong>270 €</strong><span>valeur marché</span></div>
       </div>
       <div class="ticket-row">
         <div class="t-num">5<small>tickets</small></div>
-        <div class="t-desc">Landing page ou tunnel complet<small>Design, intégration, copy, mise en ligne</small></div>
+        <div class="t-desc">Landing page ou tunnel<small>Design, intégration, copy, mise en ligne — exemples ci-dessous</small></div>
         <div class="t-val"><strong>500 €</strong><span>valeur marché</span></div>
       </div>
       <div class="ticket-row">
         <div class="t-num">10<small>tickets</small></div>
-        <div class="t-desc">Site complet ou première app mobile<small>En agence : 3 000 à 8 000 €</small></div>
+        <div class="t-desc">Site complet ou application mobile<small>En agence : 3 000 à 8 000 € — exemples ci-dessous</small></div>
         <div class="t-val"><strong>900 €+</strong><span>valeur marché</span></div>
       </div>
       <div class="ticket-row">
@@ -1052,6 +1185,20 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.06 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+
+  // Sliders tickets
+  const tsState = {};
+  function slideTs(id, dir) {
+    const track = document.getElementById(id);
+    if (!track) return;
+    const slides = track.querySelectorAll('.ts-slide');
+    const total = slides.length;
+    if (!tsState[id]) tsState[id] = 0;
+    tsState[id] = (tsState[id] + dir + total) % total;
+    const slideW = slides[0].offsetWidth + 12;
+    track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+  }
 
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
