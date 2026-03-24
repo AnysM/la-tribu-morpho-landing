@@ -725,6 +725,7 @@
     display: flex;
     gap: 12px;
     transition: transform 0.35s ease;
+    overflow: hidden;
   }
 
   .ts-slide {
@@ -772,8 +773,28 @@
   .ts-nav button:hover { background: rgba(2,120,255,0.1); }
 
 
-  .ts-slide a { display: block; }
-  .ts-slide a img { width: 100%; }
+  .ts-slide a {
+    display: block;
+    width: 100%;
+  }
+
+  .ts-slide a img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
 
 
   .ts-type {
