@@ -762,6 +762,43 @@
     margin-top: 8px;
     font-style: italic;
   }
+
+  /* BACKGROUNDS */
+  .bg-galaxy {
+    position: relative;
+  }
+
+  .bg-galaxy::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: url('images/bg-galaxy.jpg') center/cover no-repeat;
+    opacity: 0.07;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .bg-spiral {
+    position: relative;
+  }
+
+  .bg-spiral::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    background: url('images/bg-spiral.jpg') center/cover no-repeat;
+    opacity: 0.06;
+    z-index: -1;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body>
