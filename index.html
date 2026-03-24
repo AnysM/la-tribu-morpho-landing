@@ -606,74 +606,63 @@
 
   .real-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1px;
     background: rgba(2,120,255,0.1);
     border: 1px solid rgba(2,120,255,0.1);
   }
 
-  .real-item {
+  .real-card {
     background: #04050f;
-    padding: 0;
-    transition: background 0.2s;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    display: block;
     text-decoration: none;
+    overflow: hidden;
+    transition: background 0.2s;
   }
 
-  .real-item-link:hover { background: rgba(2,120,255,0.06); }
-  .real-item-link:hover .real-name { color: #0278FF; }
+  .real-card:hover { background: rgba(2,120,255,0.07); }
 
-  .real-img {
+  .real-sq {
     width: 100%;
-    height: 140px;
+    padding-bottom: 100%;
+    position: relative;
     overflow: hidden;
     background: #0a0f1a;
-    flex-shrink: 0;
   }
 
-  .logos-grid {
-    display: flex;
-    flex-wrap: wrap;
+  .real-sq img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .real-item > .real-type,
-  .real-item > .real-name,
-  .real-item > .real-desc {
-    padding-left: 16px;
-    padding-right: 16px;
+  .real-info {
+    padding: 10px 12px 12px;
   }
-
-  .real-item > .real-type { padding-top: 12px; }
-  .real-item > .real-desc { padding-bottom: 16px; }
 
   .real-type {
-    font-size: 9px;
+    font-size: 8px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #0278FF;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-family: 'Syne', sans-serif;
     font-weight: 500;
   }
 
   .real-name {
     font-family: 'Syne', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    color: #e0eaff;
-    margin-bottom: 4px;
-    transition: color 0.2s;
+    color: #c8d8f0;
+    line-height: 1.3;
   }
 
-  .real-desc {
-    font-size: 11px;
-    color: #3a5a8a;
-    line-height: 1.4;
-  }
-
-  @media (max-width: 600px) { .real-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .real-grid { grid-template-columns: repeat(2, 1fr); } }
 
 
   .hl-blue { color: #0278FF; font-weight: 500; }
