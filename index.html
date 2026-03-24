@@ -641,20 +641,17 @@
   .impact-section .s-title { margin-bottom: 28px; }
 
 
-  .section.alt {
+  .full-wrap {
+    width: 100vw;
     position: relative;
-  }
-
-  .section.alt::before {
-    content: '';
-    position: absolute;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
     background: rgba(2, 120, 255, 0.045);
-    z-index: -1;
+    padding: 0 calc(50vw - 400px);
+  }
+
+  @media (max-width: 860px) {
+    .full-wrap { padding: 0 28px; }
   }
 
   .fade-in { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -831,7 +828,7 @@
     background-image: url('images/bg-hero.png');
     background-size: cover;
     background-position: center;
-    background-blend-mode: luminosity;
+    background-attachment: local;
   }
 
 
@@ -840,7 +837,7 @@
     background-image: url('images/bg-spiral.jpg');
     background-size: cover;
     background-position: center;
-    background-blend-mode: luminosity;
+    background-attachment: local;
   }
 </style>
 </head>
@@ -973,7 +970,7 @@
   <div class="divider"></div>
 
   <!-- LES PILIERS -->
-  <div class="section alt fade-in">
+  <div class="full-wrap"><div class="section fade-in">
     <div class="s-label">Les piliers</div>
     <h2 class="s-title">Ce sur quoi on avance ensemble.</h2>
     <div class="pillars">
@@ -1003,7 +1000,7 @@
         <div class="pillar-sub">Disponible via les tickets — tech, design, Human Design, coaching, stratégie</div>
       </div>
     </div>
-  </div>
+  </div></div>
 
   <div class="divider"></div>
 
@@ -1096,7 +1093,7 @@
   <div class="divider"></div>
 
   <!-- TICKETS -->
-  <div class="section alt fade-in">
+  <div class="full-wrap"><div class="section fade-in">
     <div class="s-label">Ce que tes tickets permettent de construire</div>
     <h2 class="s-title">1 ticket = 1h avec moi, sur ce dont t'as besoin.</h2>
     <div class="ticket-intro-sub">Ils s'accumulent. Ils ne se perdent pas.</div>
@@ -1170,12 +1167,12 @@
         <p class="ts-note">Exemples indicatifs — sans valeur contractuelle.</p>
       </div>
     </div>
-  </div>
+  </div></div>
 
   <div class="divider"></div>
 
   <!-- FAQ -->
-  <div class="section alt fade-in">
+  <div class="full-wrap"><div class="section fade-in">
     <div class="s-label">Questions fréquentes</div>
     <h2 class="s-title">Ce que tu te demandes sûrement.</h2>
     <div class="faq">
@@ -1204,7 +1201,7 @@
         <div class="faq-a">Ouverture le 4 avril. Les premières places sont pour les gens que je connais déjà. Si tu veux en être, on se parle d'abord — 30 minutes pour voir si c'est le bon moment pour toi.</div>
       </div>
     </div>
-  </div>
+  </div></div>
 
   <div class="divider"></div>
 
