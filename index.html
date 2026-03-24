@@ -901,16 +901,17 @@
   .section-wrap.bg-spiral > * { position: relative; z-index: 1; }
 
   .section-wrap.bg-galaxy {
-    background-image: url('images/bg-galaxy.jpg');
-    background-size: cover;
-    background-position: center;
     position: relative;
+    background-color: #04050f;
   }
-  .section-wrap.bg-galaxy::before {
+  .section-wrap.bg-galaxy::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(4, 5, 15, 0.65);
+    background-image: url('images/bg-end.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.10;
     z-index: 0;
   }
   .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
