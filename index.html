@@ -853,10 +853,29 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(4, 5, 15, 0.70);
+    background: linear-gradient(to right, rgba(4,5,15,0.95) 0%, rgba(4,5,15,0.80) 45%, rgba(4,5,15,0.15) 75%, transparent 100%);
     z-index: 0;
   }
   .section-wrap.bg-hero > * { position: relative; z-index: 1; }
+
+  .accroche { padding: 80px 0; max-width: 580px; }
+
+  .hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 13px 32px;
+    border: 1px solid #0278FF;
+    color: #e0eaff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    transition: all 0.25s;
+    background: rgba(2,120,255,0.08);
+  }
+  .hero-btn:hover { background: rgba(2,120,255,0.2); border-color: #FFA53F; color: #FFA53F; }
 
   .section-wrap.bg-spiral {
     background-image: url('images/bg-spiral.jpg');
@@ -939,8 +958,9 @@
 <div class="section-wrap bg-hero">
   <div class="container">
     <div class="accroche fade-in">
-      <p class="accroche-main">La Tribu Morpho c'est un groupe de <span class="hl-blue">créatifs, d'entrepreneurs,<br>d'artistes, d'accompagnants,<br>de multipotentiels et d'esprits singuliers.</span><br><br>Des gens qui avancent sur leur <span class="hl-gold">activité, leur corps, leurs relations.</span><br>Un rendez-vous collectif chaque semaine.<br>Et un <strong>accompagnement individuel</strong> sous forme de mentorat, de conseil ou de service direct — selon ce dont t'as besoin au moment où t'en as besoin.<br><br><span class="services-list">Sessions de clarté &nbsp;·&nbsp; Stratégie &nbsp;·&nbsp; Human Design &nbsp;·&nbsp; Design &nbsp;·&nbsp; Développement web &nbsp;·&nbsp; App mobile &nbsp;·&nbsp; Tunnel de vente</span></p>
-      <p class="accroche-sub">C'est ouvert à tout le monde. Artistes, entrepreneurs, créateurs, accompagnants, thérapeutes, coachs. Ceux qui portent des projets singuliers et qui veulent arrêter de les construire seuls.</p>
+      <p class="accroche-main">La Tribu Morpho, c'est un <span class="hl-blue">espace</span> pour ceux qui construisent quelque chose qui leur ressemble vraiment.<br><br><span class="hl-blue">Artistes. Entrepreneurs. Accompagnants.<br>Multipotentiels. Esprits singuliers.</span><br><br>Un rendez-vous collectif chaque semaine. Un <strong>accompagnement individuel</strong> sous forme de mentorat, de conseil ou de service direct — selon ce dont t'as besoin au moment où t'en as besoin.</p>
+      <p class="accroche-sub"><span class="services-list">Mentorat &nbsp;·&nbsp; Stratégie &nbsp;·&nbsp; Human Design &nbsp;·&nbsp; Design &nbsp;·&nbsp; Développement web &nbsp;·&nbsp; App mobile &nbsp;·&nbsp; Tunnel de vente</span></p>
+      <a href="#concept" class="hero-btn">Découvrir comment ça marche →</a>
     </div>
   </div>
 </div>
@@ -963,6 +983,8 @@
 </div>
 
 <!-- ==================== CONCEPT ==================== -->
+<span id="concept" style="display:block;"></span>
+<span id="concept"></span>
 <div class="section-wrap alt">
   <div class="container">
     <div class="section fade-in">
