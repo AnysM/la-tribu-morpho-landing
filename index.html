@@ -844,10 +844,18 @@
 
   /* BACKGROUNDS 30% visibles */
   .section-wrap.bg-hero {
+    position: relative;
+    background-color: #04050f;
+  }
+  .section-wrap.bg-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-image: url('images/bg-hero.png');
     background-size: cover;
     background-position: center top;
-    position: relative;
+    opacity: 0.3;
+    z-index: 0;
   }
   .section-wrap.bg-hero::before {
     content: '';
@@ -998,9 +1006,7 @@
         <div class="point"><div class="point-icon">→</div><div class="point-text">L'idée c'est de <strong>se déployer</strong>, comme le papillon morpho. Pas juste performer. Se révéler vraiment.</div></div>
         <div class="point"><div class="point-icon">→</div><div class="point-text">Que tu sois artiste, entrepreneur, multipotentiel ou esprit singulier, <strong>tu as ta place ici.</strong> Ce qui compte c'est l'intention de construire ce qui te ressemble vraiment.</div></div>
       </div>
-      <div style="text-align:center;padding:20px 0 4px;">
-        <img src="images/morpho-logo.jpeg" alt="Morpho" style="width:48px;height:48px;object-fit:contain;opacity:0.7;"/>
-      </div>
+
     </div>
   </div>
 </div>
