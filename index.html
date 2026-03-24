@@ -1063,11 +1063,15 @@
         <div class="ts-label">Exemple de réalisation</div>
         <div class="ts-track" id="ts5">
           <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><span>La Main Hopi</span></div>
-          <div class="ts-slide"><img src="images/juliette.jpg" alt="La Main à la Plume"/><span>La Main à la Plume</span></div>
-          <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><span>Archipel Kyosei</span></div>
           <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><span>Anys Mechkar</span></div>
-          <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><span>Smoos</span></div>
           <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><span>Saônessence</span></div>
+          <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><span>Smoos</span></div>
+          <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><span>Archipel Kyosei</span></div>
+          <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><span>La Main Hopi</span></div>
+          <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><span>Anys Mechkar</span></div>
+          <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><span>Saônessence</span></div>
+          <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><span>Smoos</span></div>
+          <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><span>Archipel Kyosei</span></div>
         </div>
         <div class="ts-nav"><button onclick="slideTs('ts5',-1)">‹</button><button onclick="slideTs('ts5',1)">›</button></div>
         <p class="ts-note">Exemples indicatifs — sans valeur contractuelle.</p>
@@ -1080,8 +1084,10 @@
       <div class="ticket-slider">
         <div class="ts-label">Exemple de réalisation</div>
         <div class="ts-track" id="ts10">
-          <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="IN CARNE"/></a><span>Tunnel IN CARNE</span></div>
-          <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><span>Vari Vena</span></div>
+          <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><span>Tunnel IN CARNE</span></div>
+          <div class="ts-slide"><img src="images/juliette.jpg" alt="La Main à la Plume"/><span>La Main à la Plume</span></div>
+          <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><span>Tunnel IN CARNE</span></div>
+          <div class="ts-slide"><img src="images/juliette.jpg" alt="La Main à la Plume"/><span>La Main à la Plume</span></div>
         </div>
         <div class="ts-nav"><button onclick="slideTs('ts10',-1)">‹</button><button onclick="slideTs('ts10',1)">›</button></div>
         <p class="ts-note">Exemples indicatifs — sans valeur contractuelle.</p>
@@ -1095,7 +1101,13 @@
         <div class="ts-label">Exemple de réalisation</div>
         <div class="ts-track" id="ts20">
           <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><span>Souffle en Corps</span></div>
-          <div class="ts-slide"><a href="https://laforge-app.netlify.app" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><span>LA FORGE</span></div>
+          <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><span>LA FORGE</span></div>
+          <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><span>Vari Vena</span></div>
+          <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><span>Archipel Kyosei</span></div>
+          <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><span>Souffle en Corps</span></div>
+          <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><span>LA FORGE</span></div>
+          <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><span>Vari Vena</span></div>
+          <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><span>Archipel Kyosei</span></div>
         </div>
         <div class="ts-nav"><button onclick="slideTs('ts20',-1)">‹</button><button onclick="slideTs('ts20',1)">›</button></div>
         <p class="ts-note">Exemples indicatifs — sans valeur contractuelle.</p>
@@ -1186,9 +1198,35 @@
     const track = document.getElementById(id);
     if (!track) return;
     const slides = track.querySelectorAll('.ts-slide');
+    const half = slides.length / 2;
     if (!tsState[id]) tsState[id] = 0;
-    tsState[id] = (tsState[id] + dir + slides.length) % slides.length;
-    track.style.transform = `translateX(-${tsState[id] * (slides[0].offsetWidth + 12)}px)`;
+    tsState[id] += dir;
+    const slideW = slides[0].offsetWidth + 12;
+    // Loop infini : si on depasse la moitie, on revient silencieusement
+    if (tsState[id] >= half) {
+      track.style.transition = 'none';
+      tsState[id] = 0;
+      track.style.transform = `translateX(0px)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = 'transform 0.35s ease';
+        });
+      });
+      return;
+    }
+    if (tsState[id] < 0) {
+      track.style.transition = 'none';
+      tsState[id] = half - 1;
+      track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          track.style.transition = 'transform 0.35s ease';
+        });
+      });
+      return;
+    }
+    track.style.transition = 'transform 0.35s ease';
+    track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
   }
 
   document.querySelectorAll('.faq-q').forEach(q => {
