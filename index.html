@@ -823,78 +823,24 @@
   }
 
   /* BACKGROUNDS */
-  .bg-galaxy {
-    position: relative;
-  }
 
-  .bg-galaxy::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: url('images/bg-galaxy.jpg') center/cover no-repeat;
-    opacity: 0.07;
-    z-index: -1;
-    pointer-events: none;
-  }
 
 
 
   .bg-hero {
-    position: relative;
+    background-image: url('images/bg-hero.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
   }
 
-  .bg-hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: url('images/bg-hero.png') center/cover no-repeat;
-    opacity: 0.22;
-    z-index: -1;
-    pointer-events: none;
-  }
 
-  .bg-spiral-hero {
-    position: relative;
-  }
-
-  .bg-spiral-hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: url('images/bg-spiral.jpg') center right/cover no-repeat;
-    opacity: 0.18;
-    z-index: -1;
-    pointer-events: none;
-  }
 
   .bg-spiral {
-    position: relative;
-  }
-
-  .bg-spiral::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 100%;
-    background: url('images/bg-spiral.jpg') center/cover no-repeat;
-    opacity: 0.06;
-    z-index: -1;
-    pointer-events: none;
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
   }
 </style>
 </head>
