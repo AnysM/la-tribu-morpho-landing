@@ -601,6 +601,28 @@
     line-height: 1.8;
   }
 
+
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .bio-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 2px solid rgba(2, 120, 255, 0.3);
+  }
+
+  .bio-header .s-title {
+    margin-bottom: 0;
+  }
+
   .bio-block { max-width: 580px; }
 
   .bio-text {
@@ -894,9 +916,7 @@
         <div class="point-icon">→</div>
         <div class="point-text">L'idée c'est de <strong>se déployer</strong> — comme le papillon morpho. Pas juste performer. Se révéler vraiment.</div>
       </div>
-      <div style="text-align:center;padding:20px 0 4px;">
-        <img src="images/morpho-logo.jpeg" alt="Morpho" style="width:48px;height:48px;object-fit:contain;opacity:0.7;"/>
-      </div>
+
     </div>
   </div>
 
@@ -1183,7 +1203,11 @@
 
   <div class="section fade-in">
     <div class="s-label">Qui je suis</div>
-    <h2 class="s-title">Anys Mechkar</h2>
+
+    <div class="bio-header">
+      <img src="images/anys-photo.png" alt="Anys Mechkar" class="bio-photo"/>
+      <h2 class="s-title">Anys Mechkar</h2>
+    </div>
 
     <div class="bio-block">
       <p class="bio-text">Ingénieur informatique, designer, développeur, praticien Human Design, enseignant en méditation pleine conscience et mentor. Un multipotentiel, comme on dit.</p>
