@@ -839,26 +839,68 @@
   }
 
   /* ===== SECTION WRAPPERS FULL WIDTH ===== */
-  .section-wrap {
-    width: 100%;
-  }
+  .section-wrap { width: 100%; }
+  .section-wrap.alt { background: rgba(2, 120, 255, 0.04); }
 
-  .section-wrap.alt {
-    background: rgba(2, 120, 255, 0.04);
-  }
-
+  /* BACKGROUNDS 30% visibles */
   .section-wrap.bg-hero {
     background-image: url('images/bg-hero.png');
     background-size: cover;
     background-position: center top;
+    position: relative;
   }
+  .section-wrap.bg-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 5, 15, 0.70);
+    z-index: 0;
+  }
+  .section-wrap.bg-hero > * { position: relative; z-index: 1; }
 
   .section-wrap.bg-spiral {
     background-image: url('images/bg-spiral.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
   }
+  .section-wrap.bg-spiral::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 5, 15, 0.70);
+    z-index: 0;
+  }
+  .section-wrap.bg-spiral > * { position: relative; z-index: 1; }
 
+  /* DIFF SECTION */
+  .diff-cols {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  .diff-col { padding: 24px; border: 1px solid rgba(2,120,255,0.15); background: rgba(2,120,255,0.04); }
+  .diff-col-icon { font-size: 18px; color: #0278FF; margin-bottom: 10px; }
+  .diff-col-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; }
+  .diff-col-text { font-size: 13px; color: #6a8fc0; line-height: 1.7; }
+  .diff-plus { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 300; color: #FFA53F; align-self: center; text-align: center; }
+  .diff-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(14px, 2.2vw, 18px);
+    font-weight: 400;
+    color: #e0eaff;
+    line-height: 1.6;
+    text-align: center;
+    padding: 28px 0;
+    border-top: 1px solid rgba(2,120,255,0.12);
+    border-bottom: 1px solid rgba(2,120,255,0.12);
+  }
+  @media (max-width: 600px) {
+    .diff-cols { grid-template-columns: 1fr; }
+    .diff-plus { display: none; }
+  }
 </style>
 </head>
 <body>
