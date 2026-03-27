@@ -28,586 +28,240 @@
     z-index: -1;
   }
 
-  /* UTILITAIRES */
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
+  .container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 600px) { .container { padding: 0 20px; } }
 
-  .line {
-    height: 1px;
-    background: rgba(2, 120, 255, 0.2);
-  }
+  .line { height: 1px; background: rgba(2,120,255,0.2); }
 
-  .s-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #0278FF;
-    margin-bottom: 16px;
-    font-weight: 500;
-  }
-
-  /* HEADER */
-  header {
-    padding: 28px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .drop img { width: 32px; height: 32px; object-fit: contain; }
-
-  .wordmark {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #ffffff;
-  }
-
-  .tagline {
-    font-size: 11px;
-    color: #2d4a7a;
-    margin-top: 2px;
-  }
-
-  /* HERO */
-  .hero-wrap {
-    position: relative;
-    background-color: #04050f;
-  }
-
-  .hero-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+  .section-wrap { width: 100%; }
+  .section-wrap.alt { background: rgba(2,120,255,0.04); }
+  .section-wrap.bg-hero { position: relative; background-color: #04050f; }
+  .section-wrap.bg-hero::after {
+    content: ''; position: absolute; inset: 0;
     background-image: url('images/bg-hero.png');
-    background-size: cover;
-    background-position: center right;
-    opacity: 0.3;
-    z-index: 0;
+    background-size: cover; background-position: center right;
+    opacity: 0.3; z-index: 0;
   }
-
-  .hero-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+  .section-wrap.bg-hero::before {
+    content: ''; position: absolute; inset: 0;
     background: linear-gradient(to right, rgba(4,5,15,0.95) 0%, rgba(4,5,15,0.9) 45%, rgba(4,5,15,0.8) 70%);
     z-index: 1;
   }
+  .section-wrap.bg-hero > * { position: relative; z-index: 2; }
 
-  .hero-wrap > * { position: relative; z-index: 2; }
-
-  .hero {
-    padding: 80px 0 72px;
-    max-width: 580px;
+  .section-wrap.bg-spiral { position: relative; background-color: #04050f; }
+  .section-wrap.bg-spiral::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.3; z-index: 0;
   }
+  .section-wrap.bg-spiral::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(4,5,15,0.70); z-index: 1;
+  }
+  .section-wrap.bg-spiral > * { position: relative; z-index: 2; }
 
-  .hero-eyebrow {
+  .section-wrap.bg-galaxy { position: relative; background-color: #04050f; }
+  .section-wrap.bg-galaxy::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url('images/bg-end.jpg');
+    background-size: cover; background-position: center;
+    opacity: 0.10; z-index: 0;
+  }
+  .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
+
+  .section { padding: 64px 0; }
+  .section.tight { padding: 48px 0; }
+
+  .s-label {
     font-family: 'Syne', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #0278FF;
-    margin-bottom: 20px;
-    font-weight: 500;
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: #0278FF; margin-bottom: 16px; font-weight: 500;
   }
 
-  .hero-title {
+  .s-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 5vw, 46px);
-    font-weight: 700;
-    line-height: 1.15;
-    color: #e0eaff;
-    margin-bottom: 8px;
+    font-weight: 600; font-size: clamp(22px, 4vw, 32px);
+    line-height: 1.25; color: #e0eaff; margin-bottom: 28px;
   }
 
-  .hero-subtitle {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(18px, 3vw, 26px);
-    font-weight: 400;
-    color: #FFA53F;
-    margin-bottom: 28px;
-    line-height: 1.3;
-  }
+  /* HEADER */
+  header { padding: 28px 0; display: flex; align-items: center; gap: 12px; }
+  .drop img { width: 32px; height: 32px; object-fit: contain; }
+  .wordmark { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #ffffff; }
+  .tagline { font-size: 11px; color: #2d4a7a; margin-top: 2px; }
 
-  .hero-body {
-    font-size: 15px;
-    line-height: 1.9;
-    color: #8aaad4;
-    margin-bottom: 12px;
-  }
-
-  .hero-body strong { color: #c8d8f0; font-weight: 500; }
-
-  .hero-services {
-    font-size: 11px;
-    color: #0278FF;
-    letter-spacing: 0.06em;
-    margin-bottom: 36px;
-    line-height: 1.8;
-  }
-
+  /* HERO */
+  .accroche { padding: 80px 0 72px; max-width: 580px; }
+  .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 20px; font-weight: 500; }
+  .hero-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 5vw, 46px); font-weight: 700; line-height: 1.15; color: #e0eaff; margin-bottom: 8px; }
+  .hero-subtitle { font-family: 'Syne', sans-serif; font-size: clamp(18px, 3vw, 26px); font-weight: 400; color: #FFA53F; margin-bottom: 28px; line-height: 1.3; }
+  .accroche-main { font-size: 15px; line-height: 1.9; color: #8aaad4; margin-bottom: 16px; }
+  .accroche-main strong { color: #c8d8f0; font-weight: 500; }
+  .services-list { font-size: 11px; color: #0278FF; letter-spacing: 0.06em; line-height: 1.8; display: block; margin-bottom: 36px; margin-top: 8px; }
   .hero-btn {
-    display: inline-block;
-    padding: 14px 36px;
-    border: 1px solid #FFA53F;
-    color: #FFA53F;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    transition: all 0.25s;
+    display: inline-block; padding: 14px 36px;
+    border: 1px solid #FFA53F; color: #FFA53F; text-decoration: none;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-family: 'Syne', sans-serif; font-weight: 600; transition: all 0.25s;
     background: rgba(255,165,63,0.06);
   }
-
   .hero-btn:hover { background: rgba(255,165,63,0.15); color: #fff; border-color: #fff; }
 
-  /* POUR QUI */
-  .pour-qui-wrap {
-    padding: 64px 0;
-    border-bottom: 1px solid rgba(2,120,255,0.1);
-  }
+  /* POINTS */
+  .points { display: flex; flex-direction: column; gap: 12px; }
+  .point { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border-left: 2px solid rgba(2,120,255,0.2); transition: border-color 0.2s; }
+  .point:hover { border-color: #0278FF; }
+  .point.highlight { border-left-color: rgba(255,165,63,0.4); background: rgba(255,165,63,0.03); }
+  .point.highlight:hover { border-left-color: #FFA53F; }
+  .point-icon { color: #0278FF; font-size: 12px; margin-top: 3px; flex-shrink: 0; font-family: 'Syne', sans-serif; font-weight: 600; }
+  .point.highlight .point-icon { color: #FFA53F; }
+  .point-text { font-size: 14px; color: #c8d8f0; line-height: 1.6; }
+  .point-text strong { color: #e0eaff; font-weight: 600; }
+  .point-text em { color: #FFA53F; font-style: normal; }
 
-  .pour-qui-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-  }
+  /* PILIERS */
+  .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(2,120,255,0.12); border: 1px solid rgba(2,120,255,0.12); margin-top: 8px; }
+  .pillar { background: #04050f; padding: 24px 20px; transition: background 0.2s; }
+  .pillar:hover { background: rgba(2,120,255,0.05); }
+  .pillar-num { font-size: 10px; color: #0278FF; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 8px; font-family: 'Syne', sans-serif; }
+  .pillar-name { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 4px; }
+  .pillar-sub { font-size: 11px; color: #3a5a8a; line-height: 1.4; }
+  .pillar.gold .pillar-num { color: #FFA53F; }
+  .pillar.gold .pillar-name { color: #FFA53F; }
+  @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
 
-  .pq-tag {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: #e0eaff;
-    border: 1px solid rgba(2,120,255,0.2);
-    padding: 10px 18px;
-    background: rgba(2,120,255,0.04);
-    transition: all 0.2s;
-  }
+  /* CE QUI REND CA DIFFERENT */
+  .diff-cols { display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: start; margin-bottom: 40px; }
+  .diff-col { padding: 24px; border: 1px solid rgba(2,120,255,0.15); background: rgba(2,120,255,0.03); }
+  .diff-col-icon { font-size: 18px; color: #0278FF; margin-bottom: 10px; }
+  .diff-col-label { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; }
+  .diff-col-text { font-size: 13px; color: #6a8fc0; line-height: 1.7; }
+  .diff-plus { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 300; color: #FFA53F; align-self: center; text-align: center; }
+  .diff-quote { font-family: 'Syne', sans-serif; font-size: clamp(14px,2.2vw,18px); font-weight: 400; color: #e0eaff; line-height: 1.6; text-align: center; padding: 28px 0; border-top: 1px solid rgba(2,120,255,0.12); border-bottom: 1px solid rgba(2,120,255,0.12); }
+  @media (max-width: 600px) { .diff-cols { grid-template-columns: 1fr; } .diff-plus { display: none; } }
 
-  .pq-tag:hover { border-color: #0278FF; color: #0278FF; }
+  /* COMPARE */
+  .compare-block { margin-top: 32px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; padding: 24px; border: 1px solid rgba(2,120,255,0.18); background: rgba(2,120,255,0.03); }
+  .compare-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #2d4a7a; margin-bottom: 8px; font-family: 'Syne', sans-serif; }
+  .compare-price { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+  .compare-price.ours { color: #FFA53F; }
+  .compare-price.market { color: #2d4a7a; }
+  .compare-desc { font-size: 12px; color: #3a5a8a; line-height: 1.4; }
+  .compare-vs { font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 600; color: #2d4a7a; letter-spacing: 0.15em; text-align: center; }
+  @media (max-width: 600px) { .compare-block { grid-template-columns: 1fr; } }
 
   /* NIVEAUX */
-  .niveaux-wrap { padding: 64px 0; }
-
-  .pricing-wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: rgba(2,120,255,0.12);
-    border: 1px solid rgba(2,120,255,0.12);
-    margin-top: 32px;
-  }
-
+  .pricing-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(2,120,255,0.12); border: 1px solid rgba(2,120,255,0.12); margin-top: 32px; }
   @media (max-width: 600px) { .pricing-wrap { grid-template-columns: 1fr; } }
-
-  .p-card {
-    background: #04050f;
-    padding: 28px 22px;
-    position: relative;
-    border-right: 1px solid rgba(2,120,255,0.1);
-    transition: background 0.2s;
-  }
-
+  .p-card { background: #04050f; padding: 28px 22px; position: relative; border-right: 1px solid rgba(2,120,255,0.1); transition: background 0.2s; }
   .p-card:last-child { border-right: none; }
   .p-card:hover { background: rgba(2,120,255,0.04); }
   .p-card.hot { background: rgba(2,120,255,0.07); border: 1px solid #FFA53F; }
-
-  .p-card.hot::before {
-    content: 'RECOMMANDÉ';
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 7px;
-    letter-spacing: 0.2em;
-    color: #04050f;
-    background: #FFA53F;
-    padding: 3px 10px;
-    white-space: nowrap;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-  }
-
+  .p-card.hot::before { content: 'RECOMMANDÉ'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); font-size: 7px; letter-spacing: 0.2em; color: #04050f; background: #FFA53F; padding: 3px 10px; white-space: nowrap; font-family: 'Syne', sans-serif; font-weight: 700; }
   .p-level { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 10px; font-family: 'Syne', sans-serif; font-weight: 500; }
   .p-name { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #e0eaff; }
   .p-price { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 3px; color: #e0eaff; }
   .p-price sup { font-size: 14px; vertical-align: super; }
   .p-price sub { font-size: 11px; color: #2d4a7a; font-weight: 400; }
-  .p-no-commit { font-size: 9px; color: #2d4a7a; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px; }
-  .p-tickets { font-size: 11px; color: #FFA53F; margin-bottom: 18px; min-height: 14px; }
-
+  .p-no-commit { font-size: 9px; color: #2d4a7a; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+  .p-tickets { font-size: 11px; color: #FFA53F; margin-bottom: 16px; min-height: 14px; }
+  .p-story { font-size: 12px; color: #6a8fc0; line-height: 1.7; margin-bottom: 16px; padding: 12px; background: rgba(2,120,255,0.04); border-left: 2px solid rgba(2,120,255,0.2); }
+  .p-story strong { color: #c8d8f0; font-weight: 500; }
   .p-feats { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
   .p-feats li { font-size: 12px; color: #6a8fc0; line-height: 1.5; padding-left: 14px; position: relative; }
   .p-feats li::before { content: '/'; position: absolute; left: 0; color: #0278FF; }
-
-  .p-btn {
-    display: block;
-    padding: 11px 0;
-    text-align: center;
-    border: 1px solid rgba(2,120,255,0.3);
-    color: #c8d8f0;
-    text-decoration: none;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    font-weight: 500;
-    transition: all 0.25s;
-    background: transparent;
-  }
-
+  .p-btn { display: block; padding: 11px 0; text-align: center; border: 1px solid rgba(2,120,255,0.3); color: #c8d8f0; text-decoration: none; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Syne', sans-serif; font-weight: 500; transition: all 0.25s; background: transparent; }
   .p-btn:hover { background: rgba(2,120,255,0.1); border-color: #0278FF; }
-
   .p-btn-hot { border-color: rgba(255,165,63,0.5); color: #FFA53F; }
   .p-btn-hot:hover { background: rgba(255,165,63,0.08); border-color: #FFA53F; }
-
-  .unit-ticket {
-    margin-top: 1px;
-    border: 1px solid rgba(255,165,63,0.18);
-    padding: 16px 22px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255,165,63,0.02);
-  }
-
+  .unit-ticket { margin-top: 1px; border: 1px solid rgba(255,165,63,0.18); padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; background: rgba(255,165,63,0.02); }
   .unit-label { font-size: 12px; color: #6a8fc0; }
   .unit-label strong { display: block; font-size: 13px; color: #c8d8f0; font-weight: 500; margin-bottom: 2px; font-family: 'Syne', sans-serif; }
   .unit-price { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #FFA53F; }
-
-  .bonus-banner {
-    margin-top: 16px;
-    padding: 16px 20px;
-    border: 1px solid rgba(255,165,63,0.2);
-    background: rgba(255,165,63,0.03);
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    font-size: 13px;
-    color: #6a8fc0;
-    line-height: 1.6;
-  }
-
+  .bonus-banner { margin-top: 16px; padding: 16px 20px; border: 1px solid rgba(255,165,63,0.2); background: rgba(255,165,63,0.03); display: flex; gap: 14px; align-items: flex-start; font-size: 13px; color: #6a8fc0; line-height: 1.6; }
   .bonus-banner strong { color: #e0eaff; font-weight: 500; display: block; margin-bottom: 3px; }
   .bonus-icon { color: #FFA53F; flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
   /* TICKETS */
-  .tickets-wrap {
-    padding: 64px 0;
-    background: rgba(2,120,255,0.03);
-    position: relative;
-  }
-
-  .tickets-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    background: rgba(2,120,255,0.03);
-    z-index: -1;
-  }
-
-  .ticket-intro {
-    font-size: 14px;
-    color: #6a8fc0;
-    margin-top: 6px;
-    margin-bottom: 24px;
-    font-weight: 500;
-  }
-
+  .ticket-intro { font-size: 15px; color: #6a8fc0; margin-top: 6px; margin-bottom: 24px; font-weight: 500; }
   .ticket-table { border: 1px solid rgba(2,120,255,0.15); }
-
-  .ticket-row {
-    display: grid;
-    grid-template-columns: 64px 1fr 100px;
-    gap: 20px;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(2,120,255,0.08);
-    transition: background 0.2s;
-  }
-
+  .ticket-row { display: grid; grid-template-columns: 64px 1fr 100px; gap: 20px; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(2,120,255,0.08); transition: background 0.2s; }
   .ticket-row:last-child { border-bottom: none; }
   .ticket-row:hover { background: rgba(2,120,255,0.05); }
-
-  .t-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: #0278FF;
-    line-height: 1;
-  }
-
-  .t-num small {
-    display: block;
-    font-size: 9px;
-    color: #2d4a7a;
-    letter-spacing: 0.08em;
-    margin-top: 2px;
-    font-weight: 400;
-    font-family: 'DM Sans', sans-serif;
-  }
-
+  .t-num { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #0278FF; line-height: 1; }
+  .t-num small { display: block; font-size: 9px; color: #2d4a7a; letter-spacing: 0.08em; margin-top: 2px; font-weight: 400; font-family: 'DM Sans', sans-serif; }
   .t-desc { font-size: 13px; color: #c8d8f0; line-height: 1.5; }
   .t-desc small { display: block; font-size: 11px; color: #3a5a8a; margin-top: 3px; }
-
   .t-val { text-align: right; }
   .t-val strong { display: block; font-size: 14px; font-weight: 600; color: #FFA53F; font-family: 'Syne', sans-serif; }
   .t-val span { font-size: 10px; color: #2d4a7a; }
+  @media (max-width: 600px) { .ticket-row { grid-template-columns: 56px 1fr; } .t-val { display: none; } }
 
   /* SLIDERS */
-  .ticket-slider {
-    padding: 14px 20px 12px;
-    background: rgba(2,120,255,0.02);
-    border-top: 1px solid rgba(2,120,255,0.06);
-    overflow: hidden;
-  }
-
-  .ts-label {
-    font-size: 10px;
-    font-style: italic;
-    color: #FFA53F;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-  }
-
-  .ts-track {
-    display: flex;
-    gap: 12px;
-    transition: transform 0.35s ease;
-  }
-
+  .ticket-slider { padding: 14px 20px 12px; background: rgba(2,120,255,0.02); border-top: 1px solid rgba(2,120,255,0.06); overflow: hidden; }
+  .ts-label { font-size: 10px; font-style: italic; color: #FFA53F; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .ts-track { display: flex; gap: 12px; transition: transform 0.35s ease; }
   .ts-slide { flex-shrink: 0; width: calc(50% - 6px); }
-
-  .ts-slide img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    border-radius: 2px;
-  }
-
+  .ts-slide img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; display: block; border-radius: 2px; }
   .ts-slide a { display: block; width: 100%; }
-  .ts-slide a img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; display: block; border-radius: 2px; }
-
-  .ts-type {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #FFA53F;
-    font-weight: 700;
-    margin-top: 8px;
-    font-family: 'Syne', sans-serif;
-  }
-
-  .ts-name {
-    font-size: 13px;
-    color: #c8d8f0;
-    font-weight: 600;
-    font-family: 'Syne', sans-serif;
-    margin-top: 2px;
-  }
-
+  .ts-slide a img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; display: block; border-radius: 2px; }
+  .ts-type { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: #FFA53F; font-weight: 700; margin-top: 8px; font-family: 'Syne', sans-serif; }
+  .ts-name { font-size: 13px; color: #c8d8f0; font-weight: 600; font-family: 'Syne', sans-serif; margin-top: 2px; }
   .ts-nav { display: flex; gap: 8px; margin-top: 12px; }
-
-  .ts-nav button {
-    background: transparent;
-    border: 1px solid rgba(2,120,255,0.25);
-    color: #0278FF;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
+  .ts-nav button { background: transparent; border: 1px solid rgba(2,120,255,0.25); color: #0278FF; width: 28px; height: 28px; cursor: pointer; font-size: 16px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
   .ts-nav button:hover { background: rgba(2,120,255,0.1); }
   .ts-note { font-size: 10px; color: #2d4a7a; margin-top: 8px; font-style: italic; }
+  @media (max-width: 600px) { .ts-slide { width: calc(100% - 6px); } }
 
-  @media (max-width: 600px) {
-    .ticket-row { grid-template-columns: 56px 1fr; }
-    .t-val { display: none; }
-    .ts-slide { width: calc(100% - 6px); }
-  }
+  /* TÉMOIGNAGES */
+  .temoignages { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .temoignage { padding: 24px; border-left: 2px solid rgba(2,120,255,0.2); background: rgba(2,120,255,0.02); transition: border-color 0.2s; }
+  .temoignage:hover { border-left-color: #0278FF; }
+  .temo-text { font-size: 13px; color: #8aaad4; line-height: 1.8; margin-bottom: 14px; font-style: italic; }
+  .temo-text strong { color: #c8d8f0; font-style: normal; font-weight: 500; }
+  .temo-author { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 600; color: #0278FF; letter-spacing: 0.05em; }
+  .temo-role { font-size: 10px; color: #2d4a7a; margin-top: 2px; }
 
   /* QUI JE SUIS */
-  .bio-wrap { padding: 64px 0; }
-
-  .bio-grid {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 32px;
-    align-items: start;
-    margin-top: 24px;
-  }
-
+  .bio-grid { display: grid; grid-template-columns: 120px 1fr; gap: 32px; align-items: start; margin-top: 24px; }
   @media (max-width: 600px) { .bio-grid { grid-template-columns: 1fr; } }
-
-  .bio-photo {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 2px;
-    border: 1px solid rgba(2,120,255,0.2);
-  }
-
-  .bio-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #e0eaff;
-    margin-bottom: 6px;
-  }
-
-  .bio-role {
-    font-size: 12px;
-    color: #0278FF;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    margin-bottom: 16px;
-  }
-
-  .bio-text {
-    font-size: 14px;
-    line-height: 1.85;
-    color: #6a8fc0;
-  }
-
+  .bio-photo { width: 120px; height: 120px; object-fit: cover; border-radius: 2px; border: 1px solid rgba(2,120,255,0.2); }
+  .bio-name { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; color: #e0eaff; margin-bottom: 6px; }
+  .bio-role-tag { font-size: 12px; color: #0278FF; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Syne', sans-serif; margin-bottom: 16px; }
+  .bio-text { font-size: 14px; line-height: 1.85; color: #6a8fc0; }
   .bio-text + .bio-text { margin-top: 12px; }
+  .bio-text strong { color: #c8d8f0; font-weight: 500; }
 
   /* FAQ */
-  .faq-wrap {
-    padding: 64px 0;
-    background: rgba(2,120,255,0.02);
-    position: relative;
-  }
-
-  .faq-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    background: rgba(2,120,255,0.025);
-    z-index: -1;
-  }
-
   .faq { display: flex; flex-direction: column; gap: 1px; margin-top: 28px; }
-
-  .faq-item {
-    border-left: 2px solid rgba(2,120,255,0.15);
-    transition: border-color 0.2s;
-  }
-
+  .faq-item { border-left: 2px solid rgba(2,120,255,0.15); transition: border-color 0.2s; }
   .faq-item.open { border-left-color: #0278FF; }
-
-  .faq-q {
-    padding: 16px 16px;
-    font-size: 14px;
-    color: #c8d8f0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    font-weight: 500;
-    line-height: 1.4;
-    transition: color 0.2s;
-  }
-
+  .faq-q { padding: 16px; font-size: 14px; color: #c8d8f0; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; font-weight: 500; line-height: 1.4; transition: color 0.2s; }
   .faq-q:hover { color: #e0eaff; }
   .faq-arrow { color: #0278FF; font-size: 14px; flex-shrink: 0; transition: transform 0.25s; margin-top: 2px; }
   .faq-item.open .faq-arrow { transform: rotate(90deg); }
-
-  .faq-a {
-    display: none;
-    padding: 0 16px 18px;
-    font-size: 13px;
-    color: #6a8fc0;
-    line-height: 1.8;
-  }
-
+  .faq-a { display: none; padding: 0 16px 18px; font-size: 13px; color: #6a8fc0; line-height: 1.8; }
   .faq-a strong { color: #c8d8f0; font-weight: 500; }
   .faq-item.open .faq-a { display: block; }
 
   /* CTA */
-  .cta-wrap {
-    position: relative;
-    background-color: #04050f;
-    padding: 80px 0;
-    text-align: center;
-  }
-
-  .cta-wrap::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('images/bg-end.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.10;
-    z-index: 0;
-  }
-
-  .cta-wrap > * { position: relative; z-index: 1; }
-
-  .cta-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(24px, 4vw, 38px);
-    font-weight: 700;
-    color: #e0eaff;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-
+  .cta { padding: 80px 0; text-align: center; }
+  .cta-title { font-family: 'Syne', sans-serif; font-size: clamp(24px,4vw,38px); font-weight: 700; color: #e0eaff; margin-bottom: 8px; line-height: 1.2; }
   .cta-title em { font-style: normal; color: #FFA53F; }
-
   .cta-sub { font-size: 12px; color: #2d4a7a; margin-bottom: 32px; letter-spacing: 0.08em; }
-
-  .cta-btn {
-    display: inline-block;
-    padding: 16px 48px;
-    border: 1px solid #FFA53F;
-    color: #FFA53F;
-    text-decoration: none;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    transition: all 0.25s;
-    background: rgba(255,165,63,0.06);
-  }
-
+  .cta-btn { display: inline-block; padding: 16px 48px; border: 1px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'Syne', sans-serif; font-weight: 600; transition: all 0.25s; background: rgba(255,165,63,0.06); }
   .cta-btn:hover { background: rgba(255,165,63,0.15); color: #fff; border-color: #fff; }
   .cta-note { font-size: 11px; color: #2d4a7a; margin-top: 14px; }
 
-  /* FOOTER */
   footer { padding: 28px 0; }
   .footer-txt { font-size: 10px; color: #2d4a7a; letter-spacing: 0.12em; }
 
-  /* FADE IN */
   .fade-in { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .divider { height: 1px; background: rgba(2,120,255,0.1); margin: 0; }
 </style>
 </head>
 <body>
@@ -626,115 +280,231 @@
 <div class="line"></div>
 
 <!-- HERO -->
-<div class="hero-wrap">
+<div class="section-wrap bg-hero">
   <div class="container">
-    <div class="hero fade-in">
+    <div class="accroche fade-in">
       <div class="hero-eyebrow">Ouverture le 4 avril</div>
       <h1 class="hero-title">La Tribu Morpho,</h1>
       <p class="hero-subtitle">l'endroit où ce que tu portes prend forme.</p>
-      <p class="hero-body">
+      <p class="accroche-main">
+        <span style="color:#c8d8f0;">Artistes. Entrepreneurs. Accompagnants.<br>
+        Multipotentiels. Esprits singuliers.</span><br><br>
         Un rendez-vous collectif chaque semaine.<br>
         Un <strong>accompagnement individuel</strong> sous forme de mentorat, de conseil ou de service direct. Ce dont tu as besoin au moment où tu en as besoin.
       </p>
-      <p class="hero-services">Mentorat &nbsp;·&nbsp; Stratégie &nbsp;·&nbsp; Human Design &nbsp;·&nbsp; Design &nbsp;·&nbsp; Développement web &nbsp;·&nbsp; App mobile &nbsp;·&nbsp; Tunnel de vente</p>
-      <a href="#pour-qui" class="hero-btn">Découvrir comment ça marche →</a>
+      <span class="services-list">Mentorat &nbsp;·&nbsp; Stratégie &nbsp;·&nbsp; Human Design &nbsp;·&nbsp; Design &nbsp;·&nbsp; Développement web &nbsp;·&nbsp; App mobile &nbsp;·&nbsp; Tunnel de vente</span>
+      <a href="#probleme" class="hero-btn">Découvrir comment ça marche →</a>
     </div>
   </div>
 </div>
 
-<!-- POUR QUI -->
-<span id="pour-qui" style="display:block;position:relative;top:-60px;"></span>
-<div class="container">
-  <div class="pour-qui-wrap fade-in">
-    <div class="s-label">Pour qui</div>
-    <div class="pour-qui-grid">
-      <div class="pq-tag">Artistes</div>
-      <div class="pq-tag">Entrepreneurs</div>
-      <div class="pq-tag">Accompagnants</div>
-      <div class="pq-tag">Thérapeutes</div>
-      <div class="pq-tag">Multipotentiels</div>
-      <div class="pq-tag">Esprits singuliers</div>
+<!-- PROBLEME -->
+<span id="probleme" style="display:block;position:relative;top:-60px;"></span>
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Le problème</div>
+      <h2 class="s-title">Tu te lances. Tu as quelque chose à offrir.<br>Mais tu fais face à des choix impossibles.</h2>
+      <div class="points">
+        <div class="point">
+          <div class="point-icon">→</div>
+          <div class="point-text">Un coach business ? Un coach mindset ? Un designer pour le logo ? Un développeur pour le site ? Un thérapeute pour te débloquer ? <strong>Souvent, pas le budget pour tout faire en même temps.</strong></div>
+        </div>
+        <div class="point">
+          <div class="point-icon">→</div>
+          <div class="point-text">Alors tu choisis. Tu construis à moitié. Tu fais le fond sans jamais rien sortir dans la matière. Ou tu construis <strong>sans l'alignement</strong>, et ça ne ressemble pas vraiment à ce que tu portes.</div>
+        </div>
+        <div class="point highlight">
+          <div class="point-icon">◈</div>
+          <div class="point-text">Tu avances seul sur un chemin que <em>la plupart des gens autour de toi ne comprennent pas vraiment.</em> Pas parce qu'ils sont mauvais. Parce qu'ils ne sont pas dessus.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOLUTION - 3 PILIERS -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">La solution</div>
+      <h2 class="s-title">Trois piliers. Un seul espace.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-name">Stop la solitude</div>
+          <div class="pillar-sub">Une communauté de gens qui comprennent ce chemin. Un rendez-vous collectif chaque semaine. Du mentorat. Tu avances entouré, avec des gens qui résonnent avec toi.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-name">Soutien 360</div>
+          <div class="pillar-sub">Aussi profond que technique et stratégique. Ton activité, ton corps, tes relations, ta vitalité : tout est connecté. Le travail en profondeur nourrit ce qu'on crée ensemble.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-name">Ton unicité</div>
+          <div class="pillar-sub">Se déployer comme le papillon morpho. Pas juste performer. Se révéler vraiment. À ta manière, à ton rythme, avec ma sensibilité et mon écoute.</div>
+        </div>
+        <div class="pillar gold" style="grid-column: 1 / -1;">
+          <div class="pillar-num">+</div>
+          <div class="pillar-name">Activité, corps, relations, déploiement</div>
+          <div class="pillar-sub">Les quatre dimensions sur lesquelles on avance ensemble. Parce que tout est relié.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CE QUI EST UNIQUE -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ce qui est unique</div>
+      <h2 class="s-title">Un modèle d'incubateur qui n'existe pas ailleurs.</h2>
+      <div class="points">
+        <div class="point">
+          <div class="point-icon">→</div>
+          <div class="point-text">La plupart des communautés te vendent du contenu. Ici, tu as <strong>accès direct à mes compétences</strong> : ingénieur informatique, designer, développeur, praticien Human Design, mentor.</div>
+        </div>
+        <div class="point">
+          <div class="point-icon">→</div>
+          <div class="point-text">Je sors une app mobile ou une landing page <strong>en deux jours de travail.</strong> C'est ce type de compétences que tu as dans ta poche, au prix d'un abonnement.</div>
+        </div>
+        <div class="point">
+          <div class="point-icon">→</div>
+          <div class="point-text">Un ticket c'est une heure avec moi sur <strong>ce dont tu as besoin</strong> : design, développement, Human Design, stratégie, mentorat. <strong>Ils s'accumulent et ne se perdent pas.</strong></div>
+        </div>
+        <div class="point highlight">
+          <div class="point-icon">◈</div>
+          <div class="point-text">Sans risque financier démesuré. <em>De 30 à 200€ par mois. Sans engagement.</em> Plus tu restes, plus tu as de puissance de feu.</div>
+        </div>
+      </div>
+      <div class="compare-block">
+        <div class="compare-item">
+          <div class="compare-label">Rayonnement, Niveau III</div>
+          <div class="compare-price ours">200 €<span style="font-size:14px;font-weight:400"> /mois</span></div>
+          <div class="compare-desc">Communauté + rendez-vous hebdo + 3 tickets/mois cumulables</div>
+        </div>
+        <div class="compare-vs">vs</div>
+        <div class="compare-item">
+          <div class="compare-label">Agence ou freelance senior</div>
+          <div class="compare-price market">5 000 €<span style="font-size:14px;font-weight:400"> +</span></div>
+          <div class="compare-desc">Pour une landing page. Sans accompagnement. Sans communauté.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CE QUI REND CA DIFFERENT -->
+<div class="section-wrap bg-spiral">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ce qui rend ça différent</div>
+      <h2 class="s-title">La plupart du temps tu choisis entre<br>la profondeur et le concret.<br><span style="color:#FFA53F;">Ici tu as les deux.</span></h2>
+      <div class="diff-cols">
+        <div class="diff-col">
+          <div class="diff-col-icon">◎</div>
+          <div class="diff-col-label">En profondeur</div>
+          <p class="diff-col-text">Vision, alignement, émotions, perception de soi, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
+        </div>
+        <div class="diff-plus">+</div>
+        <div class="diff-col">
+          <div class="diff-col-icon">◈</div>
+          <div class="diff-col-label">Dans la matière</div>
+          <p class="diff-col-text">Stratégie, site, tunnel, identité visuelle, app. Ce qu'on met en place est aligné avec le travail fait en profondeur. Pas un brief. Une émergence.</p>
+        </div>
+      </div>
+      <div class="diff-quote">
+        "Ce qu'on construit ensemble émerge d'un alignement réel.<br>
+        Je ne suis pas un prestataire. On fait des allers-retours constants<br>
+        entre ce que tu es et ce qu'on crée."
+      </div>
     </div>
   </div>
 </div>
 
 <!-- NIVEAUX -->
-<div class="container">
-  <div class="niveaux-wrap fade-in">
-    <div class="s-label">Les niveaux</div>
-    <h2 style="font-family:'Syne',sans-serif;font-weight:600;font-size:clamp(20px,3.5vw,30px);color:#e0eaff;margin-bottom:8px;">Choisis l'accès qui te correspond.</h2>
-    <p style="font-size:13px;color:#6a8fc0;margin-bottom:0;">Sans engagement. Tu pars quand tu veux.</p>
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Comment choisir</div>
+      <h2 class="s-title">Trois niveaux. Une histoire par niveau.</h2>
+      <p style="font-size:13px;color:#6a8fc0;margin-bottom:0;margin-top:-16px;">Sans engagement. Tu pars quand tu veux.</p>
 
-    <div class="pricing-wrap">
-      <div class="p-card">
-        <div class="p-level">Niveau I</div>
-        <div class="p-name">Essentiel</div>
-        <div class="p-price"><sup>€</sup>30<sub>/mois</sub></div>
-        <div class="p-no-commit">sans engagement</div>
-        <div class="p-tickets">&nbsp;</div>
-        <ul class="p-feats">
-          <li>Communauté privée</li>
-          <li>Rendez-vous hebdo collectif</li>
-          <li>Ressources partagées</li>
-        </ul>
-        <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+      <div class="pricing-wrap">
+        <div class="p-card">
+          <div class="p-level">Niveau I</div>
+          <div class="p-name">Essentiel</div>
+          <div class="p-price"><sup>€</sup>30<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">&nbsp;</div>
+          <div class="p-story">Tu veux rejoindre la communauté, être entouré, assister aux rendez-vous hebdo. Accéder aux ressources pour avancer de ton côté. <strong>Tu n'es pas encore prêt à investir dans du temps individuel.</strong> C'est le bon point d'entrée.</div>
+          <ul class="p-feats">
+            <li>Communauté privée</li>
+            <li>Rendez-vous hebdo collectif</li>
+            <li>Ressources partagées</li>
+          </ul>
+          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+        <div class="p-card hot">
+          <div class="p-level">Niveau II</div>
+          <div class="p-name">Ancrage</div>
+          <div class="p-price"><sup>€</sup>80<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
+          <div class="p-story">Tu veux de l'accompagnement individuel. 1 ticket par mois, cumulable. Tu l'utilises pour une session de clarté, de stratégie, de Human Design. <strong>En 6 mois tu as 6 tickets</strong>, suffisant pour une identité visuelle complète.</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau I</li>
+            <li>1 ticket/mois qui s'accumule</li>
+            <li>Mentorat, design, tech, Human Design</li>
+            <li>Plus tu restes, plus tu construis</li>
+          </ul>
+          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
+        </div>
+        <div class="p-card">
+          <div class="p-level">Niveau III</div>
+          <div class="p-name">Rayonnement</div>
+          <div class="p-price"><sup>€</sup>200<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
+          <div class="p-story">3 tickets par mois. Tu en utilises 1 pour ton alignement, ton positionnement, ton offre. Les 2 autres s'accumulent. <strong>En 6 mois : 12 tickets disponibles.</strong> Une landing page et un logo. Ce que tu aurais payé 3 000 à 5 000€ en agence, sans le travail de fond.</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau II</li>
+            <li>3 tickets/mois cumulables</li>
+            <li>Accès prioritaire</li>
+            <li>En 4 mois : une app ou un site complet</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
       </div>
-      <div class="p-card hot">
-        <div class="p-level">Niveau II</div>
-        <div class="p-name">Ancrage</div>
-        <div class="p-price"><sup>€</sup>80<sub>/mois</sub></div>
-        <div class="p-no-commit">sans engagement</div>
-        <div class="p-tickets">+ 1 ticket / mois cumulable</div>
-        <ul class="p-feats">
-          <li>Tout le Niveau I</li>
-          <li>1 ticket/mois qui s'accumule</li>
-          <li>Mentorat, design, tech, Human Design</li>
-          <li>Plus tu restes, plus tu construis</li>
-        </ul>
-        <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
-      </div>
-      <div class="p-card">
-        <div class="p-level">Niveau III</div>
-        <div class="p-name">Rayonnement</div>
-        <div class="p-price"><sup>€</sup>200<sub>/mois</sub></div>
-        <div class="p-no-commit">sans engagement</div>
-        <div class="p-tickets">+ 3 tickets / mois cumulables</div>
-        <ul class="p-feats">
-          <li>Tout le Niveau II</li>
-          <li>3 tickets/mois cumulables</li>
-          <li>Accès prioritaire</li>
-          <li>En 4 mois : une app ou un site complet</li>
-        </ul>
-        <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
-      </div>
-    </div>
 
-    <div class="unit-ticket">
-      <div class="unit-label">
-        <strong>Ticket à l'unité — 1h avec moi</strong>
-        Mentorat, conseil ou service direct. Sans abonnement.
+      <div class="unit-ticket">
+        <div class="unit-label">
+          <strong>Ticket à l'unité — 1h avec moi</strong>
+          Mentorat, conseil ou service direct. Sans abonnement.
+        </div>
+        <div class="unit-price">90 €</div>
       </div>
-      <div class="unit-price">90 €</div>
-    </div>
 
-    <div class="bonus-banner">
-      <div class="bonus-icon">◆</div>
-      <div>
-        <strong>On a déjà travaillé ensemble ?</strong>
-        Rejoins en Ancrage ou Rayonnement et reçois <span style="color:#FFA53F;">1 ticket bonus offert</span> sur ton premier mois. Écris-moi juste un message en rejoignant.
+      <div class="bonus-banner">
+        <div class="bonus-icon">◆</div>
+        <div>
+          <strong>On a déjà travaillé ensemble ?</strong>
+          Rejoins en Ancrage ou Rayonnement et reçois <span style="color:#FFA53F;">1 ticket bonus offert</span> sur ton premier mois. Écris-moi juste un message en rejoignant.
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- TICKETS -->
-<div class="tickets-wrap">
+<div class="section-wrap">
   <div class="container">
-    <div class="fade-in">
+    <div class="section fade-in">
       <div class="s-label">Ce que tes tickets permettent de construire</div>
-      <h2 style="font-family:'Syne',sans-serif;font-weight:600;font-size:clamp(20px,3.5vw,28px);color:#e0eaff;margin-bottom:6px;">1 ticket = 1h avec moi.</h2>
+      <h2 class="s-title">1 ticket = 1h avec moi.</h2>
       <p class="ticket-intro">Ils s'accumulent. Ils ne se perdent pas.</p>
-
       <div class="ticket-table">
         <div class="ticket-row">
           <div class="t-num">1<small>ticket</small></div>
@@ -809,82 +579,114 @@
   </div>
 </div>
 
+<!-- TÉMOIGNAGES -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ils l'ont vécu</div>
+      <h2 class="s-title">Ce que ça change, dans leurs mots.</h2>
+      <div class="temoignages">
+        <div class="temoignage">
+          <p class="temo-text">"Anys m'a accompagné pendant une période de 6 mois, au moment où je démarrais un projet qui me demandait de sortir de mes zones de confort. Il m'a permis de <strong>ne pas me sentir seul</strong>, de remettre en perspective mes interrogations et de trouver en moi les ressources dont je pouvais avoir besoin. Mon projet a pu prendre forme. Merci pour ton regard holistique qui m'a permis d'ouvrir mon esprit et de passer des caps qui m'étaient difficiles."</p>
+          <div class="temo-author">Sweet Katman</div>
+        </div>
+        <div class="temoignage">
+          <p class="temo-text">"Ces rencontres successives ont jalonné des moments cruciaux de ma vie. Dans toute sa sollicitude, sa présence et sa douceur, Anys a su m'accompagner <strong>sans complaisance</strong>. Son regard, son écoute ont contribué à me connecter à la foi, la confiance en moi et en l'autre."</p>
+          <div class="temo-author">Polette C.</div>
+        </div>
+        <div class="temoignage">
+          <p class="temo-text">"De la recherche du nom, en passant par différents concepts, à la réalisation de mon site web et de ma charte graphique. Anys est une personne avec de réelles <strong>qualités d'écoute et de conseils</strong>, ce qui nous a permis de travailler ensemble et de propulser mon activité. J'ai toujours à ce jour des compliments de mes clients concernant mon site et mon logo."</p>
+          <div class="temo-author">CS — CEO</div>
+        </div>
+        <div class="temoignage">
+          <p class="temo-text">"Anys a une grande sensibilité qui le rend très créatif. Ses propositions créatives sont aussi belles qu'ergonomiques. Il a aussi un très bon esprit de synthèse qui rend ses messages et présentations <strong>extrêmement clairs et percutants</strong>. Anys est quelqu'un de très à l'écoute."</p>
+          <div class="temo-author">Guillaume Andre-Wallut</div>
+          <div class="temo-role">Consultant en économie circulaire, Vertuose</div>
+        </div>
+        <div class="temoignage">
+          <p class="temo-text">"J'aime travailler avec lui sur l'identité visuelle et les sites de mes clients pour sa <strong>capacité d'écoute et de compréhension des enjeux globaux</strong>, sa sensibilité lui permettant de retranscrire de manière juste la singularité d'une entreprise et sa créativité permettant de sortir des sentiers battus."</p>
+          <div class="temo-author">Amandine Lantelme</div>
+          <div class="temo-role">Consultante en stratégie de marque, Made with Curiosity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- QUI JE SUIS -->
-<div class="container">
-  <div class="bio-wrap fade-in">
-    <div class="s-label">Qui je suis</div>
-    <div class="bio-grid">
-      <img src="images/anys-photo.png" alt="Anys Mechkar" class="bio-photo"/>
-      <div>
-        <div class="bio-name">Anys Mechkar</div>
-        <div class="bio-role">Ingénieur, designer, développeur, praticien Human Design, mentor</div>
-        <p class="bio-text">Ça fait plusieurs années que j'accompagne des personnes qui veulent se réaliser à travers un projet artistique ou entrepreneurial. <strong>Un multipotentiel, comme on dit.</strong></p>
-        <p class="bio-text">Cette idée de Tribu Morpho, je l'avais depuis longtemps. Pas le bon timing, pas le bon angle. Là c'est une révélation. J'invite d'abord les gens que je connais déjà, avec qui j'ai travaillé. J'ai hâte de créer cette dynamique.</p>
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Qui je suis</div>
+      <div class="bio-grid">
+        <img src="images/anys-photo.png" alt="Anys Mechkar" class="bio-photo"/>
+        <div>
+          <div class="bio-name">Anys Mechkar</div>
+          <div class="bio-role-tag">Ingénieur · Designer · Développeur · Praticien Human Design · Mentor</div>
+          <p class="bio-text">Ça fait plusieurs années que j'accompagne des personnes qui veulent se réaliser à travers un projet artistique ou entrepreneurial. <strong>Un multipotentiel, comme on dit.</strong></p>
+          <p class="bio-text">Cette idée de Tribu Morpho, je l'avais depuis longtemps. Pas le bon timing, pas le bon angle. Là c'est une révélation. Pour l'instant j'invite principalement des gens que je connais déjà, avec qui j'ai travaillé. <strong>J'ai hâte de créer cette dynamique.</strong></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- FAQ -->
-<div class="faq-wrap">
+<div class="section-wrap alt">
   <div class="container">
-    <div class="fade-in">
+    <div class="section fade-in">
       <div class="s-label">Questions fréquentes</div>
       <div class="faq">
-
         <div class="faq-item">
           <div class="faq-q">C'est quoi concrètement la Tribu Morpho ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Un espace collectif pour des créatifs, artistes, entrepreneurs, accompagnants et multipotentiels qui veulent avancer sur leur activité, leur corps et leurs relations, entourés de gens qui comprennent ce chemin. <strong>Un rendez-vous collectif chaque semaine</strong>, des ressources partagées, et un accès à mes compétences via un système de tickets.</div>
+          <div class="faq-a">Un espace collectif pour des créatifs, artistes, entrepreneurs, accompagnants et multipotentiels qui veulent avancer sur leur activité, leur corps et leurs relations, entourés de gens qui comprennent ce chemin. <strong>Un rendez-vous collectif chaque semaine</strong>, des ressources partagées, et un accès à mes compétences via un système de tickets cumulables.</div>
         </div>
-
         <div class="faq-item">
           <div class="faq-q">C'est vraiment pour les artistes et les accompagnants, pas que les entrepreneurs ? <span class="faq-arrow">›</span></div>
           <div class="faq-a">Complètement. Ce qui compte c'est l'intention de construire quelque chose qui te ressemble vraiment. Que ce soit une pratique artistique, une offre de soin, un projet créatif ou une activité entrepreneuriale, <strong>tu as ta place ici.</strong> La plupart des gens autour de toi ne comprennent pas ce chemin. Ici, si.</div>
         </div>
-
         <div class="faq-item">
-          <div class="faq-q">Comment ça marche les tickets ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Un ticket c'est <strong>une heure de mon temps</strong>, sous la forme dont t'as besoin : session de clarté, lecture Human Design, design, développement, stratégie. Tu choisis. Les tickets s'accumulent d'un mois sur l'autre et ne se perdent pas. Plus tu restes, plus tu as de puissance de feu.</div>
+          <div class="faq-q">Comment ça marche exactement les tickets ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Un ticket c'est <strong>une heure de mon temps</strong>, sous la forme dont tu as besoin : session de clarté, lecture Human Design, design, développement, stratégie. Tu choisis. Les tickets s'accumulent d'un mois sur l'autre et <strong>ne se perdent pas.</strong> Plus tu restes, plus tu as de puissance de feu.</div>
         </div>
-
         <div class="faq-item">
           <div class="faq-q">Quelle différence avec un coach ou un prestataire classique ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">La plupart du temps tu choisis entre la profondeur et le concret. Un coach t'accompagne en profondeur mais ne construit rien avec toi. Un prestataire te fait quelque chose sans vraiment te connaître. Ici, les deux se nourrissent. <strong>Ce qu'on construit ensemble émerge d'un alignement réel</strong>, pas d'un brief.</div>
+          <div class="faq-a">La plupart du temps tu choisis entre la profondeur et le concret. Un coach t'accompagne en profondeur mais ne construit rien avec toi. Un prestataire te fait quelque chose sans vraiment te connaître. Ici, les deux se nourrissent. <strong>Ce qu'on construit ensemble émerge d'un alignement réel</strong>, pas d'un brief. On fait des allers-retours constants entre ce que tu es et ce qu'on crée.</div>
         </div>
-
         <div class="faq-item">
           <div class="faq-q">Le rendez-vous hebdo c'est quoi concrètement ? <span class="faq-arrow">›</span></div>
           <div class="faq-a">Un appel collectif chaque semaine, ouvert à tous les niveaux. On partage où on en est, ce qui avance, ce qui coince. <strong>C'est le coeur du groupe</strong>, l'endroit où tu n'es plus seul avec ce que tu construis.</div>
         </div>
-
         <div class="faq-item">
           <div class="faq-q">Est-ce que c'est vraiment sans engagement ? <span class="faq-arrow">›</span></div>
           <div class="faq-a">Oui. Tu peux partir quand tu veux. Aucun engagement de durée. Cela dit, <strong>les tickets s'accumulent</strong>, donc plus tu restes, plus tu peux construire quelque chose de concret. La logique pousse naturellement à rester, mais rien ne t'y oblige.</div>
         </div>
-
+        <div class="faq-item">
+          <div class="faq-q">C'est pour quel type de projet ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Tout ce qui touche à construire quelque chose qui te ressemble : une activité, une pratique artistique, une offre de soin, un site, une app, une marque. Peu importe où tu en es. Ce qui compte c'est <strong>l'intention d'avancer</strong> et de te révéler vraiment.</div>
+        </div>
         <div class="faq-item">
           <div class="faq-q">Quand ça commence ? <span class="faq-arrow">›</span></div>
           <div class="faq-a">Ouverture le <strong>4 avril</strong>. Pour l'instant j'invite principalement des gens que je connais déjà. Si tu veux en être, on se parle d'abord, 30 minutes, pour voir si c'est le bon moment pour toi.</div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
-<div class="cta-wrap">
+<div class="section-wrap bg-galaxy">
   <div class="container">
-    <div class="fade-in">
+    <div class="cta fade-in">
       <h2 class="cta-title">Ça t'intéresse ?<br><em>On en parle.</em></h2>
       <p class="cta-sub">30 minutes pour voir si c'est le bon moment pour toi.</p>
       <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="cta-btn">Réserver un appel</a>
+      <p class="cta-note">Ouverture le 4 avril — quelques places disponibles.</p>
     </div>
   </div>
 </div>
 
 <div class="line"></div>
-
 <div class="container">
   <footer style="display:flex;align-items:center;gap:12px;padding:28px 0;">
     <img src="images/morpho-logo.jpeg" alt="Morpho" style="width:20px;height:20px;object-fit:contain;opacity:0.5;"/>
@@ -908,15 +710,13 @@
     tsState[id] += dir;
     const slideW = slides[0].offsetWidth + 12;
     if (tsState[id] >= half) {
-      track.style.transition = 'none';
-      tsState[id] = 0;
+      track.style.transition = 'none'; tsState[id] = 0;
       track.style.transform = 'translateX(0px)';
       requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
       return;
     }
     if (tsState[id] < 0) {
-      track.style.transition = 'none';
-      tsState[id] = half - 1;
+      track.style.transition = 'none'; tsState[id] = half - 1;
       track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
       requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
       return;
