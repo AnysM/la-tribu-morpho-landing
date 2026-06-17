@@ -68,6 +68,47 @@
     font-weight: 400;
   }
 
+
+  /* NAV sticky transparente, logo centré */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px 0;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(8,18,36,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(2,120,255,0.14);
+    padding: 10px 0;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links.right { justify-content: flex-end; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8ab0d8; text-decoration: none; transition: color 0.2s ease; white-space: nowrap;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.nav-cta {
+    color: #FFA53F; border: 1px solid rgba(255,165,63,0.4); border-radius: 6px;
+    padding: 7px 14px; letter-spacing: 0.06em;
+  }
+  .nav-links a.nav-cta:hover { background: rgba(255,165,63,0.1); border-color: #FFA53F; color: #FFA53F; }
+  .nav-logo { display: flex; align-items: center; justify-content: center; }
+  .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+  .nav-spacer { height: 0; }
+  @media(max-width:760px){
+    .nav-links { display: none; }
+    .nav-inner { grid-template-columns: 1fr; justify-items: center; }
+  }
+
   /* ACCROCHE */
   .accroche {
     padding: 56px 0 48px;
@@ -984,18 +1025,22 @@
 </head>
 <body>
 
-<!-- ==================== HEADER ==================== -->
-<div class="line"></div>
-<div class="container">
-  <header>
-    <div class="drop">
-      <img src="images/morpho-mark.svg" alt="Morpho" style="width:38px;height:38px;object-fit:contain;"/>
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-links left">
+      <a href="#cest-quoi">Le concept</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#prix">Tarifs</a>
     </div>
-    <div class="header-text">
-      <div class="wordmark">La Tribu Morpho</div>
+    <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/></a>
+    <div class="nav-links right">
+      <a href="#faq">FAQ</a>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="nav-cta">Réserver un appel</a>
     </div>
-  </header>
-</div>
+  </div>
+</nav>
+<span id="top"></span>
 <div class="line"></div>
 
 <!-- ==================== HERO ==================== -->
@@ -1036,6 +1081,7 @@
   </div>
 </div>
 
+<span id="cest-quoi" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== CE QUE C'EST ==================== -->
 <div class="section-wrap alt">
   <div class="container">
@@ -1110,6 +1156,7 @@
   </div>
 </div>
 
+<span id="prix" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== NIVEAUX ==================== -->
 <div class="section-wrap">
   <div class="container">
@@ -1169,6 +1216,7 @@
   </div>
 </div>
 
+<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== EVENTAIL PRESTATIONS ==================== -->
 <div class="section-wrap">
   <div class="container">
@@ -1305,6 +1353,7 @@
   </div>
 </div>
 
+<span id="faq" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== FAQ ==================== -->
 <div class="section-wrap">
   <div class="container">
@@ -1390,6 +1439,12 @@
     track.style.transition = 'transform 0.35s ease';
     track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
   }
+
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
