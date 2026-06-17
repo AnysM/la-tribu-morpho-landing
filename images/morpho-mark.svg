@@ -1,0 +1,26 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="mw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0278FF"/>
+      <stop offset="100%" stop-color="#5BB0FF"/>
+    </linearGradient>
+  </defs>
+  <!-- antennes -->
+  <path d="M50 30 C47 22 43 18 39 16" stroke="url(#mw)" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M50 30 C53 22 57 18 61 16" stroke="url(#mw)" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="39" cy="16" r="1.5" fill="#5BB0FF"/>
+  <circle cx="61" cy="16" r="1.5" fill="#5BB0FF"/>
+  <!-- corps -->
+  <line x1="50" y1="30" x2="50" y2="74" stroke="url(#mw)" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- aile haut gauche : large, arrondie -->
+  <path d="M49 34 C40 20 18 16 11 30 C5 42 18 50 35 50 C44 50 49 44 49 44 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- aile haut droite -->
+  <path d="M51 34 C60 20 82 16 89 30 C95 42 82 50 65 50 C56 50 51 44 51 44 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- aile bas gauche : pleine -->
+  <path d="M49 52 C42 54 24 56 22 68 C20 80 40 78 49 66 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- aile bas droite -->
+  <path d="M51 52 C58 54 76 56 78 68 C80 80 60 78 51 66 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
+  <!-- ocelles orange -->
+  <circle cx="28" cy="33" r="2.6" fill="#FFA53F"/>
+  <circle cx="72" cy="33" r="2.6" fill="#FFA53F"/>
+</svg>
