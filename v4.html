@@ -1029,6 +1029,39 @@
   .temo-full { grid-column: 1 / -1; }
   @media(max-width:700px){ .temo-grid { grid-template-columns: 1fr; } }
 
+
+  /* TICKETS v2 : barème + galerie */
+  .tk-lead { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 560px; margin: 0 auto 8px; text-align: center; }
+  .tk-bareme { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 40px; }
+  .tk-step { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 28px 22px; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+  .tk-step:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .tk-step-num { font-family: 'Syne',sans-serif; font-size: 40px; font-weight: 700; color: #0278FF; line-height: 1; }
+  .tk-step-unit { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-top: 4px; }
+  .tk-step-what { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-top: 18px; line-height: 1.35; }
+  .tk-step-val { font-size: 12px; color: #FFA53F; margin-top: 10px; letter-spacing: 0.04em; }
+  .gallery-label { text-align: center; font-family: 'Syne',sans-serif; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #0278FF; margin: 72px 0 28px; }
+  .gallery { display: grid; grid-template-columns: repeat(12,1fr); gap: 14px; }
+  .g-item { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(2,120,255,0.12); background: #0a1228; display: block; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .g-item:hover img { transform: scale(1.05); }
+  .g-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 16px 12px; background: linear-gradient(to top, rgba(4,8,24,0.92), rgba(4,8,24,0)); }
+  .g-type { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6CC5FF; }
+  .g-name { font-family: 'Syne',sans-serif; font-size: 14px; font-weight: 600; color: #fff; margin-top: 2px; }
+  /* placements : 2 grandes captures portrait + identités */
+  .g-tall { grid-column: span 3; aspect-ratio: 3/4; }
+  .g-wide { grid-column: span 6; aspect-ratio: 16/11; }
+  .g-sq { grid-column: span 3; aspect-ratio: 1/1; }
+  @media(max-width:860px){
+    .tk-bareme { grid-template-columns: repeat(2,1fr); }
+    .g-tall { grid-column: span 6; }
+    .g-wide { grid-column: span 12; }
+    .g-sq { grid-column: span 6; }
+  }
+  @media(max-width:480px){
+    .tk-bareme { grid-template-columns: 1fr; }
+    .g-tall, .g-wide, .g-sq { grid-column: span 12; }
+  }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
@@ -1327,72 +1360,74 @@
 <div class="section-wrap alt">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Ce que tes tickets permettent</div>
-      <h2 class="s-title">1 ticket = 1h avec moi, sur ce dont t'as besoin.</h2>
-      <div class="ticket-intro-sub">Ils s'accumulent. Ils ne se perdent pas.</div>
-      <div class="ticket-table">
-        <div class="ticket-row">
-          <div class="t-num">1<small>ticket</small></div>
-          <div class="t-desc">Session de clarté<small>Stratégie, blocage, Human Design, positionnement</small></div>
-          <div class="t-val"><strong>120 €</strong><span>valeur</span></div>
+      <div class="s-label" style="text-align:center;">Ce que tes tickets permettent</div>
+      <h2 class="s-title" style="text-align:center;">1 ticket = 1h avec moi.<br>Tu choisis ce que tu construis.</h2>
+      <p class="tk-lead">Ils s'accumulent, ils ne se perdent pas. Plus tu restes, plus tu as de puissance de feu.</p>
+
+      <div class="tk-bareme">
+        <div class="tk-step">
+          <div class="tk-step-num">1</div>
+          <div class="tk-step-unit">ticket</div>
+          <div class="tk-step-what">Une session de clarté</div>
+          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">5<small>tickets</small></div>
-          <div class="t-desc">Identité visuelle<small>Logo, palette, direction de marque</small></div>
-          <div class="t-val"><strong>600 €</strong><span>valeur</span></div>
+        <div class="tk-step">
+          <div class="tk-step-num">5</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Ton identité visuelle</div>
+          <div class="tk-step-val">Logo, palette, direction de marque</div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts5">
-            <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><div class="ts-type">Identité visuelle</div><div class="ts-name">La Main Hopi</div></div>
-            <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Anys Mechkar</div></div>
-            <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Saônessence</div></div>
-            <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Smoos</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><div class="ts-type">Identité visuelle</div><div class="ts-name">Archipel Kyosei</div></div>
-            <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><div class="ts-type">Identité visuelle</div><div class="ts-name">La Main Hopi</div></div>
-            <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Anys Mechkar</div></div>
-            <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Saônessence</div></div>
-            <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Smoos</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><div class="ts-type">Identité visuelle</div><div class="ts-name">Archipel Kyosei</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts5',-1)">‹</button><button onclick="slideTs('ts5',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+        <div class="tk-step">
+          <div class="tk-step-num">10</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Une landing ou un tunnel</div>
+          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">10<small>tickets</small></div>
-          <div class="t-desc">Landing page ou tunnel<small>Design, intégration, copy, mise en ligne</small></div>
-          <div class="t-val"><strong>1 200 €</strong><span>valeur</span></div>
+        <div class="tk-step">
+          <div class="tk-step-num">20</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Un site complet ou une app</div>
+          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts10">
-            <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><div class="ts-type">Tunnel de conversion</div><div class="ts-name">Tunnel IN CARNE</div></div>
-            <div class="ts-slide"><a href="https://laforge-app.netlify.app" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Landing page</div><div class="ts-name">LA FORGE Application</div></div>
-            <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><div class="ts-type">Tunnel de conversion</div><div class="ts-name">Tunnel IN CARNE</div></div>
-            <div class="ts-slide"><a href="https://laforge-app.netlify.app" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Landing page</div><div class="ts-name">LA FORGE Application</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts10',-1)">‹</button><button onclick="slideTs('ts10',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+      </div>
+
+      <div class="gallery-label">Ce que ça donne, en vrai</div>
+      <div class="gallery">
+        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item g-tall">
+          <img src="images/souffle2.jpeg" alt="Souffle en Corps"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
+        </a>
+        <a href="https://archipelkyosei.com" target="_blank" class="g-item g-wide">
+          <img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
+        </a>
+        <a href="https://varivena.com" target="_blank" class="g-item g-tall">
+          <img src="images/varivena2.jpeg" alt="Vari Vena"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Vari Vena</div></div>
+        </a>
+        <div class="g-item g-sq">
+          <img src="images/main-hopi.png" alt="La Main Hopi"/>
+          <div class="g-cap"><div class="g-type">Identité visuelle</div><div class="g-name">La Main Hopi</div></div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">20<small>tickets</small></div>
-          <div class="t-desc">Site complet ou application mobile<small>En agence : 3 000 à 10 000 €</small></div>
-          <div class="t-val"><strong>2 400 €</strong><span>valeur</span></div>
+        <div class="g-item g-sq">
+          <img src="images/saonessence.webp" alt="Saonessence"/>
+          <div class="g-cap"><div class="g-type">Identité visuelle</div><div class="g-name">Saônessence</div></div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts20">
-            <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><div class="ts-type">Site complet</div><div class="ts-name">Souffle en Corps</div></div>
-            <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Application mobile</div><div class="ts-name">LA FORGE</div></div>
-            <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><div class="ts-type">Site complet</div><div class="ts-name">Vari Vena</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><div class="ts-type">Site complet</div><div class="ts-name">Archipel Kyosei</div></div>
-            <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><div class="ts-type">Site complet</div><div class="ts-name">Souffle en Corps</div></div>
-            <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Application mobile</div><div class="ts-name">LA FORGE</div></div>
-            <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><div class="ts-type">Site complet</div><div class="ts-name">Vari Vena</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><div class="ts-type">Site complet</div><div class="ts-name">Archipel Kyosei</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts20',-1)">‹</button><button onclick="slideTs('ts20',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+        <a href="https://laforge-app.netlify.app" target="_blank" class="g-item g-tall">
+          <img src="images/laforge.jpeg" alt="LA FORGE"/>
+          <div class="g-cap"><div class="g-type">Application mobile</div><div class="g-name">LA FORGE</div></div>
+        </a>
+        <a href="https://libere-ton-royaume.neoqii.com" target="_blank" class="g-item g-tall">
+          <img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/>
+          <div class="g-cap"><div class="g-type">Tunnel de conversion</div><div class="g-name">IN CARNE</div></div>
+        </a>
+        <div class="g-item g-sq">
+          <img src="images/smoos.jpg" alt="Smoos"/>
+          <div class="g-cap"><div class="g-type">Identité visuelle</div><div class="g-name">Smoos</div></div>
+        </div>
+        <div class="g-item g-sq">
+          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Identité visuelle</div><div class="g-name">Archipel Kyosei</div></div>
         </div>
       </div>
     </div>
