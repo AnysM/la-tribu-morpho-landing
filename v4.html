@@ -951,6 +951,16 @@
   .prob-card .ic { color: #FFA53F; }
   .diff-card .ic { color: #0278FF; }
 
+
+  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 8px; padding: 22px 20px; }
+  .prest-card .ic { width: 24px; height: 24px; color: #0278FF; margin-bottom: 12px; }
+  .prest-cat { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 12px; }
+  .prest-list { list-style: none; padding: 0; margin: 0; }
+  .prest-list li { font-size: 13.5px; color: #8ab0d8; line-height: 1.9; padding-left: 16px; position: relative; }
+  .prest-list li::before { content: '·'; position: absolute; left: 4px; color: #FFA53F; font-weight: 700; }
+  @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 8px; padding: 24px 20px; }
@@ -1155,6 +1165,50 @@
       <div class="unit-ticket">
         <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
         <div class="unit-price">120 €</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== EVENTAIL PRESTATIONS ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ce à quoi tu accèdes</div>
+      <h2 class="s-title">Tout ce que tu peux construire<br>avec tes tickets.</h2>
+      <div class="prest-grid">
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg>
+          <div class="prest-cat">Accompagnement &amp; clarté</div>
+          <ul class="prest-list">
+            <li>Coaching &amp; mentorat</li>
+            <li>Lecture Human Design</li>
+            <li>Stratégie &amp; positionnement</li>
+            <li>Déblocage &amp; prise de recul</li>
+            <li>Clarté sur ton offre</li>
+          </ul>
+        </div>
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16a5 5 0 005-5c0-3.9-4-7.6-9-7.6z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16.5" cy="11.5" r="1"/></svg>
+          <div class="prest-cat">Création &amp; design</div>
+          <ul class="prest-list">
+            <li>Identité visuelle</li>
+            <li>Logo &amp; direction artistique</li>
+            <li>Univers de marque</li>
+            <li>Supports visuels</li>
+          </ul>
+        </div>
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg>
+          <div class="prest-cat">Web &amp; tech</div>
+          <ul class="prest-list">
+            <li>Landing page</li>
+            <li>Site complet</li>
+            <li>Application mobile</li>
+            <li>Tunnel de vente</li>
+            <li>Mise en ligne &amp; technique</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

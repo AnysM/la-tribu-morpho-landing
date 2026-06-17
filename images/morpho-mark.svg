@@ -5,22 +5,24 @@
       <stop offset="100%" stop-color="#5BB0FF"/>
     </linearGradient>
   </defs>
-  <!-- antennes -->
-  <path d="M50 30 C47 22 43 18 39 16" stroke="url(#mw)" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M50 30 C53 22 57 18 61 16" stroke="url(#mw)" stroke-width="1.6" stroke-linecap="round"/>
-  <circle cx="39" cy="16" r="1.5" fill="#5BB0FF"/>
-  <circle cx="61" cy="16" r="1.5" fill="#5BB0FF"/>
-  <!-- corps -->
-  <line x1="50" y1="30" x2="50" y2="74" stroke="url(#mw)" stroke-width="2.4" stroke-linecap="round"/>
-  <!-- aile haut gauche : large, arrondie -->
-  <path d="M49 34 C40 20 18 16 11 30 C5 42 18 50 35 50 C44 50 49 44 49 44 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
-  <!-- aile haut droite -->
-  <path d="M51 34 C60 20 82 16 89 30 C95 42 82 50 65 50 C56 50 51 44 51 44 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
-  <!-- aile bas gauche : pleine -->
-  <path d="M49 52 C42 54 24 56 22 68 C20 80 40 78 49 66 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
-  <!-- aile bas droite -->
-  <path d="M51 52 C58 54 76 56 78 68 C80 80 60 78 51 66 Z" stroke="url(#mw)" stroke-width="2" stroke-linejoin="round"/>
-  <!-- ocelles orange -->
-  <circle cx="28" cy="33" r="2.6" fill="#FFA53F"/>
-  <circle cx="72" cy="33" r="2.6" fill="#FFA53F"/>
+  <g stroke="url(#mw)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- antennes -->
+    <path d="M50 32 C47 24 43 20 39 18"/>
+    <path d="M50 32 C53 24 57 20 61 18"/>
+    <circle cx="39" cy="18" r="1.4" fill="#5BB0FF" stroke="none"/>
+    <circle cx="61" cy="18" r="1.4" fill="#5BB0FF" stroke="none"/>
+    <!-- corps -->
+    <line x1="50" y1="30" x2="50" y2="76"/>
+    <!-- aile haut gauche : large goutte entrelacée passant par le centre -->
+    <path d="M50 48 C28 24 13 28 12 42 C11 54 32 54 50 48"/>
+    <!-- aile haut droite -->
+    <path d="M50 48 C72 24 87 28 88 42 C89 54 68 54 50 48"/>
+    <!-- aile bas gauche -->
+    <path d="M50 48 C38 52 22 56 24 67 C26 78 46 72 50 56"/>
+    <!-- aile bas droite -->
+    <path d="M50 48 C62 52 78 56 76 67 C74 78 54 72 50 56"/>
+    <!-- ocelles -->
+    <circle cx="30" cy="40" r="2.5" fill="#FFA53F" stroke="none"/>
+    <circle cx="70" cy="40" r="2.5" fill="#FFA53F" stroke="none"/>
+  </g>
 </svg>
