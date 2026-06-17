@@ -111,46 +111,53 @@
 
   /* ACCROCHE */
   .accroche {
-    padding: 56px 0 48px;
+    padding: 130px 0 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .accroche-main {
-    font-size: 19px;
-    line-height: 1.8;
-    color: #c8d8f0;
-    max-width: 620px;
-    margin-bottom: 20px;
-    font-weight: 400;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(34px, 6vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #e8f1ff;
+    max-width: 760px;
+    margin-bottom: 28px;
+    font-weight: 600;
   }
 
   .accroche-sub {
-    font-size: 14px;
-    color: #3a5a8a;
-    line-height: 1.6;
-    max-width: 520px;
+    font-size: 17px;
+    color: #9ab8db;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   /* SECTION GÉNÉRIQUE */
   .section {
-    padding: 56px 0;
+    padding: 96px 0;
   }
 
   .s-label {
     font-family: 'Syne', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.3em;
+    font-size: 10px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: #0278FF;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
     font-weight: 500;
   }
 
   .s-title {
     font-family: 'Syne', sans-serif;
     font-weight: 600;
-    font-size: clamp(20px, 3.5vw, 28px);
-    line-height: 1.25;
-    margin-bottom: 32px;
+    font-size: clamp(24px, 4vw, 34px);
+    line-height: 1.22;
+    margin-bottom: 44px;
     color: #e0eaff;
   }
 
@@ -993,8 +1000,8 @@
   .diff-card .ic { color: #0278FF; }
 
 
-  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
-  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 8px; padding: 22px 20px; }
+  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 30px 26px; }
   .prest-card .ic { width: 24px; height: 24px; color: #0278FF; margin-bottom: 12px; }
   .prest-cat { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 12px; }
   .prest-list { list-style: none; padding: 0; margin: 0; }
@@ -1003,16 +1010,16 @@
   @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
 
   /* V4 extras */
-  .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
-  .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 8px; padding: 24px 20px; }
+  .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
   .prob-word { font-family: 'Syne',sans-serif; font-size: 22px; font-weight: 700; color: #FFA53F; margin-bottom: 10px; }
   .prob-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
-  .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 32px; }
-  .diff-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 8px; padding: 24px 20px; }
+  .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .diff-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 26px; }
   .diff-name { font-family: 'Syne',sans-serif; font-size: 16px; font-weight: 600; color: #e0eaff; margin-bottom: 8px; }
   .diff-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
-  .concept-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
-  .cstat { text-align: center; padding: 20px 16px; border: 1px solid rgba(2,120,255,0.15); border-radius: 8px; }
+  .concept-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .cstat { text-align: center; padding: 30px 20px; border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; }
   .cstat-val { font-family: 'Syne',sans-serif; font-size: 28px; font-weight: 700; color: #0278FF; margin-bottom: 6px; }
   .cstat-label { font-size: 12px; color: #8ab0d8; line-height: 1.4; }
   .concept-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 640px; margin: 0 auto; text-align: center; }
@@ -1048,8 +1055,8 @@
   <div class="container">
     <div class="accroche fade-in">
       <p class="accroche-main">Un espace pour<br><span style="color:#FFA53F;font-weight:600;">se déployer vraiment.</span></p>
-      <p class="accroche-sub" style="font-size:16px;color:#c8d8f0;max-width:520px;margin:20px auto 32px;line-height:1.7;">Le rendez-vous hebdomadaire pour artistes et entrepreneurs qui construisent quelque chose qui leur ressemble.</p>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
+      <p class="accroche-sub">Le rendez-vous hebdomadaire pour artistes et entrepreneurs qui construisent quelque chose qui leur ressemble.</p>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
     </div>
   </div>
 </div>
