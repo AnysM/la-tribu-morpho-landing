@@ -892,13 +892,14 @@
   /* BACKGROUNDS 30% visibles */
   .section-wrap.bg-hero {
     position: relative;
-    background-color: #04050f;
+    background-color: #0a1033;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
     align-items: center;
   }
   .section-wrap.bg-hero .container { width: 100%; }
+  /* couche image : le morpho, fondu lumineux */
   .section-wrap.bg-hero::after {
     content: '';
     position: absolute;
@@ -906,17 +907,19 @@
     background-image: url('images/morpho-bg.jpg');
     background-size: cover;
     background-position: center center;
-    opacity: 0.55;
+    opacity: 0.7;
     mix-blend-mode: screen;
     z-index: 0;
   }
+  /* couche teinte indigo + vignette : tout vire au bleu indigo profond */
   .section-wrap.bg-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 80% at 50% 48%, rgba(4,5,15,0) 0%, rgba(4,5,15,0.55) 55%, rgba(4,5,15,0.92) 100%),
-      linear-gradient(to bottom, rgba(4,5,15,0.7) 0%, rgba(4,5,15,0.3) 35%, rgba(4,5,15,0.55) 100%);
+      radial-gradient(ellipse 65% 75% at 50% 46%, rgba(20,30,90,0) 0%, rgba(10,16,51,0.45) 55%, rgba(7,10,38,0.9) 100%),
+      linear-gradient(to bottom, rgba(12,18,58,0.55) 0%, rgba(13,20,66,0.25) 38%, rgba(8,12,42,0.7) 100%),
+      linear-gradient(120deg, rgba(40,40,150,0.35) 0%, rgba(20,40,120,0.2) 50%, rgba(15,20,80,0.4) 100%);
     z-index: 1;
   }
   .section-wrap.bg-hero > * { position: relative; z-index: 1; }
@@ -1015,6 +1018,17 @@
   .prest-list li::before { content: '·'; position: absolute; left: 4px; color: #FFA53F; font-weight: 700; }
   @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
 
+
+  .temo-intro { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 600px; margin: 0 auto 8px; text-align: center; }
+  .temo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .temo-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 30px; position: relative; }
+  .temo-quote { font-size: 16px; line-height: 1.7; color: #d4e2f5; font-style: italic; }
+  .temo-quote::before { content: '\201C'; font-family: 'Syne',sans-serif; font-size: 44px; color: rgba(2,120,255,0.35); line-height: 0; position: absolute; top: 26px; left: 22px; }
+  .temo-card .temo-quote { padding-left: 22px; }
+  .temo-who { margin-top: 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5a82b0; padding-left: 22px; }
+  .temo-full { grid-column: 1 / -1; }
+  @media(max-width:700px){ .temo-grid { grid-template-columns: 1fr; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
@@ -1048,6 +1062,7 @@
     </div>
     <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/><span class="nav-wordmark">La Tribu Morpho</span></a>
     <div class="nav-links right">
+      <a href="#temoignages">Témoignages</a>
       <a href="#faq">FAQ</a>
       <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="nav-cta">Réserver un appel</a>
     </div>
@@ -1164,6 +1179,40 @@
         <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Relations</div><div class="pillar-sub">Souveraineté relationnelle, liens, espace personnel</div></div>
         <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Déploiement</div><div class="pillar-sub">Sortir ce que tu as à offrir. Le mettre dans le monde.</div></div>
         <div class="pillar gold" style="grid-column:1/-1;"><div class="pillar-num">+</div><div class="pillar-name">Accompagnement individuel</div><div class="pillar-sub">Via les tickets — tech, design, Human Design, coaching, stratégie</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TEMOIGNAGES ==================== -->
+<span id="temoignages" style="display:block;position:relative;top:-70px;"></span>
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Ce qui se vit ici</div>
+      <h2 class="s-title" style="text-align:center;">Leurs mots, pas les miens.</h2>
+      <p class="temo-intro">Des retours partagés à la fin des sessions, quand on prend le temps de nommer ce qu'on vient de traverser.</p>
+      <div class="temo-grid">
+        <div class="temo-card">
+          <p class="temo-quote">Je suis dans une énergie particulièrement dense et paisible dans notre rendez-vous, et j'ai la sensation qu'à chacune de nos rencontres, cet état se manifeste entre nous de plus en plus.</p>
+          <div class="temo-who">Une personne de la tribu</div>
+        </div>
+        <div class="temo-card">
+          <p class="temo-quote">Je pourrais présager qu'une fois par semaine c'est trop rapide. Et en fait je ne ressens pas du tout ça. Ce rendez-vous s'est inscrit. Il prend racine.</p>
+          <div class="temo-who">Une personne de la tribu</div>
+        </div>
+        <div class="temo-card">
+          <p class="temo-quote">Je me suis vraiment laissée aller dans cette apesanteur, dans cette profondeur tranquille, et c'était très bon.</p>
+          <div class="temo-who">Une personne de la tribu</div>
+        </div>
+        <div class="temo-card">
+          <p class="temo-quote">J'ai toujours besoin de beaucoup de temps pour m'adapter sans y laisser des plumes. Et pourtant, là, je suis heureuse d'être là.</p>
+          <div class="temo-who">Une personne de la tribu</div>
+        </div>
+        <div class="temo-card temo-full">
+          <p class="temo-quote">C'est un rendez-vous avec soi-même, mais avec les autres. Un temps pour soi, mais pas seul. Ça renforce la pertinence de créer des espaces comme ça.</p>
+          <div class="temo-who">Une personne de la tribu</div>
+        </div>
       </div>
     </div>
   </div>
