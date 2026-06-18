@@ -1,27 +1,38 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="tTop" x1="0.2" y1="0" x2="0.8" y2="1">
-      <stop offset="0%" stop-color="#86D8EC"/>
-      <stop offset="100%" stop-color="#2C8AB4"/>
+    <!-- aile haute : indigo profond -> bleu roi -> cyan lumineux -> pointe turquoise -->
+    <linearGradient id="irTop" x1="0.15" y1="0.1" x2="0.85" y2="1">
+      <stop offset="0%" stop-color="#7FE3D0"/>
+      <stop offset="28%" stop-color="#3FB4E8"/>
+      <stop offset="62%" stop-color="#2A6FD8"/>
+      <stop offset="100%" stop-color="#2B3A9E"/>
     </linearGradient>
-    <linearGradient id="tBot" x1="0.2" y1="1" x2="0.8" y2="0">
-      <stop offset="0%" stop-color="#1C6890"/>
-      <stop offset="100%" stop-color="#3DA4C6"/>
+    <!-- aile basse : indigo -> violet bleuté -> bleu profond -->
+    <linearGradient id="irBot" x1="0.2" y1="1" x2="0.8" y2="0">
+      <stop offset="0%" stop-color="#1E3A8C"/>
+      <stop offset="45%" stop-color="#2C57C4"/>
+      <stop offset="100%" stop-color="#4BA8E0"/>
     </linearGradient>
+    <!-- voile iridescent (reflet violet/cyan) -->
+    <radialGradient id="sheen" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0%" stop-color="#9D7BFF" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#5FC8E8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#5FC8E8" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <g>
-    <!-- aile haut gauche : pétale large, pointe haut-extérieur -->
-    <path d="M50 51 C42 36 26 18 18 24 C11 30 16 44 30 49 C39 52 48 53 50 51 Z" fill="url(#tTop)"/>
-    <!-- aile haut droite -->
-    <path d="M50 51 C58 36 74 18 82 24 C89 30 84 44 70 49 C61 52 52 53 50 51 Z" fill="url(#tTop)"/>
-    <!-- aile bas gauche : pétale large, pointe bas -->
-    <path d="M50 51 C45 62 36 80 27 77 C19 74 20 61 31 55 C39 51 48 50 50 51 Z" fill="url(#tBot)"/>
-    <!-- aile bas droite -->
-    <path d="M50 51 C55 62 64 80 73 77 C81 74 80 61 69 55 C61 51 52 50 50 51 Z" fill="url(#tBot)"/>
-    <!-- facettes claires (pli origami sur moitié supérieure de chaque aile) -->
-    <path d="M50 51 C42 36 26 18 18 24 C24 28 38 39 50 51 Z" fill="#B4EAF6" opacity="0.32"/>
-    <path d="M50 51 C58 36 74 18 82 24 C76 28 62 39 50 51 Z" fill="#B4EAF6" opacity="0.32"/>
-    <path d="M50 51 C45 62 36 80 27 77 C34 70 43 60 50 51 Z" fill="#86D8EC" opacity="0.20"/>
-    <path d="M50 51 C55 62 64 80 73 77 C66 70 57 60 50 51 Z" fill="#86D8EC" opacity="0.20"/>
+    <!-- ailes hautes -->
+    <path d="M50 51 C42 36 26 18 18 24 C11 30 16 44 30 49 C39 52 48 53 50 51 Z" fill="url(#irTop)"/>
+    <path d="M50 51 C58 36 74 18 82 24 C89 30 84 44 70 49 C61 52 52 53 50 51 Z" fill="url(#irTop)"/>
+    <!-- ailes basses -->
+    <path d="M50 51 C45 62 36 80 27 77 C19 74 20 61 31 55 C39 51 48 50 50 51 Z" fill="url(#irBot)"/>
+    <path d="M50 51 C55 62 64 80 73 77 C81 74 80 61 69 55 C61 51 52 50 50 51 Z" fill="url(#irBot)"/>
+    <!-- facettes claires (pli origami) -->
+    <path d="M50 51 C42 36 26 18 18 24 C24 28 38 39 50 51 Z" fill="#CFF6FF" opacity="0.30"/>
+    <path d="M50 51 C58 36 74 18 82 24 C76 28 62 39 50 51 Z" fill="#CFF6FF" opacity="0.30"/>
+    <path d="M50 51 C45 62 36 80 27 77 C34 70 43 60 50 51 Z" fill="#7FB8F0" opacity="0.22"/>
+    <path d="M50 51 C55 62 64 80 73 77 C66 70 57 60 50 51 Z" fill="#7FB8F0" opacity="0.22"/>
+    <!-- voile iridescent par-dessus tout -->
+    <path d="M50 51 C42 36 26 18 18 24 C11 30 16 44 30 49 C39 52 48 53 50 51 Z M50 51 C58 36 74 18 82 24 C89 30 84 44 70 49 C61 52 52 53 50 51 Z M50 51 C45 62 36 80 27 77 C19 74 20 61 31 55 C39 51 48 50 50 51 Z M50 51 C55 62 64 80 73 77 C81 74 80 61 69 55 C61 51 52 50 50 51 Z" fill="url(#sheen)"/>
   </g>
 </svg>
