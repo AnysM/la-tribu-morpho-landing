@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Test polices — La Tribu Morpho</title>
+<style>
+@font-face { font-family: 'BrightGiftak'; src: url('fonts/BrightGiftak.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Gohan'; src: url('fonts/Gohan.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'MarketFresh'; src: url('fonts/MarketFresh.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Povlar'; src: url('fonts/Povlar.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'PovlarSlant'; src: url('fonts/PovlarSlant.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'RowVatikano'; src: url('fonts/RowVatikano.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'TTTravels'; src: url('fonts/TTTravels.ttf') format('truetype'); font-display: swap; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #04050f;
+  color: #e0eaff;
+  font-family: 'TTTravels', sans-serif;
+  min-height: 100vh;
+  padding: 0 0 80px;
+}
+
+.page-title {
+  text-align: center;
+  padding: 48px 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #0278FF;
+  font-family: 'TTTravels', sans-serif;
+}
+.page-sub {
+  text-align: center;
+  font-size: 13px;
+  color: #5a82b0;
+  margin-bottom: 56px;
+  font-family: 'TTTravels', sans-serif;
+}
+
+.font-block {
+  border-top: 1px solid rgba(2,120,255,0.12);
+  padding: 56px 0;
+}
+.font-block:last-child { border-bottom: 1px solid rgba(2,120,255,0.12); }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+.font-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.font-num {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #0278FF;
+  font-family: 'TTTravels', sans-serif;
+  min-width: 28px;
+}
+.font-name {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5a82b0;
+  font-family: 'TTTravels', sans-serif;
+}
+
+.sample-wordmark {
+  font-size: 13px;
+  color: #9ab8db;
+  margin-bottom: 18px;
+  letter-spacing: 0.03em;
+}
+.sample-hero {
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #e8f1ff;
+}
+.sample-hero span { color: #FFA53F; }
+.sample-section {
+  font-size: clamp(22px, 3.5vw, 34px);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #e0eaff;
+}
+.sample-accent {
+  font-size: clamp(20px, 3vw, 28px);
+  color: #0278FF;
+  margin-bottom: 14px;
+}
+.sample-body {
+  font-size: 15px;
+  color: #8ab0d8;
+  line-height: 1.7;
+  max-width: 580px;
+  font-family: 'TTTravels', sans-serif;
+}
+.sample-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #0278FF;
+  margin-bottom: 10px;
+}
+
+.bg-dark { background: rgba(2,120,255,0.03); }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="page-title">Test typographie</p>
+  <p class="page-sub">Même couleurs, même fond, même contexte que le site. Choisir la meilleure.</p>
+</div>
+
+<!-- 1. BRIGHT GIFTAK (actuelle) -->
+<div class="font-block">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">01</span>
+      <span class="font-name">Bright Giftak — actuelle</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'BrightGiftak';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'BrightGiftak';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'BrightGiftak';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'BrightGiftak';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 2. GOHAN -->
+<div class="font-block bg-dark">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">02</span>
+      <span class="font-name">Gohan</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'Gohan';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'Gohan';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'Gohan';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'Gohan';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 3. ROW VATIKANO -->
+<div class="font-block">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">03</span>
+      <span class="font-name">Row Vatikano</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'RowVatikano';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'RowVatikano';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'RowVatikano';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'RowVatikano';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 4. TT TRAVELS NEXT -->
+<div class="font-block bg-dark">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">04</span>
+      <span class="font-name">TT Travels Next</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'TTTravels';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'TTTravels';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'TTTravels';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'TTTravels';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 5. POVLAR -->
+<div class="font-block">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">05</span>
+      <span class="font-name">Povlar</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'Povlar';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'Povlar';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'Povlar';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'Povlar';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 6. POVLAR SLANT -->
+<div class="font-block bg-dark">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">06</span>
+      <span class="font-name">Povlar Slant</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'PovlarSlant';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'PovlarSlant';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'PovlarSlant';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'PovlarSlant';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+<!-- 7. MARKET FRESH -->
+<div class="font-block">
+  <div class="container">
+    <div class="font-meta">
+      <span class="font-num">07</span>
+      <span class="font-name">Market Fresh</span>
+    </div>
+    <p class="sample-wordmark" style="font-family:'MarketFresh';">La Tribu Morpho</p>
+    <p class="sample-hero" style="font-family:'MarketFresh';">Construis ce que tu portes<br><span>vraiment.</span></p>
+    <p class="sample-section" style="font-family:'MarketFresh';">L'endroit où ce que tu portes prend forme.</p>
+    <p class="sample-accent" style="font-family:'MarketFresh';">Tout est connecté</p>
+    <p class="sample-body">Le rendez-vous hebdomadaire pour les artistes et les entrepreneurs fatigués des méthodes classiques, qui veulent embrasser leur chemin unique.</p>
+  </div>
+</div>
+
+</body>
+</html>
