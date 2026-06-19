@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only dark">
+<title>La Tribu Morpho</title>
+<link rel="icon" type="image/svg+xml" href="images/morpho-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravels.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravelsItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face {
+    font-family: 'Bright Giftak';
+    src: url('fonts/BrightGiftak.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background-color: #04050f !important;
+    color: #c8d8f0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  html::before, body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #04050f;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .line {
+    height: 1px;
+    background: #0278FF;
+    opacity: 0.2;
+  }
+
+  /* HEADER */
+  header {
+    padding: 32px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .drop svg { width: 18px; height: 26px; }
+
+  .header-text { display: flex; flex-direction: column; gap: 3px; }
+
+  .wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .tagline {
+    font-size: 11px;
+    color: #2d4a7a;
+    font-weight: 400;
+  }
+
+
+  /* NAV sticky transparente, logo centré */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px 0;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(8,18,36,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(2,120,255,0.14);
+    padding: 10px 0;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links.right { justify-content: flex-end; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8ab0d8; text-decoration: none; transition: color 0.2s ease; white-space: nowrap;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.nav-cta {
+    color: #FFA53F; border: 1px solid rgba(255,165,63,0.4); border-radius: 6px;
+    padding: 7px 14px; letter-spacing: 0.06em;
+  }
+  .nav-links a.nav-cta:hover { background: rgba(255,165,63,0.1); border-color: #FFA53F; color: #FFA53F; }
+  .nav-logo { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
+  .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+  .nav-wordmark { font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.22em; color: #8ab0d8; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+  .nav-spacer { height: 0; }
+  @media(max-width:760px){
+    .nav-links { display: none; }
+    .nav-inner { grid-template-columns: 1fr; justify-items: center; }
+  }
+
+  /* ACCROCHE */
+  .accroche {
+    padding: 100px 0 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .accroche-main {
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-size: clamp(30px, 4.6vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #e8f1ff;
+    max-width: 640px;
+    margin: 0 auto 26px;
+    font-weight: 600;
+  }
+
+  .accroche-sub {
+    font-size: 17px;
+    color: #9ab8db;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* SECTION GÉNÉRIQUE */
+  .section {
+    padding: 96px 0;
+  }
+
+  .s-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #0278FF;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .s-title {
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: clamp(24px, 4vw, 34px);
+    line-height: 1.22;
+    margin-bottom: 44px;
+    color: #e0eaff;
+  }
+
+  /* POINTS LIST */
+  .points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-left: 2px solid rgba(2, 120, 255, 0.2);
+    transition: border-color 0.2s;
+  }
+
+  .point:hover {
+    border-color: #0278FF;
+  }
+
+  .point-icon {
+    color: #0278FF;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+  }
+
+  .point-text {
+    font-size: 14px;
+    color: #c8d8f0;
+    line-height: 1.5;
+  }
+
+  .point-text strong {
+    color: #e0eaff;
+    font-weight: 500;
+  }
+
+  .point-text em {
+    color: #FFA53F;
+    font-style: normal;
+  }
+
+  /* UNIQUE - point fort mis en avant */
+  .point.highlight {
+    border-left-color: rgba(255, 165, 63, 0.4);
+    background: rgba(255, 165, 63, 0.03);
+  }
+
+  .point.highlight:hover {
+    border-left-color: #FFA53F;
+  }
+
+  .point.highlight .point-icon {
+    color: #FFA53F;
+  }
+
+  .point.highlight .point-text {
+    color: #e0eaff;
+  }
+
+  /* BLOC COMPARAISON */
+  .compare-block {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 24px;
+    border: 1px solid rgba(2, 120, 255, 0.18);
+    background: rgba(2, 120, 255, 0.03);
+  }
+
+  .compare-item { }
+
+  .compare-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2d4a7a;
+    margin-bottom: 8px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .compare-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .compare-price.ours { color: #FFA53F; }
+  .compare-price.market { color: #2d4a7a; }
+
+  .compare-desc {
+    font-size: 12px;
+    color: #3a5a8a;
+    line-height: 1.4;
+  }
+
+  .compare-vs {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #2d4a7a;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+
+  /* PILIERS */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(2, 120, 255, 0.12);
+    border: 1px solid rgba(2, 120, 255, 0.12);
+    margin-top: 8px;
+  }
+
+  .pillar {
+    background: #04050f;
+    padding: 24px 20px;
+    transition: background 0.2s;
+  }
+
+  .pillar:hover { background: rgba(2, 120, 255, 0.05); }
+
+  .pillar-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    color: #0278FF;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .pillar-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e0eaff;
+    margin-bottom: 8px;
+  }
+
+  .pillar-sub {
+    font-size: 14px;
+    color: #8ab0d8;
+    line-height: 1.6;
+  }
+
+  .pillar.gold .pillar-num { color: #FFA53F; }
+  .pillar.gold .pillar-name { color: #FFA53F; }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .divider::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(2, 120, 255, 0.15);
+  }
+
+  /* TICKETS */
+  .ticket-intro-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #3a5a8a;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .ticket-intro-sub {
+    font-size: 14px;
+    color: #6a8fc0;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .ticket-table { border: 1px solid rgba(2, 120, 255, 0.15); }
+
+  .ticket-row {
+    display: grid;
+    grid-template-columns: 64px 1fr 100px;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(2, 120, 255, 0.08);
+    transition: background 0.2s;
+  }
+
+  .ticket-row:last-child { border-bottom: none; }
+  .ticket-row:hover { background: rgba(2, 120, 255, 0.05); }
+
+  .t-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0278FF;
+    line-height: 1;
+  }
+
+  .t-num small {
+    display: block;
+    font-size: 9px;
+    color: #2d4a7a;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .t-desc { font-size: 13px; color: #c8d8f0; line-height: 1.5; }
+  .t-desc small { display: block; font-size: 11px; color: #3a5a8a; margin-top: 3px; }
+
+  .t-val { text-align: right; }
+  .t-val strong { display: block; font-size: 14px; font-weight: 600; color: #FFA53F; font-family: 'Syne', sans-serif; }
+  .t-val span { font-size: 10px; color: #2d4a7a; }
+
+  /* PRICING */
+  .pricing-wrap {
+    margin-top: 8px;
+    border: 1px solid rgba(2, 120, 255, 0.15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .p-card {
+    padding: 28px 20px;
+    border-right: 1px solid rgba(2, 120, 255, 0.1);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .p-card:last-child { border-right: none; }
+  .p-card:hover { background: rgba(2, 120, 255, 0.04); }
+  .p-card.hot { background: rgba(2, 120, 255, 0.07); border: 1px solid #FFA53F; }
+
+  .p-card.hot::before {
+    content: 'RECOMMANDE';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: #04050f;
+    background: #FFA53F;
+    padding: 3px 8px;
+    border: 1px solid #FFA53F;
+    white-space: nowrap;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  .p-level { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 10px; font-family: 'Syne', sans-serif; font-weight: 500; }
+  .p-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #e0eaff; }
+  .p-price { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 700; line-height: 1; margin-bottom: 4px; color: #e0eaff; }
+  .p-price sup { font-size: 14px; vertical-align: super; }
+  .p-price sub { font-size: 11px; color: #2d4a7a; font-weight: 400; }
+  .p-no-commit {
+    font-size: 9px;
+    color: #2d4a7a;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .p-tickets { font-size: 10px; color: #FFA53F; margin-bottom: 18px; min-height: 14px; }
+  .p-feats { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .p-feats li { font-size: 13px; color: #8ab0d8; line-height: 1.6; padding-left: 14px; position: relative; }
+  .p-feats li::before { content: '/'; position: absolute; left: 0; color: #0278FF; }
+
+  .unit-ticket {
+    margin-top: 1px;
+    border: 1px solid rgba(255, 165, 63, 0.18);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 165, 63, 0.02);
+  }
+
+  .unit-label { font-size: 12px; color: #3a5a8a; }
+  .unit-label strong { display: block; font-size: 13px; color: #c8d8f0; font-weight: 500; margin-bottom: 2px; font-family: 'Syne', sans-serif; }
+  .unit-price { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #FFA53F; }
+
+  /* FAQ */
+  .faq { display: flex; flex-direction: column; gap: 1px; }
+
+  .faq-item {
+    border-left: 2px solid rgba(2, 120, 255, 0.15);
+    transition: border-color 0.2s;
+  }
+
+  .faq-item.open {
+    border-left-color: #0278FF;
+  }
+
+  .faq-q {
+    padding: 16px 16px;
+    font-size: 14px;
+    color: #c8d8f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .faq-q:hover { color: #e0eaff; }
+
+  .faq-arrow {
+    color: #0278FF;
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: transform 0.25s;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  .faq-a {
+    display: none;
+    padding: 0 16px 16px;
+    font-size: 13px;
+    color: #3a5a8a;
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* CTA */
+  .cta { padding: 72px 0; }
+
+  .cta h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: clamp(22px, 4vw, 34px);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: #e0eaff;
+  }
+
+  .cta h2 em { font-style: normal; color: #FFA53F; }
+
+  .cta-sub { font-size: 12px; color: #2d4a7a; margin-bottom: 28px; letter-spacing: 0.06em; }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid #0278FF;
+    color: #e0eaff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    transition: all 0.25s;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .btn:hover { background: rgba(2, 120, 255, 0.1); border-color: #FFA53F; color: #FFA53F; }
+  .cta-note { font-size: 11px; color: #2d4a7a; margin-top: 12px; }
+
+  footer { padding: 28px 0; border-top: 1px solid rgba(2, 120, 255, 0.1); }
+  .footer-txt { font-size: 10px; color: #2d4a7a; letter-spacing: 0.12em; }
+
+
+  /* BOUTONS PRICING */
+
+  .p-value-arg {
+    font-size: 10px;
+    color: #3a5a8a;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .p-value-arg strong { color: #FFA53F; font-weight: 600; }
+
+  .bonus-banner {
+    margin-top: 24px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255,165,63,0.25);
+    background: rgba(255,165,63,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .bonus-icon {
+    color: #FFA53F;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bonus-text {
+    font-size: 13px;
+    color: #6a8fc0;
+    line-height: 1.6;
+  }
+
+  .bonus-text strong {
+    color: #e0eaff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .p-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px solid rgba(2, 120, 255, 0.35);
+    color: #c8d8f0;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    transition: all 0.25s;
+    background: transparent;
+  }
+
+  .p-btn:hover { background: rgba(2,120,255,0.1); border-color: #0278FF; }
+
+  .p-btn-hot {
+    border-color: rgba(255, 165, 63, 0.5);
+    color: #FFA53F;
+  }
+
+  .p-btn-hot:hover { background: rgba(255,165,63,0.08); border-color: #FFA53F; }
+
+  /* 6 MOIS */
+  .six-mois {
+    margin-top: 32px;
+    padding: 28px 24px;
+    border: 1px solid rgba(2,120,255,0.12);
+    background: rgba(2,120,255,0.02);
+  }
+
+  .six-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .six-item {
+    padding: 16px;
+    border-left: 2px solid rgba(2,120,255,0.2);
+  }
+
+  .six-item-gold { border-left-color: rgba(255,165,63,0.4); }
+
+  .six-level { font-size: 10px; color: #2d4a7a; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; font-family: 'Syne', sans-serif; }
+  .six-total { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: #c8d8f0; margin-bottom: 4px; }
+  .six-result { font-size: 13px; color: #0278FF; margin-bottom: 8px; }
+  .six-item-gold .six-result { color: #FFA53F; }
+  .six-result strong { font-weight: 600; }
+  .six-desc { font-size: 11px; color: #3a5a8a; line-height: 1.5; }
+
+  @media (max-width: 600px) { .six-grid { grid-template-columns: 1fr; } }
+
+
+
+  .services-list {
+    font-size: 11px;
+    color: #0278FF;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+
+
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .bio-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 2px solid rgba(2, 120, 255, 0.3);
+  }
+
+  .bio-header .s-title {
+    margin-bottom: 0;
+  }
+
+  .bio-block { max-width: 580px; }
+
+  .bio-text {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #6a8fc0;
+  }
+
+
+
+
+
+  .hl-blue { color: #0278FF; font-weight: 500; }
+  .hl-gold { color: #FFA53F; font-weight: 500; }
+
+  .impact-section .s-title { margin-bottom: 28px; }
+
+
+  .full-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(2, 120, 255, 0.045);
+    padding: 0 calc(50vw - 400px);
+  }
+
+  @media (max-width: 860px) {
+    .full-wrap { padding: 0 28px; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .pillars { grid-template-columns: 1fr; }
+    .pricing-wrap { grid-template-columns: 1fr; }
+    .p-card { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.1); }
+    .p-card:last-child { border-bottom: none; }
+    .ticket-row { grid-template-columns: 56px 1fr; }
+    .t-val { display: none; }
+    .compare-block { grid-template-columns: 1fr; }
+    .compare-vs { text-align: left; }
+  }
+
+  .ticket-row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(2, 120, 255, 0.08);
+    transition: background 0.2s;
+  }
+
+  .ticket-row.has-img {
+    grid-template-columns: 64px 1fr 140px auto;
+  }
+
+  .ticket-preview {
+    width: 140px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .ticket-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .ticket-row:hover .ticket-preview img { opacity: 1; }
+
+  .ticket-slider {
+    padding: 14px 20px 10px;
+    background: rgba(2,120,255,0.03);
+    border-top: 1px solid rgba(2,120,255,0.06);
+    overflow: hidden;
+  }
+
+  .ts-label {
+    font-size: 10px;
+    font-style: italic;
+    color: #FFA53F;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .ts-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.35s ease;
+  }
+
+  .ts-slide {
+    flex-shrink: 0;
+    width: calc(50% - 6px);
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .ts-slide span {
+    display: block;
+    font-size: 10px;
+    color: #3a5a8a;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+  }
+
+  .ts-nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .ts-nav button {
+    background: transparent;
+    border: 1px solid rgba(2,120,255,0.25);
+    color: #0278FF;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ts-nav button:hover { background: rgba(2,120,255,0.1); }
+
+
+  .ts-slide a {
+    display: block;
+    width: 100%;
+  }
+
+  .ts-slide a img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
+
+
+  .ts-type {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFA53F;
+    font-weight: 700;
+    margin-top: 8px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .ts-name {
+    font-size: 13px;
+    color: #c8d8f0;
+    font-weight: 600;
+    font-family: 'Syne', sans-serif;
+    margin-top: 2px;
+  }
+
+  .ts-note {
+    font-size: 10px;
+    color: #2d4a7a;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* BACKGROUNDS */
+
+
+
+
+  .bg-hero {
+    background-color: #04050f;
+  }
+
+
+
+  .bg-spiral {
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+  }
+
+  /* ===== SECTION WRAPPERS FULL WIDTH ===== */
+  .section-wrap { width: 100%; }
+  .section-wrap.alt { background: rgba(2, 120, 255, 0.04); }
+
+  /* BACKGROUNDS 30% visibles */
+  .section-wrap.bg-hero {
+    position: relative;
+    background-color: #0a1033;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .section-wrap.bg-hero .container { width: 100%; }
+  /* couche image : le morpho, fondu lumineux */
+  .section-wrap.bg-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/morpho-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    z-index: 0;
+  }
+  /* couche teinte indigo + vignette : tout vire au bleu indigo profond */
+  .section-wrap.bg-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 65% 75% at 50% 46%, rgba(20,30,90,0) 0%, rgba(10,16,51,0.45) 55%, rgba(7,10,38,0.9) 100%),
+      linear-gradient(to bottom, rgba(12,18,58,0.55) 0%, rgba(13,20,66,0.25) 38%, rgba(8,12,42,0.7) 100%),
+      linear-gradient(120deg, rgba(40,40,150,0.35) 0%, rgba(20,40,120,0.2) 50%, rgba(15,20,80,0.4) 100%);
+    z-index: 1;
+  }
+  .section-wrap.bg-hero > * { position: relative; z-index: 1; }
+
+  /* (regle accroche dedupliquee) */
+
+  .hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 13px 32px;
+    border: 1px solid #FFA53F;
+    color: #FFA53F;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    transition: all 0.25s;
+    background: rgba(255,165,63,0.08);
+  }
+  .hero-btn:hover { background: rgba(255,165,63,0.2); border-color: #fff; color: #fff; }
+
+  .section-wrap.bg-spiral {
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .section-wrap.bg-spiral::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 5, 15, 0.70);
+    z-index: 0;
+  }
+  .section-wrap.bg-spiral > * { position: relative; z-index: 1; }
+
+  .section-wrap.bg-galaxy {
+    position: relative;
+    background-color: #04050f;
+  }
+  .section-wrap.bg-galaxy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/bg-end.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.10;
+    z-index: 0;
+  }
+  .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
+
+  /* DIFF SECTION */
+  .diff-cols {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  .diff-col { padding: 24px; border: 1px solid rgba(2,120,255,0.15); background: rgba(2,120,255,0.04); }
+  .diff-col-icon { font-size: 18px; color: #0278FF; margin-bottom: 10px; }
+  .diff-col-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; }
+  .diff-col-text { font-size: 14px; color: #8ab0d8; line-height: 1.7; }
+  .diff-plus { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 300; color: #FFA53F; align-self: center; text-align: center; }
+  .diff-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(14px, 2.2vw, 18px);
+    font-weight: 400;
+    color: #e0eaff;
+    line-height: 1.6;
+    text-align: center;
+    padding: 28px 0;
+    border-top: 1px solid rgba(2,120,255,0.12);
+    border-bottom: 1px solid rgba(2,120,255,0.12);
+  }
+  @media (max-width: 600px) {
+    .diff-cols { grid-template-columns: 1fr; }
+    .diff-plus { display: none; }
+  }
+
+
+  .ic { width: 26px; height: 26px; color: #0278FF; margin-bottom: 14px; display: block; }
+  .prob-card .ic { color: #FFA53F; }
+  .diff-card .ic { color: #0278FF; }
+
+
+  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 30px 26px; }
+  .prest-card .ic { width: 24px; height: 24px; color: #0278FF; margin-bottom: 12px; }
+  .prest-cat { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 12px; }
+  .prest-list { list-style: none; padding: 0; margin: 0; }
+  .prest-list li { font-size: 13.5px; color: #8ab0d8; line-height: 1.9; padding-left: 16px; position: relative; }
+  .prest-list li::before { content: '·'; position: absolute; left: 4px; color: #FFA53F; font-weight: 700; }
+  @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
+
+
+  .temo-intro { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 600px; margin: 0 auto 8px; text-align: center; }
+  .temo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .temo-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 30px; position: relative; }
+  .temo-quote { font-size: 16px; line-height: 1.7; color: #d4e2f5; font-style: italic; }
+  .temo-quote::before { content: '\201C'; font-family: 'Syne',sans-serif; font-size: 44px; color: rgba(2,120,255,0.35); line-height: 0; position: absolute; top: 26px; left: 22px; }
+  .temo-card .temo-quote { padding-left: 22px; }
+  .temo-who { margin-top: 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5a82b0; padding-left: 22px; }
+  .temo-full { grid-column: 1 / -1; }
+  @media(max-width:700px){ .temo-grid { grid-template-columns: 1fr; } }
+
+
+  /* TICKETS v2 : barème + galerie */
+  .tk-note { font-size: 13px; color: #5a82b0; text-align: center; max-width: 480px; margin: 10px auto 0; font-style: italic; }
+  .tk-lead { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 560px; margin: 0 auto 8px; text-align: center; }
+  .tk-bareme { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 40px; }
+  .tk-step { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 28px 22px; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+  .tk-step:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .tk-step-num { font-family: 'Syne',sans-serif; font-size: 40px; font-weight: 700; color: #0278FF; line-height: 1; }
+  .tk-step-unit { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-top: 4px; }
+  .tk-step-what { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-top: 18px; line-height: 1.35; }
+  .tk-step-val { font-size: 12px; color: #FFA53F; margin-top: 10px; letter-spacing: 0.04em; }
+  .gallery-label { text-align: center; font-family: 'Syne',sans-serif; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #0278FF; margin: 72px 0 12px; }
+  .gallery-sub { text-align:center; font-size: 13px; color: #5a82b0; margin-bottom: 30px; }
+  /* sites : grandes captures paysage, 2 par ligne */
+  .gal-sites { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+  /* logos : carrés réguliers, 4 par ligne */
+  .gal-logos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 16px; }
+  .g-item { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(2,120,255,0.12); background: #0a1228; display: block; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .g-item:hover img { transform: scale(1.04); }
+  .gal-sites .g-item { aspect-ratio: 16/9; }
+  .gal-logos .g-item { aspect-ratio: 1/1; }
+  .g-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 18px 14px; background: linear-gradient(to top, rgba(4,8,24,0.92), rgba(4,8,24,0)); }
+  .g-type { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6CC5FF; }
+  .g-name { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
+  .gal-logos .g-name { font-size: 13px; }
+  @media(max-width:760px){
+    .gal-sites { grid-template-columns: 1fr; }
+    .gal-logos { grid-template-columns: repeat(2,1fr); }
+  }
+
+  @media(max-width:860px){
+    .tk-bareme { grid-template-columns: repeat(2,1fr); }
+    .g-tall { grid-column: span 6; }
+    .g-wide { grid-column: span 12; }
+    .g-sq { grid-column: span 6; }
+  }
+  @media(max-width:480px){
+    .tk-bareme { grid-template-columns: 1fr; }
+    .g-tall, .g-wide, .g-sq { grid-column: span 12; }
+  }
+
+
+  /* ESSENCE : liste éditoriale verticale */
+  .essence-list { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-direction: column; gap: 0; }
+  .essence-item { display: flex; align-items: flex-start; gap: 28px; padding: 32px 0; border-bottom: 1px solid rgba(2,120,255,0.1); }
+  .essence-item:last-child { border-bottom: none; }
+  .essence-num { font-family: 'Syne',sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #0278FF; text-transform: uppercase; min-width: 20px; padding-top: 4px; }
+  .essence-title { font-family: 'Syne',sans-serif; font-size: 20px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; line-height: 1.2; }
+  .essence-body { font-size: 15px; color: #8ab0d8; line-height: 1.7; max-width: 620px; }
+  .essence-body strong { color: #c8d8f0; font-weight: 500; }
+
+
+  /* LE MODÈLE : incubateur unique + valeur */
+  .modele-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 620px; margin: 0 auto 44px; text-align: center; }
+  .modele-lead strong { color: #fff; font-weight: 600; }
+  .value-box { border: 1px solid rgba(255,165,63,0.3); border-radius: 16px; padding: 0; overflow: hidden; max-width: 760px; margin: 0 auto; }
+  .value-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .value-side { padding: 38px 34px; }
+  .value-side.ours { background: rgba(2,120,255,0.06); border-right: 1px solid rgba(2,120,255,0.15); }
+  .value-side.market { background: rgba(255,255,255,0.015); }
+  .value-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-bottom: 14px; }
+  .value-side.market .value-tag { color: #6a6a7a; }
+  .value-price { font-family: 'Syne',sans-serif; font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+  .value-side.ours .value-price { color: #0278FF; }
+  .value-side.market .value-price { color: #8a8a98; }
+  .value-unit { font-size: 14px; font-weight: 400; }
+  .value-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; margin-top: 14px; }
+  .value-side.market .value-desc { color: #6a6a7a; }
+  .value-foot { text-align: center; font-size: 15px; color: #c8d8f0; line-height: 1.7; margin-top: 28px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .value-foot strong { color: #FFA53F; font-weight: 600; }
+  @media(max-width:600px){ .value-row { grid-template-columns: 1fr; } .value-side.ours { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.15); } }
+
+
+  .cta-mid { text-align: center; padding: 80px 0 72px; }
+  .cta-mid-text { font-family: 'Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #e8f1ff; line-height: 1.3; margin-bottom: 24px; }
+  .cta-mid-btn { display: inline-block; padding: 14px 40px; background: transparent; color: #FFA53F; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 500; border: 1px solid #FFA53F; letter-spacing: 0.04em; transition: transform 0.2s, background 0.2s; }
+  .cta-mid-btn:hover { transform: translateY(-2px); background: rgba(255,165,63,0.08); }
+
+
+  /* Partie blanche des titres split : plus petite */
+  .s-title .white-sm {
+    font-size: 0.62em;
+    color: #c8d8f0;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  /* V4 extras */
+  .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
+  .prob-word { font-family: 'Syne',sans-serif; font-size: 22px; font-weight: 700; color: #FFA53F; margin-bottom: 10px; }
+  .prob-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .diff-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 26px; }
+  .diff-name { font-family: 'Syne',sans-serif; font-size: 16px; font-weight: 600; color: #e0eaff; margin-bottom: 8px; }
+  .diff-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .concept-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .cstat { text-align: center; padding: 38px 28px; border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; transition: border-color 0.25s, transform 0.25s; }
+  .cstat:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .cstat-accent { font-family: 'Syne',sans-serif; font-size: 24px; font-weight: 700; color: #0278FF; line-height: 1.15; margin-bottom: 16px; }
+  .cstat-name { font-family: 'Syne',sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #e0eaff; margin-bottom: 12px; }
+  .cstat-label { font-size: 14px; color: #8ab0d8; line-height: 1.65; }
+  .concept-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 640px; margin: 0 auto; text-align: center; }
+  @media(max-width:700px){
+    .prob-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .concept-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-links left">
+      <a href="#cest-quoi">Le concept</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#prix">Tarifs</a>
+    </div>
+    <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/><span class="nav-wordmark">LA TRIBU MORPHO</span></a>
+    <div class="nav-links right">
+      <a href="#faq">FAQ</a>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="nav-cta">Réserver un appel</a>
+    </div>
+  </div>
+</nav>
+<span id="top"></span>
+<div class="line"></div>
+
+<!-- ==================== HERO ==================== -->
+<div class="section-wrap bg-hero">
+  <div class="container">
+    <div class="accroche fade-in">
+      <p class="accroche-main">Tu n'es pas obligé de marcher seul sur ton chemin.</p>
+      <p class="accroche-sub">Que tu sois artiste, accompagnant, entrepreneur, ou simplement porteur d'un projet qui te tient à cœur, la solitude est l'un des plus grands obstacles de ceux qui veulent créer. La Tribu Morpho est l'endroit où tu avances entouré.</p>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LA MISSION ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Ce qui te tient à cœur</div>
+      <h2 class="s-title">Il y a quelque chose en toi qui demande à exister.</h2>
+      <p class="concept-lead">Une mission, peut-être pas encore tout à fait claire, peut-être que tu la marches depuis longtemps. L'envie de faire des choses qui te ressemblent, qui font du bien au monde, et qui te permettent de vivre confortablement.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PROBLÈME ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Le constat</div>
+      <h2 class="s-title">Sur ce chemin, parfois, tu te sens perdu.</h2>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+          <div class="prob-word">Seul</div>
+          <div class="prob-desc">Ton entourage ne comprend pas toujours ce chemin. Il est difficile de trouver des gens qui saisissent à la fois qui tu es et ce que tu cherches à construire.</div>
+        </div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+          <div class="prob-word">Dispersé</div>
+          <div class="prob-desc">Tu as une vraie expertise dans ton métier, mais entreprendre demande tellement plus que le métier. Et personne ne t'a appris tout le reste.</div>
+        </div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>
+          <div class="prob-word">Sous pression</div>
+          <div class="prob-desc">La légitimité, la comparaison, la peur de t'exposer, la pression financière, trouver ta façon juste de communiquer. Tout cela remue beaucoup, souvent en silence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="cest-quoi" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== CE QUE C'EST ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Ce que tu as sûrement déjà essayé</div>
+      <h2 class="s-title">Chaque option règle une partie du problème, et en laisse d'autres de côté.</h2>
+      <p class="concept-lead">Tu as peut-être déjà cherché de l'aide, d'une manière ou d'une autre. Et tu as senti que rien ne prenait soin de l'ensemble.</p>
+      <ul class="essence-list" style="text-align:left;">
+        <li class="essence-item">
+          <span class="essence-num">01</span>
+          <div>
+            <div class="essence-title">En parler autour de toi</div>
+            <p class="essence-body">Mais peu de gens comprennent vraiment ce chemin. Ceux qui t'aiment ne sont pas toujours ceux qui peuvent t'éclairer sur ce que tu traverses.</p>
+          </div>
+        </li>
+        <li class="essence-item">
+          <span class="essence-num">02</span>
+          <div>
+            <div class="essence-title">Un programme business</div>
+            <p class="essence-body">Souvent cher, en grand groupe, avec peu de relationnel. On t'amène sur la stratégie et les tactiques, rarement sur la compréhension de qui tu es.</p>
+          </div>
+        </li>
+        <li class="essence-item">
+          <span class="essence-num">03</span>
+          <div>
+            <div class="essence-title">Une thérapie, un travail intérieur</div>
+            <p class="essence-body">Cela remue ta vie, tes blocages, tes mémoires. Mais sans que tu sentes que ça fait avancer ton activité, concrètement, dans le monde.</p>
+          </div>
+        </li>
+        <li class="essence-item">
+          <span class="essence-num">04</span>
+          <div>
+            <div class="essence-title">Un designer, un développeur</div>
+            <p class="essence-body">Un budget qui part là, et qui ne va plus dans le reste : le soutien, le groupe, le travail sur toi, la clarté sur ce que tu veux vraiment créer.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="concept-lead" style="margin-top:40px;">Et si tu n'avais pas à choisir entre tout ça ?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CE QUI EST DIFFÉRENT ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ce qui rend ça différent</div>
+      <h2 class="s-title">D'habitude, il faut choisir entre être accompagné et créer. Ici, les deux avancent ensemble.</h2>
+      <div class="diff-cols">
+        <div class="diff-col">
+          <div class="diff-col-icon">◎</div>
+          <div class="diff-col-label">En profondeur</div>
+          <p class="diff-col-text">Vision, alignement, émotions, perception de soi, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
+        </div>
+        <div class="diff-plus">+</div>
+        <div class="diff-col">
+          <div class="diff-col-icon">◈</div>
+          <div class="diff-col-label">Dans la matière</div>
+          <p class="diff-col-text">Stratégie, site, tunnel, identité visuelle, app. Ce qu'on met en place est aligné avec le travail fait en profondeur. Pas un brief. Une émergence.</p>
+        </div>
+      </div>
+      <div class="diff-quote">
+        "Ce qu'on construit ensemble émerge d'un alignement réel.<br>Je ne suis pas un prestataire. On fait des allers-retours constants<br>entre ce que tu es et ce qu'on crée."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PHILOSOPHIE MORPHO ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">L'esprit de la démarche</div>
+      <h2 class="s-title">Revenir à soi, pour se déployer dans sa couleur unique.</h2>
+      <p class="concept-lead">Le cœur de cet accompagnement n'est pas de te plaquer une méthode ni de te projeter une stratégie toute faite. C'est de revenir à qui tu es vraiment, puis de donner forme à cela dans le monde, à ton rythme et dans ta couleur.</p>
+      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes. À travers la méditation, le Human Design et d'autres outils de connaissance de soi, on cherche d'abord ta forme propre. Puis on l'aide à exister.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LA TRIBU MORPHO (réponse) ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
+      <h2 class="s-title" style="text-align:center;">Tout ce que tu allais chercher ailleurs en morceaux, réuni en un seul endroit.</h2>
+      <p class="modele-lead">Tu n'as pas besoin de plus de contenu. Tu as besoin d'un groupe qui t'épaule, de quelqu'un qui t'écoute et qui comprend ce que tu fais, et des moyens concrets de donner forme à tes idées. La Tribu réunit la profondeur et la matière, sous trois aspects qui n'en font qu'un.</p>
+      <ul class="essence-list" style="text-align:left;">
+        <li class="essence-item">
+          <span class="essence-num">01</span>
+          <div>
+            <div class="essence-title">Le groupe, pour revenir à toi</div>
+            <p class="essence-body">Un rendez-vous hebdomadaire pour sortir de l'agitation du quotidien, déposer ce que tu portes, et te retrouver. C'est un rendez-vous avec toi-même, vécu en groupe. On commence souvent par une méditation, parce que tout part de la présence.</p>
+          </div>
+        </li>
+        <li class="essence-item">
+          <span class="essence-num">02</span>
+          <div>
+            <div class="essence-title">L'accompagnement, pour aller en profondeur</div>
+            <p class="essence-body">Un temps individuel pour mieux comprendre qui tu es et t'aligner, avec des outils de connaissance de soi comme le Human Design. On y libère les blocages et les croyances qui freinent, et on structure tes offres, ta communication, ton déploiement.</p>
+          </div>
+        </li>
+        <li class="essence-item">
+          <span class="essence-num">03</span>
+          <div>
+            <div class="essence-title">La matière, pour donner forme</div>
+            <p class="essence-body">Tout ce que tu imagines peut prendre forme concrètement : un logo, un univers graphique, un site web, des supports, une application. Ce qui restait une idée devient réel, et te ressemble.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PILIERS ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Les piliers</div>
+      <h2 class="s-title">Les quatre dimensions sur lesquelles on avance ensemble.</h2>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Activité & création</div><div class="pillar-sub">Offre, positionnement, projet artistique, souveraineté financière</div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Corps & vitalité</div><div class="pillar-sub">Énergie, mouvement, présence physique</div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Relations</div><div class="pillar-sub">Souveraineté relationnelle, liens, espace personnel</div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Déploiement</div><div class="pillar-sub">Sortir ce que tu as à offrir. Le mettre dans le monde.</div></div>
+        <div class="pillar gold" style="grid-column:1/-1;"><div class="pillar-num">+</div><div class="pillar-name">Accompagnement individuel</div><div class="pillar-sub">Via les tickets — tech, design, Human Design, coaching, stratégie</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prix" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== NIVEAUX ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">La structure</div>
+      <h2 class="s-title">Trois façons d'entrer, selon ce dont tu as besoin aujourd'hui.</h2>
+      <div class="pricing-wrap">
+        <div class="p-card">
+          <div class="p-level">Niveau I</div>
+          <div class="p-name">Essentiel</div>
+          <div class="p-price"><sup>€</sup>49<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">&nbsp;</div>
+          <ul class="p-feats">
+            <li>Rendez-vous collectif hebdo</li>
+            <li>Méditation + partage</li>
+            <li>Communauté privée</li>
+          </ul>
+          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+        <div class="p-card hot">
+          <div class="p-level">Niveau II</div>
+          <div class="p-name">Ancrage</div>
+          <div class="p-price"><sup>€</sup>139<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau I</li>
+            <li>1 ticket/mois qui s'accumule</li>
+            <li>Tech, design, Human Design, coaching</li>
+          </ul>
+          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
+        </div>
+        <div class="p-card">
+          <div class="p-level">Niveau III</div>
+          <div class="p-name">Rayonnement</div>
+          <div class="p-price"><sup>€</sup>297<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau II</li>
+            <li>3 tickets/mois cumulables</li>
+            <li>Accès prioritaire</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+      </div>
+      <div class="bonus-banner">
+        <div class="bonus-icon">◆</div>
+        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi en rejoignant.</div>
+      </div>
+      <div class="unit-ticket">
+        <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
+        <div class="unit-price">120 €</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== EVENTAIL PRESTATIONS ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Le champ des possibles</div>
+      <h2 class="s-title">Un seul interlocuteur pour tout ce que ton projet demande.</h2>
+      <div class="prest-grid">
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg>
+          <div class="prest-cat">Accompagnement &amp; clarté</div>
+          <ul class="prest-list">
+            <li>Coaching &amp; mentorat</li>
+            <li>Lecture Human Design</li>
+            <li>Stratégie &amp; positionnement</li>
+            <li>Déblocage &amp; prise de recul</li>
+            <li>Clarté sur ton offre</li>
+          </ul>
+        </div>
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16a5 5 0 005-5c0-3.9-4-7.6-9-7.6z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16.5" cy="11.5" r="1"/></svg>
+          <div class="prest-cat">Création &amp; design</div>
+          <ul class="prest-list">
+            <li>Identité visuelle</li>
+            <li>Logo &amp; direction artistique</li>
+            <li>Univers de marque</li>
+            <li>Supports visuels</li>
+          </ul>
+        </div>
+        <div class="prest-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg>
+          <div class="prest-cat">Web &amp; tech</div>
+          <ul class="prest-list">
+            <li>Landing page</li>
+            <li>Site complet</li>
+            <li>Application mobile</li>
+            <li>Tunnel de vente</li>
+            <li>Mise en ligne &amp; technique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TICKETS ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
+      <h2 class="s-title" style="text-align:center;">Une heure avec moi, c'est un ticket. Voici ce qu'on peut en faire.</h2>
+      <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
+      <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
+      <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
+
+      <div class="tk-bareme">
+        <div class="tk-step">
+          <div class="tk-step-num">1</div>
+          <div class="tk-step-unit">ticket</div>
+          <div class="tk-step-what">Une session de clarté</div>
+          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">5</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Ton identité visuelle</div>
+          <div class="tk-step-val">Logo, palette, direction de marque</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">10</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Une landing ou un tunnel</div>
+          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">20</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Un site complet ou une app</div>
+          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
+        </div>
+      </div>
+
+      <div class="gallery-label">Ce que ça donne, en vrai</div>
+      <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
+      <div class="gal-sites">
+        <a href="https://archipelkyosei.com" target="_blank" class="g-item">
+          <img src="images/kyosei-web.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
+        </a>
+        <div class="g-item">
+          <img src="images/silent-lake.jpg" alt="Silent Lake II"/>
+          <div class="g-cap"><div class="g-type">Site événement</div><div class="g-name">Silent Lake II</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/desert-mirage.jpg" alt="Desert Mirage Journey"/>
+          <div class="g-cap"><div class="g-type">Site résidence</div><div class="g-name">Desert Mirage Journey</div></div>
+        </div>
+        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item">
+          <img src="images/souffle-web.jpg" alt="Souffle en Corps"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
+        </a>
+      </div>
+      <div class="gal-logos">
+        <div class="g-item">
+          <img src="images/main-hopi.png" alt="La Main Hopi"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">La Main Hopi</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/saonessence.webp" alt="Saônessence"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Saônessence</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/smoos.jpg" alt="Smoos"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Smoos</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Kyosei</div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CTA INTERMÉDIAIRE ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="cta-mid fade-in">
+      <div class="cta-mid-text">Tu as envie de donner forme à ce que tu portes, sans perdre ton alignement ?</div>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="cta-mid-btn">Réserver un appel</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== QUI JE SUIS ==================== -->
+<div class="section-wrap bg-spiral">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Qui je suis</div>
+      <div class="bio-header">
+        <div class="bio-block">
+          <h2 class="s-title">Anys Mechkar</h2>
+          <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis revenu à la simplicité, en laissant de côté ce qui était trop perché.</p>
+          <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle ce qui ne va d'habitude jamais ensemble : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
+          <p class="bio-text" style="margin-top:14px;">Cet accompagnement s'adresse à ceux qui ont une certaine sensibilité, une forme de spiritualité, et en même temps l'envie d'avancer concrètement dans leur activité et leur vie. La Tribu Morpho est l'espace que j'aurais voulu avoir. Je suis heureux de le construire avec vous.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="faq" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== FAQ ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Questions</div>
+      <h2 class="s-title">Ce que tu te demandes sûrement.</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">C'est quoi exactement un ticket ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">1 ticket = 1h avec moi. Tu peux l'utiliser pour du coaching, du Human Design, de la stratégie, du design ou du développement. Tu choisis selon ce dont t'as besoin au moment où t'en as besoin.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Les tickets se perdent si je ne les utilise pas ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Non. Ils s'accumulent d'un mois sur l'autre sans limite. C'est ça la puissance du système — plus tu restes, plus tu construis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Le rendez-vous hebdo c'est quoi concrètement ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Une heure ensemble chaque semaine. On commence par une méditation guidée, puis on ouvre l'espace aux partages — ce sur quoi tu travailles, ce qui te questionne, ce qui avance. C'est un moment pour prendre du recul, être vu, et avancer entouré.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Je peux rejoindre juste pour la communauté sans tickets ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Oui, c'est le niveau Essentiel à 49€/mois. Accès au rendez-vous hebdo et à la communauté privée. Tu peux passer au niveau supérieur ou acheter des tickets à l'unité à tout moment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">C'est pour quel type de projet ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Artiste, entrepreneur, accompagnant, créateur, multipotentiel. Ce qui compte, c'est l'intention de construire quelque chose qui te ressemble vraiment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<div class="section-wrap bg-galaxy">
+  <div class="container">
+    <div class="cta fade-in">
+      <p class="cta-intro" style="font-size:16px;color:#9ab8db;line-height:1.7;max-width:520px;margin:0 auto 24px;">Si quelque chose en toi a reconnu ce dont on parle ici, c'est sûrement que ce n'est pas un hasard.</p>
+      <h2>Ça t'appelle ?<br><em>On en parle.</em></h2>
+      <p class="cta-sub">La Tribu se construit en petit cercle. Quelques places à la fois.</p>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
+      <p class="cta-note">30 minutes pour voir si c'est le bon moment pour toi.</p>
+    </div>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<div class="container">
+  <footer style="display:flex;align-items:center;gap:12px;">
+    <img src="images/morpho-mark.svg" alt="Morpho" style="width:26px;height:26px;object-fit:contain;opacity:0.7;"/>
+    <div class="footer-txt">Créé avec <span style="color:#e05050;">♥</span> par <span style="color:#e0eaff;font-weight:500;">Anys Mechkar</span></div>
+  </footer>
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  const tsState = {};
+  function slideTs(id, dir) {
+    const track = document.getElementById(id);
+    if (!track) return;
+    const slides = track.querySelectorAll('.ts-slide');
+    const half = slides.length / 2;
+    if (!tsState[id]) tsState[id] = 0;
+    tsState[id] += dir;
+    const slideW = slides[0].offsetWidth + 12;
+    if (tsState[id] >= half) {
+      track.style.transition = 'none';
+      tsState[id] = 0;
+      track.style.transform = 'translateX(0px)';
+      requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
+      return;
+    }
+    if (tsState[id] < 0) {
+      track.style.transition = 'none';
+      tsState[id] = half - 1;
+      track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+      requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
+      return;
+    }
+    track.style.transition = 'transform 0.35s ease';
+    track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+  }
+
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
