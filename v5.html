@@ -1197,6 +1197,12 @@
   .worth-foot strong { color: #FFA53F; font-weight: 600; }
   @media(max-width:600px){ .worth-cols { grid-template-columns: 1fr; } .worth-c.ours { border-right: none; border-bottom: 1px solid rgba(255,165,63,0.18); } }
 
+
+  /* Mises en valeur inline */
+  .hl { color: #FFA53F; font-weight: 500; }
+  .em { font-style: italic; color: #c8d8f0; }
+  .hlb { color: #6CC5FF; font-weight: 500; }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
@@ -1245,7 +1251,7 @@
   <div class="container">
     <div class="accroche fade-in">
       <p class="accroche-main">Tu n'es pas obligé de marcher seul sur ton chemin.</p>
-      <p class="accroche-sub">Que tu sois artiste, accompagnant, entrepreneur, ou simplement porteur d'un projet qui te tient à cœur, la solitude est l'un des plus grands obstacles de ceux qui veulent créer. La Tribu Morpho est l'endroit où tu avances entouré.</p>
+      <p class="accroche-sub">Que tu sois artiste, accompagnant, entrepreneur, ou simplement porteur d'un projet qui te tient à cœur, <span class="hl">la solitude est l'un des plus grands obstacles</span> de ceux qui veulent créer. La Tribu Morpho est l'endroit où tu avances <em class="em">entouré</em>.</p>
       <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
     </div>
   </div>
@@ -1256,8 +1262,8 @@
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">Ce qui te tient à cœur</div>
-      <h2 class="s-title">Il y a quelque chose en toi qui demande à exister.</h2>
-      <p class="concept-lead">Une mission, peut-être pas encore tout à fait claire, peut-être que tu la marches depuis longtemps. L'envie de faire des choses qui te ressemblent, qui font du bien au monde, et qui te permettent de vivre confortablement.</p>
+      <h2 class="s-title">Il y a quelque chose en toi qui <span style="color:#FFA53F;">demande à exister.</span></h2>
+      <p class="concept-lead">Une mission, <em class="em">peut-être pas encore tout à fait claire</em>, peut-être que tu la marches depuis longtemps. L'envie de faire des choses <span class="hl">qui te ressemblent</span>, qui font du bien au monde, et qui te permettent de vivre confortablement.</p>
     </div>
   </div>
 </div>
@@ -1267,22 +1273,22 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Le constat</div>
-      <h2 class="s-title">Sur ce chemin, parfois, tu te sens perdu.</h2>
+      <h2 class="s-title">Sur ce chemin, parfois, <span style="color:#FFA53F;">tu te sens perdu.</span></h2>
       <div class="prob-grid">
         <div class="prob-card">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
           <div class="prob-word">Seul</div>
-          <div class="prob-desc">Ton entourage ne comprend pas toujours ce chemin. Il est difficile de trouver des gens qui saisissent à la fois qui tu es et ce que tu cherches à construire.</div>
+          <div class="prob-desc">Ton entourage <span class="hl">ne comprend pas toujours ce chemin</span>. Il est difficile de trouver des gens qui saisissent à la fois qui tu es et ce que tu cherches à construire.</div>
         </div>
         <div class="prob-card">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
           <div class="prob-word">Dispersé</div>
-          <div class="prob-desc">Tu as une vraie expertise dans ton métier, mais entreprendre demande tellement plus que le métier. Et personne ne t'a appris tout le reste.</div>
+          <div class="prob-desc">Tu as une vraie expertise dans ton métier, mais <span class="hl">entreprendre demande tellement plus que le métier</span>. Et personne ne t'a appris tout le reste.</div>
         </div>
         <div class="prob-card">
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>
           <div class="prob-word">Sous pression</div>
-          <div class="prob-desc">La légitimité, la comparaison, la peur de t'exposer, la pression financière, trouver ta façon juste de communiquer. Tout cela remue beaucoup, souvent en silence.</div>
+          <div class="prob-desc">La légitimité, la comparaison, la peur de t'exposer, la pression financière. Tout cela <span class="hl">remue beaucoup, souvent en silence</span>.</div>
         </div>
       </div>
     </div>
@@ -1295,8 +1301,8 @@
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">Ce que tu as sûrement déjà essayé</div>
-      <h2 class="s-title">Chaque option règle une partie du problème, et en laisse d'autres de côté.</h2>
-      <p class="concept-lead">Tu as peut-être déjà cherché de l'aide, d'une manière ou d'une autre. Et tu as senti que rien ne prenait soin de l'ensemble.</p>
+      <h2 class="s-title">Chaque option règle une partie du problème, <span style="color:#FFA53F;">et en laisse d'autres de côté.</span></h2>
+      <p class="concept-lead">Tu as peut-être déjà cherché de l'aide, d'une manière ou d'une autre. Et tu as senti que <em class="em">rien ne prenait soin de l'ensemble</em>.</p>
       <div class="sol-grid">
         <div class="sol-card">
           <div class="sol-head">
@@ -1341,7 +1347,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Ce qui rend ça différent</div>
-      <h2 class="s-title">D'habitude, il faut choisir entre être accompagné et créer. Ici, les deux avancent ensemble.</h2>
+      <h2 class="s-title">D'habitude, il faut choisir entre être accompagné et créer. <span style="color:#FFA53F;">Ici, les deux avancent ensemble.</span></h2>
       <div class="diff-cols">
         <div class="diff-col">
           <div class="diff-col-icon">◎</div>
@@ -1367,9 +1373,9 @@
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">L'esprit de la démarche</div>
-      <h2 class="s-title">Revenir à soi, pour se déployer dans sa couleur unique.</h2>
-      <p class="concept-lead">Le cœur de cet accompagnement n'est pas de te plaquer une méthode ni de te projeter une stratégie toute faite. C'est de revenir à qui tu es vraiment, puis de donner forme à cela dans le monde, à ton rythme et dans ta couleur.</p>
-      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes. À travers la méditation, le Human Design et d'autres outils de connaissance de soi, on cherche d'abord ta forme propre. Puis on l'aide à exister.</p>
+      <h2 class="s-title">Revenir à soi, pour se déployer <span style="color:#FFA53F;">dans sa couleur unique.</span></h2>
+      <p class="concept-lead">Le cœur de cet accompagnement n'est pas de te plaquer une méthode ni de te projeter une stratégie toute faite. C'est de <span class="hl">revenir à qui tu es vraiment</span>, puis de donner forme à cela dans le monde, <em class="em">à ton rythme et dans ta couleur</em>.</p>
+      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. <em class="em">Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes.</em> À travers la méditation, le Human Design et d'autres outils de connaissance de soi, on cherche d'abord ta forme propre. Puis on <span class="hl">l'aide à exister</span>.</p>
     </div>
   </div>
 </div>
@@ -1379,7 +1385,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
-      <h2 class="s-title" style="text-align:center;">Tout ce que tu allais chercher ailleurs en morceaux, réuni en un seul endroit.</h2>
+      <h2 class="s-title" style="text-align:center;">Tout ce que tu allais chercher ailleurs en morceaux, <span style="color:#FFA53F;">réuni en un seul endroit.</span></h2>
       <p class="modele-lead">Tu n'as pas besoin de plus de contenu. Tu as besoin d'un groupe qui t'épaule, de quelqu'un qui t'écoute et qui comprend ce que tu fais, et des moyens concrets de donner forme à tes idées. La Tribu réunit la profondeur et la matière, sous trois aspects qui n'en font qu'un.</p>
       <div class="aspect-stack">
         <div class="aspect-card">
@@ -1387,7 +1393,7 @@
           <div>
             <div class="aspect-kicker">Le collectif</div>
             <div class="aspect-title">Le groupe, pour revenir à toi</div>
-            <p class="aspect-body">Un rendez-vous hebdomadaire pour sortir de l'agitation du quotidien, déposer ce que tu portes, et te retrouver. C'est un rendez-vous avec toi-même, mais vécu en groupe. On commence souvent par une méditation, parce que tout part de la présence.</p>
+            <p class="aspect-body">Un rendez-vous hebdomadaire pour sortir de l'agitation du quotidien, déposer ce que tu portes, et te retrouver. C'est un <span class="hl">rendez-vous avec toi-même, mais vécu en groupe</span>. On commence souvent par une méditation, parce que <em class="em">tout part de la présence</em>.</p>
           </div>
         </div>
         <div class="aspect-card">
@@ -1395,7 +1401,7 @@
           <div>
             <div class="aspect-kicker">L'individuel</div>
             <div class="aspect-title">L'accompagnement, pour aller en profondeur</div>
-            <p class="aspect-body">Un temps rien qu'à toi pour mieux comprendre qui tu es et t'aligner, avec des outils de connaissance de soi comme le Human Design. On y libère les blocages et les croyances qui freinent, et on structure tes offres, ta communication, ton déploiement.</p>
+            <p class="aspect-body">Un temps rien qu'à toi pour <span class="hl">mieux comprendre qui tu es et t'aligner</span>, avec des outils de connaissance de soi comme le Human Design. On y libère les blocages et les croyances qui freinent, et on structure tes offres, ta communication, ton déploiement.</p>
           </div>
         </div>
         <div class="aspect-card">
@@ -1403,7 +1409,7 @@
           <div>
             <div class="aspect-kicker">Le concret</div>
             <div class="aspect-title">La matière, pour donner forme</div>
-            <p class="aspect-body">Tout ce que tu imagines peut prendre forme : un logo, un univers graphique, un site web, des supports, une application. Ce qui restait une idée dans ta tête devient réel, et te ressemble.</p>
+            <p class="aspect-body">Tout ce que tu imagines peut prendre forme : un logo, un univers graphique, un site web, des supports, une application. <span class="hl">Ce qui restait une idée dans ta tête devient réel</span>, et te ressemble.</p>
           </div>
         </div>
       </div>
@@ -1416,7 +1422,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Les piliers</div>
-      <h2 class="s-title">Les quatre dimensions sur lesquelles on avance ensemble.</h2>
+      <h2 class="s-title">Les quatre dimensions <span style="color:#FFA53F;">sur lesquelles on avance ensemble.</span></h2>
       <div class="pillars">
         <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Activité & création</div><div class="pillar-sub">Offre, positionnement, projet artistique, souveraineté financière</div></div>
         <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Corps & vitalité</div><div class="pillar-sub">Énergie, mouvement, présence physique</div></div>
@@ -1434,7 +1440,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">La structure</div>
-      <h2 class="s-title">Trois façons d'entrer, selon ce dont tu as besoin aujourd'hui.</h2>
+      <h2 class="s-title">Trois façons d'entrer, <span style="color:#FFA53F;">selon ce dont tu as besoin</span> aujourd'hui.</h2>
       <div class="pricing-wrap">
         <div class="p-card">
           <div class="p-level">Niveau I</div>
@@ -1513,7 +1519,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Le champ des possibles</div>
-      <h2 class="s-title">Trois territoires, une seule personne qui les relie.</h2>
+      <h2 class="s-title">Trois territoires, <span style="color:#FFA53F;">une seule personne qui les relie.</span></h2>
       <p class="concept-lead">La force de cet accompagnement, c'est de ne pas séparer ce qui se vit ensemble. Voici les trois grands domaines sur lesquels je peux t'accompagner, et ce qu'ils permettent vraiment.</p>
       <div class="approach-list">
         <div class="approach-row">
@@ -1547,7 +1553,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
-      <h2 class="s-title" style="text-align:center;">Une heure avec moi, c'est un ticket. Voici ce qu'on peut en faire.</h2>
+      <h2 class="s-title" style="text-align:center;">Une heure avec moi, c'est un ticket. <span style="color:#FFA53F;">Voici ce qu'on peut en faire.</span></h2>
       <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
       <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
       <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
@@ -1640,8 +1646,8 @@
       <div class="bio-header">
         <div class="bio-block">
           <h2 class="s-title">Anys Mechkar</h2>
-          <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis revenu à la simplicité, en laissant de côté ce qui était trop perché.</p>
-          <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle ce qui ne va d'habitude jamais ensemble : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
+          <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
+          <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
           <p class="bio-text" style="margin-top:14px;">Cet accompagnement s'adresse à ceux qui ont une certaine sensibilité, une forme de spiritualité, et en même temps l'envie d'avancer concrètement dans leur activité et leur vie. La Tribu Morpho est l'espace que j'aurais voulu avoir. Je suis heureux de le construire avec vous.</p>
         </div>
       </div>
