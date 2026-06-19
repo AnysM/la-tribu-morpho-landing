@@ -985,10 +985,10 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/bg-end.jpg');
+    background-image: url('images/milkyway.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.10;
+    opacity: 0.55;
     z-index: 0;
   }
   .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
@@ -1240,6 +1240,35 @@
   .tool-desc { font-size: 14px; color: #9ab8db; line-height: 1.65; }
   @media(max-width:760px){ .tools-grid { grid-template-columns: 1fr; } }
 
+
+  /* Fonds section v5 - nouvelles images */
+  .bg-hero::after { background-image: url('images/wing-teal.jpg') !important; }
+
+  .bg-philo { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-philo::after { content:''; position:absolute; inset:0; background-image:url('images/wing-purple.jpg'); background-size:cover; background-position:center; opacity:0.28; mix-blend-mode:screen; z-index:0; }
+  .bg-philo::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 65% 70% at 50% 50%, rgba(10,16,51,0.25) 0%, rgba(4,5,15,0.8) 75%, rgba(4,5,15,0.96) 100%); z-index:1; }
+  .bg-philo > * { position:relative; z-index:2; }
+
+  .bg-tools { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tools::after { content:''; position:absolute; inset:0; background-image:url('images/wing-blue.jpg'); background-size:cover; background-position:center; opacity:0.18; mix-blend-mode:screen; z-index:0; }
+  .bg-tools::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.7); z-index:1; }
+  .bg-tools > * { position:relative; z-index:2; }
+
+  .bg-tribu { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tribu::after { content:''; position:absolute; inset:0; background-image:url('images/feathers-dark.jpg'); background-size:cover; background-position:center top; opacity:0.22; z-index:0; }
+  .bg-tribu::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(4,5,15,0.5) 0%, rgba(4,5,15,0.3) 50%, rgba(4,5,15,0.7) 100%); z-index:1; }
+  .bg-tribu > * { position:relative; z-index:2; }
+
+  .bg-bio { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-bio::after { content:''; position:absolute; inset:0; background-image:url('images/leaves-night.jpg'); background-size:cover; background-position:center; opacity:0.35; z-index:0; }
+  .bg-bio::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.62); z-index:1; }
+  .bg-bio > * { position:relative; z-index:2; }
+
+  .bg-diff { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-diff::after { content:''; position:absolute; inset:0; background-image:url('images/fluid-dark.jpg'); background-size:cover; background-position:center; opacity:0.30; z-index:0; }
+  .bg-diff::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.65); z-index:1; }
+  .bg-diff > * { position:relative; z-index:2; }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 32px 26px; }
@@ -1287,7 +1316,7 @@
 <div class="section-wrap bg-hero">
   <div class="container">
     <div class="accroche fade-in">
-      <p class="accroche-main">Tu n'es pas obligé de marcher <span style="color:#FFA53F;">seul</span> sur ton chemin.</p>
+      <p class="accroche-main">Construis ce que tu portes vraiment, <span style="color:#FFA53F;">entouré et outillé pour aller jusqu'au bout.</span></p>
       <p class="accroche-sub">Que tu sois artiste, accompagnant, entrepreneur, ou simplement porteur d'un projet qui te tient à cœur, <span class="hl">la solitude est l'un des plus grands obstacles</span> de ceux qui veulent créer. La Tribu Morpho est l'endroit où tu avances <em class="em">entouré</em>.</p>
       <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
     </div>
@@ -1380,7 +1409,7 @@
 </div>
 
 <!-- ==================== CE QUI EST DIFFÉRENT ==================== -->
-<div class="section-wrap bg-spiral">
+<div class="section-wrap bg-diff">
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Ce qui rend ça différent</div>
@@ -1406,7 +1435,7 @@
 </div>
 
 <!-- ==================== PHILOSOPHIE MORPHO ==================== -->
-<div class="section-wrap bg-morpho">
+<div class="section-wrap bg-philo">
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">L'esprit de la démarche</div>
@@ -1418,7 +1447,7 @@
 </div>
 
 <!-- ==================== OUTILS / PRATIQUES ==================== -->
-<div class="section-wrap alt">
+<div class="section-wrap bg-tools">
   <div class="container">
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">Mes outils, mes pratiques</div>
@@ -1461,7 +1490,7 @@
 </div>
 
 <!-- ==================== LA TRIBU MORPHO (réponse) ==================== -->
-<div class="section-wrap alt">
+<div class="section-wrap bg-tribu">
   <div class="container">
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
@@ -1719,16 +1748,21 @@
 </div>
 
 <!-- ==================== QUI JE SUIS ==================== -->
-<div class="section-wrap bg-spiral">
+<div class="section-wrap bg-bio">
   <div class="container">
     <div class="section fade-in">
       <div class="s-label">Qui je suis</div>
       <div class="bio-header">
         <div class="bio-block">
+          <div style="display:flex; align-items:flex-start; gap:36px; flex-wrap:wrap;">
+            <img src="images/anys-photo.png" alt="Anys Mechkar" style="width:160px; height:160px; object-fit:cover; border-radius:50%; border:2px solid rgba(2,120,255,0.3); flex-shrink:0;"/>
+            <div style="flex:1; min-width:240px;">
           <h2 class="s-title">Anys Mechkar</h2>
           <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
           <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
           <p class="bio-text" style="margin-top:14px;">Cet accompagnement s'adresse à ceux qui ont une certaine sensibilité, une forme de spiritualité, et en même temps l'envie d'avancer concrètement dans leur activité et leur vie. La Tribu Morpho est l'espace que j'aurais voulu avoir. Je suis heureux de le construire avec vous.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
