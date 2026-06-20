@@ -1323,6 +1323,14 @@
   @media(max-width:760px){ .process-flow { grid-template-columns: 1fr 1fr; gap: 40px 0; } .process-step:nth-child(2)::after { display: none; } }
   @media(max-width:480px){ .process-flow { grid-template-columns: 1fr; gap: 32px; } .process-step::after { display: none !important; } }
 
+
+  .values-inline { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
+  .value-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 14px; font-weight: 500; color: #FFA53F; border: 1px solid rgba(255,165,63,0.3); border-radius: 100px; padding: 10px 22px; background: rgba(255,165,63,0.04); }
+  .ticket-domains { text-align: center; margin: 8px 0 40px; }
+  .td-label { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #5a82b0; margin-bottom: 18px; }
+  .td-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .td-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; color: #c8d8f0; border: 1px solid rgba(2,120,255,0.25); border-radius: 100px; padding: 8px 18px; background: rgba(2,120,255,0.04); }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1404,52 +1412,6 @@
   </div>
 </div>
 
-<!-- ==================== CE QUE C'EST ==================== -->
-<div class="section-wrap alt">
-  <div class="container">
-    <div class="section fade-in" style="text-align:center;">
-      <div class="s-label">Ce que tu as déjà essayé</div>
-      <h2 class="s-title">Aucune solution, seule, <span style="color:#FFA53F;">ne suffit.</span></h2>
-      <p class="concept-lead">Tu as sûrement déjà essayé. Et senti que <em class="em">rien ne prenait soin de l'ensemble</em>.</p>
-      <div class="sol-grid">
-        <div class="sol-card">
-          <div class="sol-head">
-            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M8 9h8M8 15h5"/><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20l2-2"/></svg></div>
-            <div class="sol-name">En parler autour de toi</div>
-          </div>
-          <p class="sol-desc">Ceux qui t'aiment ne sont pas toujours ceux qui peuvent t'éclairer. Peu de gens comprennent vraiment ce chemin.</p>
-          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Personne qui saisit à la fois qui tu es et ce que tu construis.</div>
-        </div>
-        <div class="sol-card">
-          <div class="sol-head">
-            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-5h6v5"/></svg></div>
-            <div class="sol-name">Un programme business</div>
-          </div>
-          <p class="sol-desc">Souvent cher, en grand groupe, avec peu de relationnel. On t'amène sur la stratégie et les tactiques.</p>
-          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Rarement la compréhension profonde de qui tu es.</div>
-        </div>
-        <div class="sol-card">
-          <div class="sol-head">
-            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-4 8-7 8-11a8 8 0 10-16 0c0 4 4 7 8 11z"/></svg></div>
-            <div class="sol-name">Une thérapie, un travail intérieur</div>
-          </div>
-          <p class="sol-desc">Cela remue ta vie, tes blocages, tes mémoires. Un travail précieux sur ton monde intérieur.</p>
-          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Sans que ça fasse avancer ton activité, concrètement.</div>
-        </div>
-        <div class="sol-card">
-          <div class="sol-head">
-            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
-            <div class="sol-name">Un designer, un développeur</div>
-          </div>
-          <p class="sol-desc">Tes idées prennent forme. Mais c'est un budget qui part là, et qui ne va plus dans le reste.</p>
-          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Plus rien pour le soutien, le groupe, le travail sur toi.</div>
-        </div>
-      </div>
-      <p class="sol-bridge">Et si tu n'avais pas à choisir entre tout ça ?</p>
-    </div>
-  </div>
-</div>
-
 <span id="cest-quoi" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== LA TRIBU MORPHO (réponse) ==================== -->
 <div class="section-wrap bg-tribu">
@@ -1457,7 +1419,7 @@
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
       <h2 class="s-title" style="text-align:center;">Une communauté, <span style="color:#FFA53F;">et un accompagnement pour toi.</span></h2>
-      <p class="modele-lead">Pas plus de contenu. Un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
+      <p class="modele-lead">Tu as sûrement déjà essayé d'en parler, de te former, de te faire accompagner. Mais rien ne prenait soin de l'ensemble. Ici, tu trouves un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
       <div class="aspect-stack">
         <div class="aspect-card">
           <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.5 0 5 1.8 5 5"/></svg></div>
@@ -1554,172 +1516,36 @@
   </div>
 </div>
 
-<!-- ==================== OUTILS / PRATIQUES ==================== -->
-<div class="section-wrap bg-tools">
+<!-- ==================== POURQUOI DIFFÉRENT ==================== -->
+<div class="section-wrap bg-philo">
   <div class="container">
-    <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">Comment ça marche</div>
-      <h2 class="s-title" style="text-align:center;">Tout ce qu'il te faut, <span style="color:#FFA53F;">au même endroit.</span></h2>
-      <p class="concept-lead">Entreprendre demande bien plus qu'un métier. Ici, tu accèdes à tout le spectre, <span class="hl">sans avoir à le rassembler toi-même</span>.</p>
-      <div class="tools-grid">
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-          <div class="tool-name">La présence</div>
-          <div class="tool-desc">Par la méditation, <span class="hl">revenir au calme et à soi</span>, sortir de l'agitation pour voir clair avant d'agir. C'est là que tout commence.</div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
-          <div class="tool-name">La connaissance de soi</div>
-          <div class="tool-desc">Avec le Human Design et d'autres outils, comprendre <span class="hl">comment tu fonctionnes vraiment</span>, comment tu décides, où se trouve ton énergie juste.</div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg></div>
-          <div class="tool-name">Le déblocage</div>
-          <div class="tool-desc">Libérer les croyances limitantes, traverser la peur de s'exposer, et <span class="hl">trouver de la clarté</span> sur ce que tu veux vraiment créer.</div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5-3 13-5-4-3 4z"/><path d="M13 15l-2 4"/></svg></div>
-          <div class="tool-name">Le marketing &amp; la communication</div>
-          <div class="tool-desc">Structurer une offre qui te ressemble, <span class="hl">trouver ta façon juste de communiquer</span>, te positionner, ouvrir ton activité à de nouveaux domaines.</div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div>
-          <div class="tool-name">Le design</div>
-          <div class="tool-desc">Identité visuelle, logo, univers graphique, supports. Pour que ton image <span class="hl">reflète vraiment qui tu es</span>, loin d'un habillage générique.</div>
-        </div>
-        <div class="tool-card">
-          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <div class="tool-name">La technique</div>
-          <div class="tool-desc">Sites web, tunnels, applications. <span class="hl">Tes idées deviennent des outils réels</span>, sans intermédiaire et sans avoir à tout coordonner.</div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top:48px;">
-        <a href="#prix" class="btn">Rejoindre la Tribu</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TICKETS ==================== -->
-<div class="section-wrap alt">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
-      <h2 class="s-title" style="text-align:center;">Un ticket, une heure. <span style="color:#FFA53F;">Et tout ce qu'on en fait.</span></h2>
-      <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
-      <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
-      <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
-
-      <div class="tk-bareme">
-        <div class="tk-step">
-          <div class="tk-step-num">1</div>
-          <div class="tk-step-unit">ticket</div>
-          <div class="tk-step-what">Une session de clarté</div>
-          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
-        </div>
-        <div class="tk-step">
-          <div class="tk-step-num">5</div>
-          <div class="tk-step-unit">tickets</div>
-          <div class="tk-step-what">Ton identité visuelle</div>
-          <div class="tk-step-val">Logo, palette, direction de marque</div>
-        </div>
-        <div class="tk-step">
-          <div class="tk-step-num">10</div>
-          <div class="tk-step-unit">tickets</div>
-          <div class="tk-step-what">Une landing ou un tunnel</div>
-          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
-        </div>
-        <div class="tk-step">
-          <div class="tk-step-num">20</div>
-          <div class="tk-step-unit">tickets</div>
-          <div class="tk-step-what">Un site complet ou une app</div>
-          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
-        </div>
-      </div>
-
-      <div class="gallery-label">Ce que ça donne, en vrai</div>
-      <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
-      <div class="gal-sites">
-        <a href="https://archipelkyosei.com" target="_blank" class="g-item">
-          <img src="images/kyosei-web.jpg" alt="Archipel Kyosei"/>
-          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
-        </a>
-        <div class="g-item">
-          <img src="images/silent-lake.jpg" alt="Silent Lake II"/>
-          <div class="g-cap"><div class="g-type">Site événement</div><div class="g-name">Silent Lake II</div></div>
-        </div>
-        <div class="g-item">
-          <img src="images/desert-mirage.jpg" alt="Desert Mirage Journey"/>
-          <div class="g-cap"><div class="g-type">Site résidence</div><div class="g-name">Desert Mirage Journey</div></div>
-        </div>
-        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item">
-          <img src="images/souffle-web.jpg" alt="Souffle en Corps"/>
-          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
-        </a>
-      </div>
-      <div class="gal-logos">
-        <div class="g-item">
-          <img src="images/main-hopi.png" alt="La Main Hopi"/>
-          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">La Main Hopi</div></div>
-        </div>
-        <div class="g-item">
-          <img src="images/saonessence.webp" alt="Saônessence"/>
-          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Saônessence</div></div>
-        </div>
-        <div class="g-item">
-          <img src="images/smoos.jpg" alt="Smoos"/>
-          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Smoos</div></div>
-        </div>
-        <div class="g-item">
-          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
-          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Kyosei</div></div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== CE QUI EST DIFFÉRENT ==================== -->
-<div class="section-wrap bg-spiral">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Profondeur et matière</div>
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Pourquoi c'est différent</div>
       <h2 class="s-title">L'entrepreneuriat, <span style="color:#FFA53F;">une voie spirituelle.</span></h2>
+      <p class="concept-lead">Ici, le travail intérieur et la réalisation concrète ne sont pas séparés. On revient à <span class="hl">qui tu es vraiment</span>, puis on donne forme à cela dans le monde, <em class="em">à ton rythme et dans ta couleur</em>.</p>
+    </div>
+    <div class="section fade-in" style="padding-top:0;">
       <div class="diff-cols">
         <div class="diff-col">
           <div class="diff-col-icon">◎</div>
           <div class="diff-col-label">En profondeur</div>
-          <p class="diff-col-text">Vision, alignement, émotions, perception de soi, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
+          <p class="diff-col-text">Vision, alignement, émotions, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
         </div>
         <div class="diff-plus">+</div>
         <div class="diff-col">
           <div class="diff-col-icon">◈</div>
           <div class="diff-col-label">Dans la matière</div>
-          <p class="diff-col-text">Stratégie, site, tunnel, identité visuelle, app. Ce qu'on met en place est aligné avec le travail fait en profondeur. Pas un brief. Une émergence.</p>
+          <p class="diff-col-text">Stratégie, site, identité visuelle, app. Ce qu'on met en place est aligné avec le travail de fond. Pas un brief. Une émergence.</p>
         </div>
       </div>
       <div class="diff-quote">
         "Ce qu'on construit ensemble émerge d'un alignement réel.<br>Je ne suis pas un prestataire. On fait des allers-retours constants<br>entre ce que tu es et ce qu'on crée."
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== VALEURS PROFONDES ==================== -->
-<div class="section-wrap bg-philo">
-  <div class="container">
-    <div class="section fade-in" style="text-align:center;">
-      <div class="s-label">Nos valeurs</div>
-      <h2 class="s-title">Ce qui nous rassemble, <span style="color:#FFA53F;">au fond.</span></h2>
-      <p class="concept-lead">Au-delà de ce qu'on y fait, il y a une façon d'être commune. La démarche ne plaque pas de méthode : elle te ramène à <span class="hl">qui tu es vraiment</span>, puis donne forme à cela, <em class="em">à ton rythme et dans ta couleur</em>.</p>
-    </div>
-    <div class="section fade-in" style="padding-top:0;">
-      <div class="values-list-full">
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Se réaliser sans se trahir.</strong></div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>S'incarner dans qui on est vraiment.</strong></div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Montrer toutes ses facettes</strong>, sans en sacrifier une.</div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Impacter le monde sans se perdre.</strong></div></div>
+      <div class="values-inline">
+        <span class="value-chip">Se réaliser sans se trahir</span>
+        <span class="value-chip">S'incarner dans qui on est</span>
+        <span class="value-chip">Montrer toutes ses facettes</span>
+        <span class="value-chip">Impacter sans se perdre</span>
       </div>
     </div>
   </div>
@@ -1834,6 +1660,97 @@
 </div>
 
 <span id="prestations" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== TICKETS ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
+      <h2 class="s-title" style="text-align:center;">Un ticket, une heure. <span style="color:#FFA53F;">Et tout ce qu'on en fait.</span></h2>
+      <div class="ticket-domains">
+        <span class="td-label">Utilise tes tickets pour</span>
+        <div class="td-chips">
+          <span class="td-chip">La présence</span>
+          <span class="td-chip">La connaissance de soi</span>
+          <span class="td-chip">Le déblocage</span>
+          <span class="td-chip">Le marketing &amp; la communication</span>
+          <span class="td-chip">Le design</span>
+          <span class="td-chip">La technique</span>
+        </div>
+      </div>
+      <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
+      <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
+      <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
+
+      <div class="tk-bareme">
+        <div class="tk-step">
+          <div class="tk-step-num">1</div>
+          <div class="tk-step-unit">ticket</div>
+          <div class="tk-step-what">Une session de clarté</div>
+          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">5</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Ton identité visuelle</div>
+          <div class="tk-step-val">Logo, palette, direction de marque</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">10</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Une landing ou un tunnel</div>
+          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">20</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Un site complet ou une app</div>
+          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
+        </div>
+      </div>
+
+      <div class="gallery-label">Ce que ça donne, en vrai</div>
+      <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
+      <div class="gal-sites">
+        <a href="https://archipelkyosei.com" target="_blank" class="g-item">
+          <img src="images/kyosei-web.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
+        </a>
+        <div class="g-item">
+          <img src="images/silent-lake.jpg" alt="Silent Lake II"/>
+          <div class="g-cap"><div class="g-type">Site événement</div><div class="g-name">Silent Lake II</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/desert-mirage.jpg" alt="Desert Mirage Journey"/>
+          <div class="g-cap"><div class="g-type">Site résidence</div><div class="g-name">Desert Mirage Journey</div></div>
+        </div>
+        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item">
+          <img src="images/souffle-web.jpg" alt="Souffle en Corps"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
+        </a>
+      </div>
+      <div class="gal-logos">
+        <div class="g-item">
+          <img src="images/main-hopi.png" alt="La Main Hopi"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">La Main Hopi</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/saonessence.webp" alt="Saônessence"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Saônessence</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/smoos.jpg" alt="Smoos"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Smoos</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Kyosei</div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ==================== CTA INTERMÉDIAIRE ==================== -->
 <div class="section-wrap">
   <div class="container">
