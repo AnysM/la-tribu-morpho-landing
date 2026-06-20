@@ -1397,6 +1397,12 @@
     .bio-worlds { justify-content: flex-start; }
   }
 
+
+  .temoin { max-width: 780px; margin: 40px auto 0; text-align: center; position: relative; }
+  .temoin-quote { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(20px,3vw,28px); line-height: 1.5; color: #eaf2ff; font-style: italic; }
+  .temoin-quote::before { content: '\201C'; display: block; font-family: 'TTTravels','Syne',sans-serif; font-size: 64px; color: rgba(255,165,63,0.45); line-height: 0.2; margin-bottom: 22px; }
+  .temoin-who { margin-top: 30px; font-family: 'Syne',sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #FFA53F; }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1484,7 +1490,7 @@
   <div class="container">
     <div class="section fade-in">
       <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
-      <h2 class="s-title" style="text-align:center;">Une communauté, <span style="color:#FFA53F;">et un accompagnement pour toi.</span></h2>
+      <h2 class="s-title" style="text-align:center;">Une communauté autour de toi, <span style="color:#FFA53F;">et un accompagnement rien qu'à toi.</span></h2>
       <p class="modele-lead">Tu as sûrement déjà essayé d'en parler, de te former, de te faire accompagner. Mais rien ne prenait soin de l'ensemble. Ici, tu trouves un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
       <div class="aspect-stack">
         <div class="aspect-card">
@@ -1535,7 +1541,7 @@
         </div>
         <div class="benefit-card">
           <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
-          <div class="benefit-title">Élargir ses perspectives</div>
+          <div class="benefit-title">Voir ce que tu ne vois pas seul</div>
           <p class="benefit-desc">Sortir de ta tête, voir plus loin. <span class="hl">Profiter du regard d'un groupe</span> qui comprend ce que tu traverses.</p>
         </div>
         <div class="benefit-card">
@@ -1633,6 +1639,19 @@
         <li>Tu veux des résultats sans aucun travail sur toi ni sur ta clarté.</li>
         <li>Le collectif et l'entraide ne t'intéressent pas, tu veux juste un prestataire.</li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TÉMOIGNAGE ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Témoignage</div>
+      <div class="temoin">
+        <p class="temoin-quote">Avant, j'avançais seule et je tournais souvent en rond. Ici, j'ai trouvé un endroit où déposer ce que je traverse et être vraiment comprise. La méditation me recentre, et derrière, on m'aide à avancer concrètement sur mon projet. Je repars de chaque séance plus claire, et plus moi-même.</p>
+        <div class="temoin-who">Stéphanie, membre de la Tribu</div>
+      </div>
     </div>
   </div>
 </div>
