@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="only dark">
+<title>La Tribu Morpho</title>
+<link rel="icon" type="image/svg+xml" href="images/morpho-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravels.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravelsItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face {
+    font-family: 'Bright Giftak';
+    src: url('fonts/BrightGiftak.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background-color: #04050f !important;
+    color: #c8d8f0;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  html::before, body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: #04050f;
+    z-index: -1;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .line {
+    height: 1px;
+    background: #0278FF;
+    opacity: 0.2;
+  }
+
+  /* HEADER */
+  header {
+    padding: 32px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .drop svg { width: 18px; height: 26px; }
+
+  .header-text { display: flex; flex-direction: column; gap: 3px; }
+
+  .wordmark {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .tagline {
+    font-size: 11px;
+    color: #2d4a7a;
+    font-weight: 400;
+  }
+
+
+  /* NAV sticky transparente, logo centré */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px 0;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: rgba(8,18,36,0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(2,120,255,0.14);
+    padding: 10px 0;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links.right { justify-content: flex-end; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8ab0d8; text-decoration: none; transition: color 0.2s ease; white-space: nowrap;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.nav-cta {
+    color: #FFA53F; border: 1.5px solid #FFA53F; border-radius: 6px;
+    padding: 8px 16px; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'TTTravels','Syne',sans-serif; font-weight: 600; font-size: 11px;
+  }
+  .nav-links a.nav-cta:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+  .nav-logo { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
+  .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+  .nav-wordmark { font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.22em; color: #8ab0d8; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+  .nav-spacer { height: 0; }
+  @media(max-width:760px){
+    .nav-links { display: none; }
+    .nav-inner { grid-template-columns: 1fr; justify-items: center; }
+  }
+
+  /* ACCROCHE */
+  .accroche {
+    padding: 100px 0 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .accroche-main {
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-size: clamp(30px, 4.6vw, 46px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #e8f1ff;
+    max-width: 640px;
+    margin: 0 auto 26px;
+    font-weight: 600;
+  }
+
+  .accroche-sub {
+    font-size: 17px;
+    color: #9ab8db;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* SECTION GÉNÉRIQUE */
+  .section {
+    padding: 140px 0;
+  }
+
+  .s-label {
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: #0278FF;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+
+  .s-title {
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 38px);
+    line-height: 1.28;
+    margin-bottom: 52px;
+    color: #e0eaff;
+  }
+
+  /* POINTS LIST */
+  .points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .point {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    border-left: 2px solid rgba(2, 120, 255, 0.2);
+    transition: border-color 0.2s;
+  }
+
+  .point:hover {
+    border-color: #0278FF;
+  }
+
+  .point-icon {
+    color: #0278FF;
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+  }
+
+  .point-text {
+    font-size: 14px;
+    color: #c8d8f0;
+    line-height: 1.5;
+  }
+
+  .point-text strong {
+    color: #e0eaff;
+    font-weight: 500;
+  }
+
+  .point-text em {
+    color: #FFA53F;
+    font-style: normal;
+  }
+
+  /* UNIQUE - point fort mis en avant */
+  .point.highlight {
+    border-left-color: rgba(255, 165, 63, 0.4);
+    background: rgba(255, 165, 63, 0.03);
+  }
+
+  .point.highlight:hover {
+    border-left-color: #FFA53F;
+  }
+
+  .point.highlight .point-icon {
+    color: #FFA53F;
+  }
+
+  .point.highlight .point-text {
+    color: #e0eaff;
+  }
+
+  /* BLOC COMPARAISON */
+  .compare-block {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 24px;
+    border: 1px solid rgba(2, 120, 255, 0.18);
+    background: rgba(2, 120, 255, 0.03);
+  }
+
+  .compare-item { }
+
+  .compare-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2d4a7a;
+    margin-bottom: 8px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .compare-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .compare-price.ours { color: #FFA53F; }
+  .compare-price.market { color: #2d4a7a; }
+
+  .compare-desc {
+    font-size: 12px;
+    color: #3a5a8a;
+    line-height: 1.4;
+  }
+
+  .compare-vs {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #2d4a7a;
+    letter-spacing: 0.15em;
+    text-align: center;
+  }
+
+  /* PILIERS */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(2, 120, 255, 0.12);
+    border: 1px solid rgba(2, 120, 255, 0.12);
+    margin-top: 8px;
+  }
+
+  .pillar {
+    background: #04050f;
+    padding: 24px 20px;
+    transition: background 0.2s;
+  }
+
+  .pillar:hover { background: rgba(2, 120, 255, 0.05); }
+
+  .pillar-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    color: #0278FF;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .pillar-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e0eaff;
+    margin-bottom: 8px;
+  }
+
+  .pillar-sub {
+    font-size: 14px;
+    color: #8ab0d8;
+    line-height: 1.6;
+  }
+
+  .pillar.gold .pillar-num { color: #FFA53F; }
+  .pillar.gold .pillar-name { color: #FFA53F; }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .divider::before {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(2, 120, 255, 0.15);
+  }
+
+  /* TICKETS */
+  .ticket-intro-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #3a5a8a;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .ticket-intro-sub {
+    font-size: 14px;
+    color: #6a8fc0;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .ticket-table { border: 1px solid rgba(2, 120, 255, 0.15); }
+
+  .ticket-row {
+    display: grid;
+    grid-template-columns: 64px 1fr 100px;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(2, 120, 255, 0.08);
+    transition: background 0.2s;
+  }
+
+  .ticket-row:last-child { border-bottom: none; }
+  .ticket-row:hover { background: rgba(2, 120, 255, 0.05); }
+
+  .t-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0278FF;
+    line-height: 1;
+  }
+
+  .t-num small {
+    display: block;
+    font-size: 9px;
+    color: #2d4a7a;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .t-desc { font-size: 13px; color: #c8d8f0; line-height: 1.5; }
+  .t-desc small { display: block; font-size: 11px; color: #3a5a8a; margin-top: 3px; }
+
+  .t-val { text-align: right; }
+  .t-val strong { display: block; font-size: 14px; font-weight: 600; color: #FFA53F; font-family: 'Syne', sans-serif; }
+  .t-val span { font-size: 10px; color: #2d4a7a; }
+
+  /* PRICING */
+  .pricing-wrap {
+    margin-top: 8px;
+    border: 1px solid rgba(2, 120, 255, 0.15);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .p-card {
+    padding: 28px 20px;
+    border-right: 1px solid rgba(2, 120, 255, 0.1);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .p-card:last-child { border-right: none; }
+  .p-card:hover { background: rgba(2, 120, 255, 0.04); }
+  .p-card.hot { background: rgba(2, 120, 255, 0.07); border: 1px solid #FFA53F; }
+
+  .p-card.hot::before {
+    content: 'RECOMMANDE';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 7px;
+    letter-spacing: 0.2em;
+    color: #04050f;
+    background: #FFA53F;
+    padding: 3px 8px;
+    border: 1px solid #FFA53F;
+    white-space: nowrap;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  .p-level { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 10px; font-family: 'Syne', sans-serif; font-weight: 500; }
+  .p-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #e0eaff; }
+  .p-price { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 700; line-height: 1; margin-bottom: 4px; color: #e0eaff; }
+  .p-price sup { font-size: 14px; vertical-align: super; }
+  .p-price sub { font-size: 11px; color: #2d4a7a; font-weight: 400; }
+  .p-no-commit {
+    font-size: 9px;
+    color: #2d4a7a;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .p-tickets { font-size: 10px; color: #FFA53F; margin-bottom: 18px; min-height: 14px; }
+  .p-feats { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .p-feats li { font-size: 13px; color: #8ab0d8; line-height: 1.6; padding-left: 14px; position: relative; }
+  .p-feats li::before { content: '/'; position: absolute; left: 0; color: #0278FF; }
+
+  .unit-ticket {
+    margin-top: 1px;
+    border: 1px solid rgba(255, 165, 63, 0.18);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 165, 63, 0.02);
+  }
+
+  .unit-label { font-size: 12px; color: #3a5a8a; }
+  .unit-label strong { display: block; font-size: 13px; color: #c8d8f0; font-weight: 500; margin-bottom: 2px; font-family: 'Syne', sans-serif; }
+  .unit-price { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; color: #FFA53F; }
+
+  /* FAQ */
+  .faq { display: flex; flex-direction: column; gap: 1px; }
+
+  .faq-item {
+    border-left: 2px solid rgba(2, 120, 255, 0.15);
+    transition: border-color 0.2s;
+  }
+
+  .faq-item.open {
+    border-left-color: #0278FF;
+  }
+
+  .faq-q {
+    padding: 16px 16px;
+    font-size: 17px;
+    color: #c8d8f0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .faq-q:hover { color: #e0eaff; }
+
+  .faq-arrow {
+    color: #0278FF;
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: transform 0.25s;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+  .faq-a {
+    display: none;
+    padding: 0 16px 18px;
+    font-size: 15.5px;
+    color: #9ab8db;
+    line-height: 1.75;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* CTA */
+  .cta { padding: 120px 0; }
+
+  .cta h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: clamp(22px, 4vw, 34px);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: #e0eaff;
+  }
+
+  .cta h2 em { font-style: normal; color: #FFA53F; }
+
+  .cta-sub { font-size: 12px; color: #9ab8db; margin-bottom: 28px; letter-spacing: 0.06em; }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 34px;
+    border: 1.5px solid #FFA53F;
+    color: #FFA53F;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
+    transition: all 0.25s;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+  .cta-note { font-size: 11px; color: #8ab0d8; margin-top: 14px; }
+
+  footer { padding: 28px 0; border-top: 1px solid rgba(2, 120, 255, 0.1); }
+  .footer-txt { font-size: 10px; color: #6a8fc0; letter-spacing: 0.12em; }
+
+
+  /* BOUTONS PRICING */
+
+  .p-value-arg {
+    font-size: 10px;
+    color: #3a5a8a;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .p-value-arg strong { color: #FFA53F; font-weight: 600; }
+
+  .bonus-banner {
+    margin-top: 24px;
+    padding: 20px 24px;
+    border: 1px solid rgba(255,165,63,0.25);
+    background: rgba(255,165,63,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .bonus-icon {
+    color: #FFA53F;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bonus-text {
+    font-size: 13px;
+    color: #6a8fc0;
+    line-height: 1.6;
+  }
+
+  .bonus-text strong {
+    color: #e0eaff;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .p-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 0;
+    text-align: center;
+    border: 1.5px solid #FFA53F;
+    color: #FFA53F;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
+    transition: all 0.25s;
+    background: transparent;
+    border-radius: 6px;
+  }
+
+  .p-btn:hover { background: rgba(2,120,255,0.12); color: #6CC5FF; border-color: #0278FF; }
+
+  .p-btn-hot {
+    background: rgba(255,165,63,0.08);
+  }
+
+  .p-btn-hot:hover { background: rgba(2,120,255,0.15); color: #6CC5FF; border-color: #0278FF; }
+
+  /* 6 MOIS */
+  .six-mois {
+    margin-top: 32px;
+    padding: 28px 24px;
+    border: 1px solid rgba(2,120,255,0.12);
+    background: rgba(2,120,255,0.02);
+  }
+
+  .six-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .six-item {
+    padding: 16px;
+    border-left: 2px solid rgba(2,120,255,0.2);
+  }
+
+  .six-item-gold { border-left-color: rgba(255,165,63,0.4); }
+
+  .six-level { font-size: 10px; color: #2d4a7a; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; font-family: 'Syne', sans-serif; }
+  .six-total { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: #c8d8f0; margin-bottom: 4px; }
+  .six-result { font-size: 13px; color: #0278FF; margin-bottom: 8px; }
+  .six-item-gold .six-result { color: #FFA53F; }
+  .six-result strong { font-weight: 600; }
+  .six-desc { font-size: 11px; color: #3a5a8a; line-height: 1.5; }
+
+  @media (max-width: 600px) { .six-grid { grid-template-columns: 1fr; } }
+
+
+
+  .services-list {
+    font-size: 11px;
+    color: #0278FF;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+  }
+
+
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .bio-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 2px solid rgba(2, 120, 255, 0.3);
+  }
+
+  .bio-header .s-title {
+    margin-bottom: 0;
+  }
+
+  .bio-block { max-width: 580px; }
+
+  .bio-text {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #9ab8db;
+  }
+
+
+
+
+
+  .hl-blue { color: #0278FF; font-weight: 500; }
+  .hl-gold { color: #FFA53F; font-weight: 500; }
+
+  .impact-section .s-title { margin-bottom: 28px; }
+
+
+  .full-wrap {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(2, 120, 255, 0.045);
+    padding: 0 calc(50vw - 400px);
+  }
+
+  @media (max-width: 860px) {
+    .full-wrap { padding: 0 28px; }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(12px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .pillars { grid-template-columns: 1fr; }
+    .pricing-wrap { grid-template-columns: 1fr; }
+    .p-card { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.1); }
+    .p-card:last-child { border-bottom: none; }
+    .ticket-row { grid-template-columns: 56px 1fr; }
+    .t-val { display: none; }
+    .compare-block { grid-template-columns: 1fr; }
+    .compare-vs { text-align: left; }
+  }
+
+  .ticket-row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(2, 120, 255, 0.08);
+    transition: background 0.2s;
+  }
+
+  .ticket-row.has-img {
+    grid-template-columns: 64px 1fr 140px auto;
+  }
+
+  .ticket-preview {
+    width: 140px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .ticket-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .ticket-row:hover .ticket-preview img { opacity: 1; }
+
+  .ticket-slider {
+    padding: 14px 20px 10px;
+    background: rgba(2,120,255,0.03);
+    border-top: 1px solid rgba(2,120,255,0.06);
+    overflow: hidden;
+  }
+
+  .ts-label {
+    font-size: 10px;
+    font-style: italic;
+    color: #FFA53F;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .ts-track {
+    display: flex;
+    gap: 12px;
+    transition: transform 0.35s ease;
+  }
+
+  .ts-slide {
+    flex-shrink: 0;
+    width: calc(50% - 6px);
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .ts-slide span {
+    display: block;
+    font-size: 10px;
+    color: #3a5a8a;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+  }
+
+  .ts-nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .ts-nav button {
+    background: transparent;
+    border: 1px solid rgba(2,120,255,0.25);
+    color: #0278FF;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ts-nav button:hover { background: rgba(2,120,255,0.1); }
+
+
+  .ts-slide a {
+    display: block;
+    width: 100%;
+  }
+
+  .ts-slide a img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .ts-slide img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-radius: 2px;
+  }
+
+
+  .ts-type {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFA53F;
+    font-weight: 700;
+    margin-top: 8px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .ts-name {
+    font-size: 13px;
+    color: #c8d8f0;
+    font-weight: 600;
+    font-family: 'Syne', sans-serif;
+    margin-top: 2px;
+  }
+
+  .ts-note {
+    font-size: 10px;
+    color: #2d4a7a;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* BACKGROUNDS */
+
+
+
+
+  .bg-hero {
+    background-color: #04050f;
+  }
+
+
+
+  .bg-spiral {
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+  }
+
+  /* ===== SECTION WRAPPERS FULL WIDTH ===== */
+  .section-wrap { width: 100%; }
+  .section-wrap.alt { background: rgba(2, 120, 255, 0.04); }
+
+  /* BACKGROUNDS 30% visibles */
+  .section-wrap.bg-hero {
+    position: relative;
+    background-color: #0a1033;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  .section-wrap.bg-hero .container { width: 100%; }
+  /* couche image : le morpho, fondu lumineux */
+  .section-wrap.bg-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/morpho-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    z-index: 0;
+  }
+  /* couche teinte indigo + vignette : tout vire au bleu indigo profond */
+  .section-wrap.bg-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 65% 75% at 50% 46%, rgba(20,30,90,0) 0%, rgba(10,16,51,0.45) 55%, rgba(7,10,38,0.9) 100%),
+      linear-gradient(to bottom, rgba(12,18,58,0.55) 0%, rgba(13,20,66,0.25) 38%, rgba(8,12,42,0.7) 100%),
+      linear-gradient(120deg, rgba(40,40,150,0.35) 0%, rgba(20,40,120,0.2) 50%, rgba(15,20,80,0.4) 100%);
+    z-index: 1;
+  }
+  .section-wrap.bg-hero > * { position: relative; z-index: 1; }
+
+  /* (regle accroche dedupliquee) */
+
+  .hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 13px 32px;
+    border: 1px solid #FFA53F;
+    color: #FFA53F;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    transition: all 0.25s;
+    background: rgba(255,165,63,0.08);
+  }
+  .hero-btn:hover { background: rgba(255,165,63,0.2); border-color: #fff; color: #fff; }
+
+  .section-wrap.bg-spiral {
+    background-image: url('images/bg-spiral.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .section-wrap.bg-spiral::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 5, 15, 0.70);
+    z-index: 0;
+  }
+  .section-wrap.bg-spiral > * { position: relative; z-index: 1; }
+
+  .section-wrap.bg-galaxy {
+    position: relative;
+    background-color: #04050f;
+  }
+  .section-wrap.bg-galaxy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/milkyway.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: 0;
+  }
+  .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
+
+  /* DIFF SECTION */
+  .diff-cols {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  .diff-col { padding: 24px; border: 1px solid rgba(2,120,255,0.15); background: rgba(2,120,255,0.04); }
+  .diff-col-icon { font-size: 18px; color: #0278FF; margin-bottom: 10px; }
+  .diff-col-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; }
+  .diff-col-text { font-size: 14px; color: #8ab0d8; line-height: 1.7; }
+  .diff-plus { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 300; color: #FFA53F; align-self: center; text-align: center; }
+  .diff-quote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(14px, 2.2vw, 18px);
+    font-weight: 400;
+    color: #e0eaff;
+    line-height: 1.6;
+    text-align: center;
+    padding: 28px 0;
+    border-top: 1px solid rgba(2,120,255,0.12);
+    border-bottom: 1px solid rgba(2,120,255,0.12);
+  }
+  @media (max-width: 600px) {
+    .diff-cols { grid-template-columns: 1fr; }
+    .diff-plus { display: none; }
+  }
+
+
+  .ic { width: 26px; height: 26px; color: #0278FF; margin-bottom: 14px; display: block; }
+  .prob-card .ic { color: #FFA53F; }
+  .diff-card .ic { color: #0278FF; }
+
+
+  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 30px 26px; }
+  .prest-card .ic { width: 24px; height: 24px; color: #0278FF; margin-bottom: 12px; }
+  .prest-cat { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 12px; }
+  .prest-list { list-style: none; padding: 0; margin: 0; }
+  .prest-list li { font-size: 13.5px; color: #8ab0d8; line-height: 1.9; padding-left: 16px; position: relative; }
+  .prest-list li::before { content: '·'; position: absolute; left: 4px; color: #FFA53F; font-weight: 700; }
+  @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
+
+
+  .temo-intro { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 600px; margin: 0 auto 8px; text-align: center; }
+  .temo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .temo-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 30px; position: relative; }
+  .temo-quote { font-size: 16px; line-height: 1.7; color: #d4e2f5; font-style: italic; }
+  .temo-quote::before { content: '\201C'; font-family: 'Syne',sans-serif; font-size: 44px; color: rgba(2,120,255,0.35); line-height: 0; position: absolute; top: 26px; left: 22px; }
+  .temo-card .temo-quote { padding-left: 22px; }
+  .temo-who { margin-top: 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5a82b0; padding-left: 22px; }
+  .temo-full { grid-column: 1 / -1; }
+  @media(max-width:700px){ .temo-grid { grid-template-columns: 1fr; } }
+
+
+  /* TICKETS v2 : barème + galerie */
+  .tk-note { font-size: 13px; color: #5a82b0; text-align: center; max-width: 480px; margin: 10px auto 0; font-style: italic; }
+  .tk-lead { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 560px; margin: 0 auto 8px; text-align: center; }
+  .tk-bareme { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 40px; }
+  .tk-step { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 28px 22px; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+  .tk-step:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .tk-step-num { font-family: 'Syne',sans-serif; font-size: 40px; font-weight: 700; color: #0278FF; line-height: 1; }
+  .tk-step-unit { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-top: 4px; }
+  .tk-step-what { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-top: 18px; line-height: 1.35; }
+  .tk-step-val { font-size: 12px; color: #FFA53F; margin-top: 10px; letter-spacing: 0.04em; }
+  .gallery-label { text-align: center; font-family: 'Syne',sans-serif; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #0278FF; margin: 72px 0 12px; }
+  .gallery-sub { text-align:center; font-size: 13px; color: #5a82b0; margin-bottom: 30px; }
+  /* sites : grandes captures paysage, 2 par ligne */
+  .gal-sites { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+  /* logos : carrés réguliers, 4 par ligne */
+  .gal-logos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 16px; }
+  .g-item { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(2,120,255,0.12); background: #0a1228; display: block; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .g-item:hover img { transform: scale(1.04); }
+  .gal-sites .g-item { aspect-ratio: 16/9; }
+  .gal-logos .g-item { aspect-ratio: 1/1; }
+  .g-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 18px 14px; background: linear-gradient(to top, rgba(4,8,24,0.92), rgba(4,8,24,0)); }
+  .g-type { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6CC5FF; }
+  .g-name { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
+  .gal-logos .g-name { font-size: 13px; }
+  @media(max-width:760px){
+    .gal-sites { grid-template-columns: 1fr; }
+    .gal-logos { grid-template-columns: repeat(2,1fr); }
+  }
+
+  @media(max-width:860px){
+    .tk-bareme { grid-template-columns: repeat(2,1fr); }
+    .g-tall { grid-column: span 6; }
+    .g-wide { grid-column: span 12; }
+    .g-sq { grid-column: span 6; }
+  }
+  @media(max-width:480px){
+    .tk-bareme { grid-template-columns: 1fr; }
+    .g-tall, .g-wide, .g-sq { grid-column: span 12; }
+  }
+
+
+  /* ESSENCE : liste éditoriale verticale */
+  .essence-list { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-direction: column; gap: 0; }
+  .essence-item { display: flex; align-items: flex-start; gap: 36px; padding: 40px 0; border-bottom: 1px solid rgba(2,120,255,0.1); }
+  .essence-item:last-child { border-bottom: none; }
+  .essence-num { font-family: 'Syne',sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #0278FF; text-transform: uppercase; min-width: 20px; padding-top: 4px; }
+  .essence-title { font-family: 'Syne',sans-serif; font-size: 20px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; line-height: 1.2; }
+  .essence-body { font-size: 15px; color: #8ab0d8; line-height: 1.7; max-width: 620px; }
+  .essence-body strong { color: #c8d8f0; font-weight: 500; }
+
+
+  /* LE MODÈLE : incubateur unique + valeur */
+  .modele-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 620px; margin: 0 auto 44px; text-align: center; }
+  .modele-lead strong { color: #fff; font-weight: 600; }
+  .value-box { border: 1px solid rgba(255,165,63,0.3); border-radius: 16px; padding: 0; overflow: hidden; max-width: 760px; margin: 0 auto; }
+  .value-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .value-side { padding: 38px 34px; }
+  .value-side.ours { background: rgba(2,120,255,0.06); border-right: 1px solid rgba(2,120,255,0.15); }
+  .value-side.market { background: rgba(255,255,255,0.015); }
+  .value-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-bottom: 14px; }
+  .value-side.market .value-tag { color: #6a6a7a; }
+  .value-price { font-family: 'Syne',sans-serif; font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+  .value-side.ours .value-price { color: #0278FF; }
+  .value-side.market .value-price { color: #8a8a98; }
+  .value-unit { font-size: 14px; font-weight: 400; }
+  .value-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; margin-top: 14px; }
+  .value-side.market .value-desc { color: #6a6a7a; }
+  .value-foot { text-align: center; font-size: 15px; color: #c8d8f0; line-height: 1.7; margin-top: 28px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .value-foot strong { color: #FFA53F; font-weight: 600; }
+  @media(max-width:600px){ .value-row { grid-template-columns: 1fr; } .value-side.ours { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.15); } }
+
+
+  .cta-mid { text-align: center; padding: 80px 0 72px; }
+  .cta-mid-text { font-family: 'Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #e8f1ff; line-height: 1.3; margin-bottom: 24px; }
+  .cta-mid-btn { display: inline-block; padding: 15px 44px; border: 1.5px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 600; border-radius: 6px; transition: all 0.25s; background: transparent; }
+  .cta-mid-btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+
+
+  /* Partie blanche des titres split : plus petite */
+  .s-title .white-sm {
+    font-size: 0.62em;
+    color: #c8d8f0;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+
+  /* ===== BATCH v5 : nouveaux formats ===== */
+
+  /* 1. SOLUTIONS CLASSIQUES : grille 2x2, chaque option avec un "manque" */
+  .sol-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 56px; text-align: left; }
+  .sol-card { background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 30px 28px; position: relative; }
+  .sol-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .sol-ico { width: 34px; height: 34px; border-radius: 9px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sol-ico svg { width: 18px; height: 18px; color: #6a8fc0; }
+  .sol-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 16px; font-weight: 600; color: #d8e6fa; }
+  .sol-desc { font-size: 14px; color: #8ab0d8; line-height: 1.65; }
+  .sol-lack { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 14.5px; color: #b06a5a; display: flex; align-items: center; gap: 9px; line-height: 1.5; }
+  .sol-lack svg { width: 17px; height: 17px; color: #c5604f; flex-shrink: 0; }
+  .sol-bridge { text-align: center; margin-top: 44px; font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(18px,2.6vw,24px); color: #FFA53F; line-height: 1.4; }
+  @media(max-width:680px){ .sol-grid { grid-template-columns: 1fr; } }
+
+  /* 2. TRIBU 3 ASPECTS : grandes cartes premium alternées avec gros numéro filigrane */
+  .aspect-stack { display: flex; flex-direction: column; gap: 28px; margin-top: 60px; }
+  .aspect-card { position: relative; overflow: hidden; border: 1px solid rgba(2,120,255,0.15); border-radius: 18px; padding: 44px 48px; background: linear-gradient(135deg, rgba(2,120,255,0.05), rgba(2,120,255,0.01)); display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
+  .aspect-card:nth-child(even) { background: linear-gradient(135deg, rgba(255,165,63,0.04), rgba(2,120,255,0.01)); }
+  .aspect-ico { width: 64px; height: 64px; border-radius: 16px; background: rgba(2,120,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .aspect-ico svg { width: 32px; height: 32px; color: #0278FF; }
+  .aspect-card:nth-child(even) .aspect-ico { background: rgba(255,165,63,0.1); }
+  .aspect-card:nth-child(even) .aspect-ico svg { color: #FFA53F; }
+  .aspect-kicker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #5a82b0; margin-bottom: 8px; }
+  .aspect-title { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(19px,2.6vw,24px); font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.25; }
+  .aspect-body { font-size: 15px; color: #9ab8db; line-height: 1.7; max-width: 620px; }
+  @media(max-width:680px){ .aspect-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 26px; text-align: left; } }
+
+  /* 3. PRESTATIONS EXPLICITÉES : 3 grands blocs verticaux, chacun développé */
+  .approach-list { display: flex; flex-direction: column; gap: 16px; margin-top: 44px; }
+  .approach-row { display: grid; grid-template-columns: 280px 1fr; gap: 56px; padding: 44px 0; border-top: 1px solid rgba(2,120,255,0.12); align-items: start; }
+  .approach-row:last-child { border-bottom: 1px solid rgba(2,120,255,0.12); }
+  .approach-left { display: flex; align-items: flex-start; gap: 16px; }
+  .approach-ico { width: 40px; height: 40px; border-radius: 11px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .approach-ico svg { width: 21px; height: 21px; color: #0278FF; }
+  .approach-cat { font-family: 'TTTravels','Syne',sans-serif; font-size: 19px; font-weight: 600; color: #eaf2ff; line-height: 1.2; padding-top: 8px; }
+  .approach-body { font-size: 15px; color: #9ab8db; line-height: 1.75; }
+  .approach-body strong { color: #c8d8f0; font-weight: 500; }
+  @media(max-width:760px){ .approach-row { grid-template-columns: 1fr; gap: 16px; } }
+
+  /* 4. ARGUMENT VALEUR après les prix : bande comparative épurée */
+  .worth { margin-top: 56px; border: 1px solid rgba(255,165,63,0.25); border-radius: 16px; overflow: hidden; }
+  .worth-top { text-align: center; padding: 28px 30px 22px; }
+  .worth-top-title { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(18px,2.4vw,22px); color: #eaf2ff; line-height: 1.4; }
+  .worth-cols { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,165,63,0.18); }
+  .worth-c { padding: 30px 32px; }
+  .worth-c.ours { background: rgba(2,120,255,0.05); border-right: 1px solid rgba(255,165,63,0.18); }
+  .worth-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a82b0; margin-bottom: 10px; }
+  .worth-c.market .worth-tag { color: #6a6a7a; }
+  .worth-price { font-family: 'TTTravels','Syne',sans-serif; font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .worth-c.ours .worth-price { color: #0278FF; }
+  .worth-c.market .worth-price { color: #8a8a98; }
+  .worth-price span { font-size: 14px; font-weight: 400; }
+  .worth-desc { font-size: 13.5px; line-height: 1.6; color: #8ab0d8; }
+  .worth-c.market .worth-desc { color: #6a6a7a; }
+  .worth-foot { text-align: center; font-size: 14px; color: #c8d8f0; padding: 22px 30px; border-top: 1px solid rgba(255,165,63,0.18); }
+  .worth-foot strong { color: #FFA53F; font-weight: 600; }
+  @media(max-width:600px){ .worth-cols { grid-template-columns: 1fr; } .worth-c.ours { border-right: none; border-bottom: 1px solid rgba(255,165,63,0.18); } }
+
+
+  /* Mises en valeur inline */
+  .hl { color: #FFA53F; font-weight: 500; }
+  .em { font-style: italic; color: #c8d8f0; }
+  .hlb { color: #6CC5FF; font-weight: 500; }
+
+
+  .section-wrap.bg-morpho {
+    position: relative;
+    background-color: #04050f;
+    overflow: hidden;
+  }
+  .section-wrap.bg-morpho::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/morpho-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    z-index: 0;
+  }
+  .section-wrap.bg-morpho::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(10,16,51,0.3) 0%, rgba(4,5,15,0.82) 70%, rgba(4,5,15,0.95) 100%);
+    z-index: 1;
+  }
+  .section-wrap.bg-morpho > * { position: relative; z-index: 2; }
+
+
+  /* OUTILS / PRATIQUES */
+  .tools-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+  .tool-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 36px 30px; transition: border-color 0.25s, transform 0.25s; }
+  .tool-card:hover { border-color: rgba(2,120,255,0.35); transform: translateY(-3px); }
+  .tool-ico { width: 40px; height: 40px; border-radius: 11px; background: rgba(2,120,255,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .tool-ico svg { width: 21px; height: 21px; color: #0278FF; }
+  .tool-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 17px; font-weight: 600; color: #eaf2ff; margin-bottom: 10px; }
+  .tool-desc { font-size: 14px; color: #9ab8db; line-height: 1.65; }
+  @media(max-width:760px){ .tools-grid { grid-template-columns: 1fr; } }
+
+
+  /* Fonds section v5 - nouvelles images */
+
+  .bg-philo { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-philo::after { content:''; position:absolute; inset:0; background-image:url('images/wing-purple.jpg'); background-size:cover; background-position:center; opacity:0.28; mix-blend-mode:screen; z-index:0; }
+  .bg-philo::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 65% 70% at 50% 50%, rgba(10,16,51,0.25) 0%, rgba(4,5,15,0.8) 75%, rgba(4,5,15,0.96) 100%); z-index:1; }
+  .bg-philo > * { position:relative; z-index:2; }
+
+  .bg-tools { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tools::after { content:''; position:absolute; inset:0; background-image:url('images/wing-blue.jpg'); background-size:cover; background-position:center; opacity:0.18; mix-blend-mode:screen; z-index:0; }
+  .bg-tools::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.7); z-index:1; }
+  .bg-tools > * { position:relative; z-index:2; }
+
+  .bg-tribu { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tribu::after { content:''; position:absolute; inset:0; background-image:url('images/feathers-dark.jpg'); background-size:cover; background-position:center top; opacity:0.22; z-index:0; }
+  .bg-tribu::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(4,5,15,0.5) 0%, rgba(4,5,15,0.3) 50%, rgba(4,5,15,0.7) 100%); z-index:1; }
+  .bg-tribu > * { position:relative; z-index:2; }
+
+  .bg-bio { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-bio::after { content:''; position:absolute; inset:0; background-image:url('images/leaves-night.jpg'); background-size:cover; background-position:center; opacity:0.35; z-index:0; }
+  .bg-bio::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.62); z-index:1; }
+  .bg-bio > * { position:relative; z-index:2; }
+
+  .bg-diff { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-diff::after { content:''; position:absolute; inset:0; background-image:url('images/fluid-dark.jpg'); background-size:cover; background-position:center; opacity:0.30; z-index:0; }
+  .bg-diff::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.65); z-index:1; }
+  .bg-diff > * { position:relative; z-index:2; }
+
+
+  /* CE QU'ON VIENT CHERCHER */
+  .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 56px; }
+  .benefit-card { padding: 40px 36px; border: 1px solid rgba(2,120,255,0.15); border-radius: 16px; background: rgba(2,120,255,0.03); transition: border-color 0.25s, transform 0.25s; }
+  .benefit-card:hover { border-color: rgba(2,120,255,0.35); transform: translateY(-3px); }
+  .benefit-ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .benefit-ico svg { width: 22px; height: 22px; color: #0278FF; }
+  .benefit-title { font-family: 'TTTravels','Syne',sans-serif; font-size: 19px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.25; }
+  .benefit-desc { font-size: 15px; color: #9ab8db; line-height: 1.7; }
+  @media(max-width:680px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+  /* LA COMMUNAUTÉ */
+  .values-wrap { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .values-lead { font-size: 17px; color: #c8d8f0; line-height: 1.85; }
+  .values-lead p { margin-bottom: 22px; }
+  .values-list { display: flex; flex-direction: column; gap: 16px; }
+  .value-item { display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px; border: 1px solid rgba(255,165,63,0.12); border-radius: 12px; background: rgba(255,165,63,0.03); }
+  .value-dot { width: 8px; height: 8px; border-radius: 50%; background: #FFA53F; flex-shrink: 0; margin-top: 7px; }
+  .value-text { font-size: 15px; color: #c8d8f0; line-height: 1.6; }
+  .value-text strong { color: #FFA53F; font-weight: 500; }
+  @media(max-width:760px){ .values-wrap { grid-template-columns: 1fr; gap: 36px; } }
+
+
+  .values-list-full { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 880px; margin: 0 auto; text-align: left; }
+  @media(max-width:680px){ .values-list-full { grid-template-columns: 1fr; } }
+
+  /* V4 extras */
+  .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
+  .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
+  .prob-word { font-family: 'Syne',sans-serif; font-size: 22px; font-weight: 700; color: #FFA53F; margin-bottom: 10px; }
+  .prob-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .diff-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 26px; }
+  .diff-name { font-family: 'Syne',sans-serif; font-size: 16px; font-weight: 600; color: #e0eaff; margin-bottom: 8px; }
+  .diff-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .concept-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .cstat { text-align: center; padding: 38px 28px; border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; transition: border-color 0.25s, transform 0.25s; }
+  .cstat:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .cstat-accent { font-family: 'Syne',sans-serif; font-size: 24px; font-weight: 700; color: #0278FF; line-height: 1.15; margin-bottom: 16px; }
+  .cstat-name { font-family: 'Syne',sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #e0eaff; margin-bottom: 12px; }
+  .cstat-label { font-size: 14px; color: #8ab0d8; line-height: 1.65; }
+  .concept-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 680px; margin: 0 auto; text-align: center; }
+  @media(max-width:700px){
+    .prob-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .concept-stats { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-links left">
+      <a href="#cest-quoi">La démarche</a>
+      <a href="#prestations">Le déploiement</a>
+      <a href="#prix">Rejoindre</a>
+    </div>
+    <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/><span class="nav-wordmark">LA TRIBU MORPHO</span></a>
+    <div class="nav-links right">
+      <a href="#faq">FAQ</a>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="nav-cta">Réserver un appel</a>
+    </div>
+  </div>
+</nav>
+<span id="top"></span>
+<div class="line"></div>
+
+<!-- ==================== HERO ==================== -->
+<div class="section-wrap bg-hero">
+  <div class="container">
+    <div class="accroche fade-in">
+      <p class="accroche-main">Donner vie à ton projet, <span style="color:#FFA53F;">et révéler qui tu es vraiment.</span></p>
+      <p class="accroche-sub">Un cercle d'artistes et d'entrepreneurs qui avancent ensemble, pour <span class="hl">se réaliser sans se trahir</span> et concrétiser ce qui compte pour eux.</p>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CE QU'ON VIENT CHERCHER ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Les bénéfices</div>
+      <h2 class="s-title">Ce que tu viens <span style="color:#FFA53F;">y gagner.</span></h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="benefit-title">Gagner en clarté sur soi et son projet</div>
+          <p class="benefit-desc">Savoir qui tu es, où tu vas, et comment y aller <span class="hl">en restant toi-même</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="benefit-title">Structurer et déployer ce qui te ressemble</div>
+          <p class="benefit-desc">Ton offre, ta communication, ton univers. Une activité qui <span class="hl">reflète vraiment qui tu es</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <div class="benefit-title">Élargir ses perspectives</div>
+          <p class="benefit-desc">Sortir de ta tête, voir plus loin. <span class="hl">Profiter du regard d'un groupe</span> qui comprend ce que tu traverses.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="benefit-title">Progresser sans tout porter seul</div>
+          <p class="benefit-desc">Des alliés, un espace pour déposer, du soutien concret. <span class="hl">Le collectif fait ce que la solitude ne peut pas.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PROBLÈME ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Le constat</div>
+      <h2 class="s-title">Parfois, <span style="color:#FFA53F;">tu te sens perdu.</span></h2>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+          <div class="prob-word">Seul</div>
+          <div class="prob-desc">Ton entourage <span class="hl">ne comprend pas toujours ce chemin</span>. Peu de gens saisissent qui tu es et ce que tu construis.</div>
+        </div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+          <div class="prob-word">Dispersé</div>
+          <div class="prob-desc">Tu maîtrises ton métier, mais <span class="hl">entreprendre demande tellement plus</span>. Et personne ne t'a appris le reste.</div>
+        </div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>
+          <div class="prob-word">Sous pression</div>
+          <div class="prob-desc">Légitimité, comparaison, peur de s'exposer, argent. Tout cela <span class="hl">remue beaucoup, en silence</span>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="cest-quoi" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== CE QUE C'EST ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Les demi-solutions</div>
+      <h2 class="s-title">Aucune solution, seule, <span style="color:#FFA53F;">ne suffit.</span></h2>
+      <p class="concept-lead">Tu as sûrement déjà essayé. Et senti que <em class="em">rien ne prenait soin de l'ensemble</em>.</p>
+      <div class="sol-grid">
+        <div class="sol-card">
+          <div class="sol-head">
+            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12h8M8 9h8M8 15h5"/><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20l2-2"/></svg></div>
+            <div class="sol-name">En parler autour de toi</div>
+          </div>
+          <p class="sol-desc">Ceux qui t'aiment ne sont pas toujours ceux qui peuvent t'éclairer. Peu de gens comprennent vraiment ce chemin.</p>
+          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Personne qui saisit à la fois qui tu es et ce que tu construis.</div>
+        </div>
+        <div class="sol-card">
+          <div class="sol-head">
+            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-5h6v5"/></svg></div>
+            <div class="sol-name">Un programme business</div>
+          </div>
+          <p class="sol-desc">Souvent cher, en grand groupe, avec peu de relationnel. On t'amène sur la stratégie et les tactiques.</p>
+          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Rarement la compréhension profonde de qui tu es.</div>
+        </div>
+        <div class="sol-card">
+          <div class="sol-head">
+            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-4 8-7 8-11a8 8 0 10-16 0c0 4 4 7 8 11z"/></svg></div>
+            <div class="sol-name">Une thérapie, un travail intérieur</div>
+          </div>
+          <p class="sol-desc">Cela remue ta vie, tes blocages, tes mémoires. Un travail précieux sur ton monde intérieur.</p>
+          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Sans que ça fasse avancer ton activité, concrètement.</div>
+        </div>
+        <div class="sol-card">
+          <div class="sol-head">
+            <div class="sol-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+            <div class="sol-name">Un designer, un développeur</div>
+          </div>
+          <p class="sol-desc">Tes idées prennent forme. Mais c'est un budget qui part là, et qui ne va plus dans le reste.</p>
+          <div class="sol-lack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg> Plus rien pour le soutien, le groupe, le travail sur toi.</div>
+        </div>
+      </div>
+      <p class="sol-bridge">Et si tu n'avais pas à choisir entre tout ça ?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LA TRIBU MORPHO (réponse) ==================== -->
+<div class="section-wrap bg-tribu">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">La solution</div>
+      <h2 class="s-title" style="text-align:center;">Une communauté, <span style="color:#FFA53F;">et un accompagnement pour toi.</span></h2>
+      <p class="modele-lead">Pas plus de contenu. Un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
+      <div class="aspect-stack">
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.5 0 5 1.8 5 5"/></svg></div>
+          <div>
+            <div class="aspect-kicker">Le collectif</div>
+            <div class="aspect-title">Le groupe, pour revenir à toi</div>
+            <p class="aspect-body">Un rendez-vous hebdomadaire pour sortir de l'agitation du quotidien, déposer ce que tu portes, et te retrouver. C'est un <span class="hl">rendez-vous avec toi-même, mais vécu en groupe</span>. On commence souvent par une méditation, parce que <em class="em">tout part de la présence</em>.</p>
+          </div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a7 7 0 00-4 12.7c.6.5 1 1.2 1 2V19h6v-1.3c0-.8.4-1.5 1-2A7 7 0 0012 3z"/><path d="M9.5 22h5"/></svg></div>
+          <div>
+            <div class="aspect-kicker">L'individuel</div>
+            <div class="aspect-title">L'accompagnement, pour aller en profondeur</div>
+            <p class="aspect-body">Un temps rien qu'à toi pour <span class="hl">mieux comprendre qui tu es et t'aligner</span>, avec des outils de connaissance de soi comme le Human Design. On y libère les blocages et les croyances qui freinent, et on structure tes offres, ta communication, ton déploiement.</p>
+          </div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <div>
+            <div class="aspect-kicker">Le concret</div>
+            <div class="aspect-title">Aller jusqu'au bout, concrètement</div>
+            <p class="aspect-body">Tout ce que tu imagines peut prendre forme : un logo, un univers graphique, un site web, des supports, une application. <span class="hl">Ce qui restait une idée dans ta tête devient réel</span>, et te ressemble.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CE QUI EST DIFFÉRENT ==================== -->
+<div class="section-wrap bg-spiral">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Profondeur et matière</div>
+      <h2 class="s-title">Être accompagné <span style="color:#FFA53F;">et créer, en même temps.</span></h2>
+      <div class="diff-cols">
+        <div class="diff-col">
+          <div class="diff-col-icon">◎</div>
+          <div class="diff-col-label">En profondeur</div>
+          <p class="diff-col-text">Vision, alignement, émotions, perception de soi, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
+        </div>
+        <div class="diff-plus">+</div>
+        <div class="diff-col">
+          <div class="diff-col-icon">◈</div>
+          <div class="diff-col-label">Dans la matière</div>
+          <p class="diff-col-text">Stratégie, site, tunnel, identité visuelle, app. Ce qu'on met en place est aligné avec le travail fait en profondeur. Pas un brief. Une émergence.</p>
+        </div>
+      </div>
+      <div class="diff-quote">
+        "Ce qu'on construit ensemble émerge d'un alignement réel.<br>Je ne suis pas un prestataire. On fait des allers-retours constants<br>entre ce que tu es et ce qu'on crée."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VALEURS PROFONDES ==================== -->
+<div class="section-wrap bg-philo">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Pourquoi c'est différent</div>
+      <h2 class="s-title">Revenir à soi <span style="color:#FFA53F;">pour mieux se déployer.</span></h2>
+      <p class="concept-lead">La démarche ne plaque pas de méthode. Elle te ramène à <span class="hl">qui tu es vraiment</span>, puis donne forme à cela, <em class="em">à ton rythme et dans ta couleur</em>.</p>
+      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. <em class="em">Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes.</em></p>
+    </div>
+    <div class="section fade-in" style="padding-top:0;">
+      <div class="values-list-full">
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Se réaliser sans se trahir.</strong></div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>S'incarner dans qui on est vraiment.</strong></div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Montrer toutes ses facettes</strong>, sans en sacrifier une.</div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Impacter le monde sans se perdre.</strong></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== OUTILS / PRATIQUES ==================== -->
+<div class="section-wrap bg-tools">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Tout au même endroit</div>
+      <h2 class="s-title" style="text-align:center;">Tout ce qu'il te faut <span style="color:#FFA53F;">pour entreprendre.</span></h2>
+      <p class="concept-lead">Entreprendre demande bien plus qu'un métier. Ici, tu accèdes à tout le spectre, <span class="hl">sans avoir à le rassembler toi-même</span>.</p>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div class="tool-name">La présence</div>
+          <div class="tool-desc">Par la méditation, <span class="hl">revenir au calme et à soi</span>, sortir de l'agitation pour voir clair avant d'agir. C'est là que tout commence.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+          <div class="tool-name">La connaissance de soi</div>
+          <div class="tool-desc">Avec le Human Design et d'autres outils, comprendre <span class="hl">comment tu fonctionnes vraiment</span>, comment tu décides, où se trouve ton énergie juste.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg></div>
+          <div class="tool-name">Le déblocage</div>
+          <div class="tool-desc">Libérer les croyances limitantes, traverser la peur de s'exposer, et <span class="hl">trouver de la clarté</span> sur ce que tu veux vraiment créer.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5-3 13-5-4-3 4z"/><path d="M13 15l-2 4"/></svg></div>
+          <div class="tool-name">Le marketing &amp; la communication</div>
+          <div class="tool-desc">Structurer une offre qui te ressemble, <span class="hl">trouver ta façon juste de communiquer</span>, te positionner, ouvrir ton activité à de nouveaux domaines.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <div class="tool-name">Le design</div>
+          <div class="tool-desc">Identité visuelle, logo, univers graphique, supports. Pour que ton image <span class="hl">reflète vraiment qui tu es</span>, loin d'un habillage générique.</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="tool-name">La technique</div>
+          <div class="tool-desc">Sites web, tunnels, applications. <span class="hl">Tes idées deviennent des outils réels</span>, sans intermédiaire et sans avoir à tout coordonner.</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:48px;">
+        <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PILIERS ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Les piliers</div>
+      <h2 class="s-title">Quatre dimensions, <span style="color:#FFA53F;">une seule vie.</span></h2>
+      <div class="pillars">
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Activité & création</div><div class="pillar-sub">Offre, positionnement, projet artistique, souveraineté financière</div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Corps & vitalité</div><div class="pillar-sub">Énergie, mouvement, présence physique</div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Relations</div><div class="pillar-sub">Souveraineté relationnelle, liens, espace personnel</div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Déploiement</div><div class="pillar-sub">Sortir ce que tu as à offrir. Le mettre dans le monde.</div></div>
+        <div class="pillar gold" style="grid-column:1/-1;"><div class="pillar-num">+</div><div class="pillar-name">Accompagnement individuel</div><div class="pillar-sub">Via les tickets — tech, design, Human Design, coaching, stratégie</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prix" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== NIVEAUX ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Rejoindre</div>
+      <h2 class="s-title">Trois façons <span style="color:#FFA53F;">d'entrer.</span></h2>
+      <div class="pricing-wrap">
+        <div class="p-card">
+          <div class="p-level">Niveau I</div>
+          <div class="p-name">Essentiel</div>
+          <div class="p-price"><sup>€</sup>49<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">&nbsp;</div>
+          <ul class="p-feats">
+            <li>Rendez-vous collectif hebdo</li>
+            <li>Méditation + partage</li>
+            <li>Communauté privée</li>
+          </ul>
+          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+        <div class="p-card hot">
+          <div class="p-level">Niveau II</div>
+          <div class="p-name">Ancrage</div>
+          <div class="p-price"><sup>€</sup>139<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau I</li>
+            <li>1 ticket/mois qui s'accumule</li>
+            <li>Tech, design, Human Design, coaching</li>
+          </ul>
+          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
+        </div>
+        <div class="p-card">
+          <div class="p-level">Niveau III</div>
+          <div class="p-name">Rayonnement</div>
+          <div class="p-price"><sup>€</sup>297<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau II</li>
+            <li>3 tickets/mois cumulables</li>
+            <li>Accès prioritaire</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+      </div>
+      <div class="bonus-banner">
+        <div class="bonus-icon">◆</div>
+        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi en rejoignant.</div>
+      </div>
+      <div class="unit-ticket">
+        <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
+        <div class="unit-price">120 €</div>
+      </div>
+
+      <div class="worth">
+        <div class="worth-top">
+          <div class="worth-top-title">Pour situer ce que ça représente.</div>
+        </div>
+        <div class="worth-cols">
+          <div class="worth-c ours">
+            <div class="worth-tag">La Tribu, niveau Rayonnement</div>
+            <div class="worth-price">297 €<span> /mois</span></div>
+            <div class="worth-desc">Le collectif chaque semaine, l'accompagnement individuel, et 3 tickets par mois qui s'accumulent. En quelques mois, de quoi construire un site complet ou une application, tout en étant accompagné en profondeur.</div>
+          </div>
+          <div class="worth-c market">
+            <div class="worth-tag">Une agence ou un freelance senior</div>
+            <div class="worth-price">5 000 €<span> et plus</span></div>
+            <div class="worth-desc">Pour une seule application mobile. Sans l'accompagnement, sans le travail sur toi, sans le groupe autour.</div>
+          </div>
+        </div>
+        <div class="worth-foot">Et tes tickets <strong>ne se perdent jamais</strong>. Plus tu restes, plus tu construis.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== EVENTAIL PRESTATIONS ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Le champ des possibles</div>
+      <h2 class="s-title">Trois territoires, <span style="color:#FFA53F;">une seule personne.</span></h2>
+      <p class="concept-lead">Trois grands domaines, qui ne se séparent jamais vraiment.</p>
+      <div class="approach-list">
+        <div class="approach-row">
+          <div class="approach-left">
+            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg></div>
+            <div class="approach-cat">Se comprendre<br>et s'aligner</div>
+          </div>
+          <div class="approach-body">À travers le coaching, la lecture Human Design et d'autres outils de connaissance de soi, on cherche d'abord à comprendre comment tu fonctionnes vraiment. <strong>L'objectif n'est pas de te plaquer une stratégie, mais de revenir à ta façon juste.</strong> On y travaille aussi les croyances limitantes, la légitimité, la peur de s'exposer, la clarté sur ce que tu veux réellement créer.</div>
+        </div>
+        <div class="approach-row">
+          <div class="approach-left">
+            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16a5 5 0 005-5c0-3.9-4-7.6-9-7.6z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16.5" cy="11.5" r="1"/></svg></div>
+            <div class="approach-cat">Structurer<br>et déployer</div>
+          </div>
+          <div class="approach-body">J'ai accompagné en individuel, animé des cercles, créé des retraites et des offres. <strong>Je peux t'aider à structurer une offre qui te ressemble</strong>, à trouver ta manière authentique de communiquer, à ouvrir ton activité à de nouveaux domaines, et à incarner l'entrepreneur sans tomber dans une posture business qui sonne faux.</div>
+        </div>
+        <div class="approach-row">
+          <div class="approach-left">
+            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg></div>
+            <div class="approach-cat">Donner forme<br>concrètement</div>
+          </div>
+          <div class="approach-body">Ancien ingénieur, j'ai créé des sites web, des applications, des identités visuelles. <strong>Je peux matérialiser ce que tu imagines</strong> : un logo, un univers graphique, un site, un tunnel, une application. Ce qui restait une idée dans ta tête prend forme, sans que tu aies à coordonner cinq prestataires différents.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TICKETS ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
+      <h2 class="s-title" style="text-align:center;">Un ticket, une heure. <span style="color:#FFA53F;">Et tout ce qu'on en fait.</span></h2>
+      <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
+      <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
+      <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
+
+      <div class="tk-bareme">
+        <div class="tk-step">
+          <div class="tk-step-num">1</div>
+          <div class="tk-step-unit">ticket</div>
+          <div class="tk-step-what">Une session de clarté</div>
+          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">5</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Ton identité visuelle</div>
+          <div class="tk-step-val">Logo, palette, direction de marque</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">10</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Une landing ou un tunnel</div>
+          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
+        </div>
+        <div class="tk-step">
+          <div class="tk-step-num">20</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Un site complet ou une app</div>
+          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
+        </div>
+      </div>
+
+      <div class="gallery-label">Ce que ça donne, en vrai</div>
+      <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
+      <div class="gal-sites">
+        <a href="https://archipelkyosei.com" target="_blank" class="g-item">
+          <img src="images/kyosei-web.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
+        </a>
+        <div class="g-item">
+          <img src="images/silent-lake.jpg" alt="Silent Lake II"/>
+          <div class="g-cap"><div class="g-type">Site événement</div><div class="g-name">Silent Lake II</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/desert-mirage.jpg" alt="Desert Mirage Journey"/>
+          <div class="g-cap"><div class="g-type">Site résidence</div><div class="g-name">Desert Mirage Journey</div></div>
+        </div>
+        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item">
+          <img src="images/souffle-web.jpg" alt="Souffle en Corps"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
+        </a>
+      </div>
+      <div class="gal-logos">
+        <div class="g-item">
+          <img src="images/main-hopi.png" alt="La Main Hopi"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">La Main Hopi</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/saonessence.webp" alt="Saônessence"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Saônessence</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/smoos.jpg" alt="Smoos"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Smoos</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Kyosei</div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CTA INTERMÉDIAIRE ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="cta-mid fade-in">
+      <div class="cta-mid-text">Tu as envie de donner forme à ce que tu portes, sans perdre ton alignement ?</div>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="cta-mid-btn">Réserver un appel</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== QUI JE SUIS ==================== -->
+<div class="section-wrap bg-bio">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Qui je suis</div>
+      <div class="bio-header">
+        <div class="bio-block">
+          <div style="display:flex; align-items:flex-start; gap:36px; flex-wrap:wrap;">
+            <img src="images/anys-photo.png" alt="Anys Mechkar" style="width:160px; height:160px; object-fit:cover; border-radius:50%; border:2px solid rgba(2,120,255,0.3); flex-shrink:0;"/>
+            <div style="flex:1; min-width:240px;">
+          <h2 class="s-title">Anys Mechkar</h2>
+          <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
+          <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
+          <p class="bio-text" style="margin-top:14px;">Cet accompagnement s'adresse à ceux qui ont une certaine sensibilité, une forme de spiritualité, et en même temps l'envie d'avancer concrètement dans leur activité et leur vie. La Tribu Morpho est l'espace que j'aurais voulu avoir. Je suis heureux de le construire avec vous.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="faq" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== FAQ ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Questions</div>
+      <h2 class="s-title">Ce que tu te demandes sûrement.</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">C'est quoi exactement un ticket ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">1 ticket = 1h avec moi. Tu peux l'utiliser pour du coaching, du Human Design, de la stratégie, du design ou du développement. Tu choisis selon ce dont t'as besoin au moment où t'en as besoin.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Les tickets se perdent si je ne les utilise pas ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Non. Ils s'accumulent d'un mois sur l'autre sans limite. C'est ça la puissance du système — plus tu restes, plus tu construis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Le rendez-vous hebdo c'est quoi concrètement ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Une heure ensemble chaque semaine. On commence par une méditation guidée, puis on ouvre l'espace aux partages — ce sur quoi tu travailles, ce qui te questionne, ce qui avance. C'est un moment pour prendre du recul, être vu, et avancer entouré.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Je peux rejoindre juste pour la communauté sans tickets ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Oui, c'est le niveau Essentiel à 49€/mois. Accès au rendez-vous hebdo et à la communauté privée. Tu peux passer au niveau supérieur ou acheter des tickets à l'unité à tout moment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">C'est pour quel type de projet ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Artiste, entrepreneur, accompagnant, créateur, multipotentiel. Ce qui compte, c'est l'intention de construire quelque chose qui te ressemble vraiment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CTA ==================== -->
+<div class="section-wrap bg-galaxy">
+  <div class="container">
+    <div class="cta fade-in" style="text-align:center;">
+      <h2>Ça t'appelle ?<br><em>On en parle.</em></h2>
+      <p class="cta-intro" style="font-size:18px;color:#c8d8f0;line-height:1.7;max-width:560px;margin:20px auto 8px;">Si quelque chose en toi a reconnu ce dont on parle ici, <span style="color:#FFA53F;">ce n'est sûrement pas un hasard.</span></p>
+      <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu se construit en petit cercle, quelques places à la fois.</p>
+      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
+      <p class="cta-note" style="font-size:14px;margin-top:18px;">Un échange de 30 minutes, pour voir si c'est le bon moment pour toi.</p>
+    </div>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<div class="container">
+  <footer style="display:flex;align-items:center;gap:12px;">
+    <img src="images/morpho-mark.svg" alt="Morpho" style="width:26px;height:26px;object-fit:contain;opacity:0.7;"/>
+    <div class="footer-txt">Créé avec <span style="color:#e05050;">♥</span> par <span style="color:#e0eaff;font-weight:500;">Anys Mechkar</span></div>
+  </footer>
+</div>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  const tsState = {};
+  function slideTs(id, dir) {
+    const track = document.getElementById(id);
+    if (!track) return;
+    const slides = track.querySelectorAll('.ts-slide');
+    const half = slides.length / 2;
+    if (!tsState[id]) tsState[id] = 0;
+    tsState[id] += dir;
+    const slideW = slides[0].offsetWidth + 12;
+    if (tsState[id] >= half) {
+      track.style.transition = 'none';
+      tsState[id] = 0;
+      track.style.transform = 'translateX(0px)';
+      requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
+      return;
+    }
+    if (tsState[id] < 0) {
+      track.style.transition = 'none';
+      tsState[id] = half - 1;
+      track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+      requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = 'transform 0.35s ease'; }));
+      return;
+    }
+    track.style.transition = 'transform 0.35s ease';
+    track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
+  }
+
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
