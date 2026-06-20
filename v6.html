@@ -1381,6 +1381,20 @@
   .fq-sub { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #eaf2ff; margin-top: 80px; }
   @media(max-width:680px){ .fq-list { grid-template-columns: 1fr; max-width: 480px; } }
 
+
+  .bio-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; margin-top: 48px; max-width: 920px; }
+  .bio-photo-col { display: flex; flex-direction: column; align-items: center; }
+  .bio-portrait { width: 220px; height: 220px; object-fit: cover; object-position: center top; border-radius: 50%; border: 1px solid rgba(2,120,255,0.35); box-shadow: 0 0 0 6px rgba(2,120,255,0.06), 0 12px 40px rgba(0,0,0,0.4); }
+  .bio-role { font-family: 'Syne',sans-serif; font-size: 12.5px; letter-spacing: 0.06em; color: #6CC5FF; margin-bottom: 26px; line-height: 1.6; }
+  .bio-content .bio-text { font-size: 16px; line-height: 1.85; color: #b8cce6; margin-bottom: 18px; }
+  .bio-worlds { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
+  .bio-worlds span { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; font-weight: 500; color: #FFA53F; border: 1px solid rgba(255,165,63,0.3); border-radius: 100px; padding: 8px 20px; background: rgba(255,165,63,0.04); }
+  @media(max-width:720px){
+    .bio-wrap { grid-template-columns: 1fr; gap: 28px; justify-items: center; text-align: center; }
+    .bio-content { text-align: left; }
+    .bio-worlds { justify-content: flex-start; }
+  }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1429,7 +1443,7 @@
   <div class="container">
     <div class="accroche fade-in">
       <p class="accroche-main">Donner vie à ton projet, <span style="color:#FFA53F;">et révéler qui tu es vraiment.</span></p>
-      <p class="accroche-sub">Un cercle d'artistes et d'entrepreneurs qui avancent ensemble, pour <span class="hl">se réaliser sans se trahir</span> et concrétiser ce qui compte pour eux.</p>
+      <p class="accroche-sub">Une tribu d'artistes et d'entrepreneurs qui avancent ensemble, pour <span class="hl">se réaliser sans se trahir</span> et concrétiser ce qui compte pour eux.</p>
       <a href="#cest-quoi" class="btn" style="margin-top:40px;">Découvrir la Tribu</a>
     </div>
   </div>
@@ -1785,18 +1799,22 @@
 <div class="section-wrap bg-bio">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Qui je suis</div>
-      <div class="bio-header">
-        <div class="bio-block">
-          <div style="display:flex; align-items:flex-start; gap:36px; flex-wrap:wrap;">
-            <img src="images/anys-photo.png" alt="Anys Mechkar" style="width:160px; height:160px; object-fit:cover; border-radius:50%; border:2px solid rgba(2,120,255,0.3); flex-shrink:0;"/>
-            <div style="flex:1; min-width:240px;">
-          <h2 class="s-title">Anys Mechkar</h2>
-          <p class="bio-text">Je suis un ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
-          <p class="bio-text" style="margin-top:14px;">Aujourd'hui, je mêle <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : le monde de la technologie, celui du business, et celui de la spiritualité. J'ai accompagné des personnes en individuel, animé des cercles, créé des retraites, conçu des sites et des applications. Cela me permet d'aider aussi bien à se comprendre qu'à donner forme, concrètement, à ce qu'on porte.</p>
-          <p class="bio-text" style="margin-top:14px;">Cet accompagnement s'adresse à ceux qui ont une certaine sensibilité, une forme de spiritualité, et en même temps l'envie d'avancer concrètement dans leur activité et leur vie. La Tribu Morpho est l'espace que j'aurais voulu avoir. Je suis heureux de le construire avec vous.</p>
-            </div>
+      <div class="s-label" style="text-align:center;">Qui je suis</div>
+      <div class="bio-wrap">
+        <div class="bio-photo-col">
+          <img class="bio-portrait" src="images/anys-photo.png" alt="Anys Mechkar"/>
+        </div>
+        <div class="bio-content">
+          <h2 class="s-title" style="margin-bottom:10px;">Anys Mechkar</h2>
+          <div class="bio-role">Ingénieur · Développeur · Designer · Enseignant de méditation · Praticien Human Design</div>
+          <p class="bio-text">Ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
+          <p class="bio-text">Aujourd'hui, je réunis <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : la technologie, le business et la spiritualité. J'accompagne en individuel, j'anime des groupes, je crée des retraites, je conçois des sites et des applications. De quoi t'aider aussi bien à te comprendre qu'à donner forme, concrètement, à ce que tu portes.</p>
+          <div class="bio-worlds">
+            <span>Technologie</span>
+            <span>Business</span>
+            <span>Spiritualité</span>
           </div>
+          <p class="bio-text">La Tribu Morpho est l'espace que j'aurais aimé avoir. <em class="em">Je suis heureux de le construire avec toi.</em></p>
         </div>
       </div>
     </div>
@@ -1848,9 +1866,9 @@
 <div class="section-wrap bg-galaxy">
   <div class="container">
     <div class="cta fade-in" style="text-align:center;">
-      <h2>Ça résonne en toi ?<br><em>Rejoins le cercle.</em></h2>
+      <h2>Ça résonne en toi ?<br><em>Ta place est ici.</em></h2>
       <p class="cta-intro" style="font-size:18px;color:#c8d8f0;line-height:1.7;max-width:560px;margin:20px auto 8px;">Si quelque chose en toi a reconnu ce dont on parle ici, <span style="color:#FFA53F;">ce n'est sûrement pas un hasard.</span></p>
-      <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu se construit en petit cercle, quelques places à la fois.</p>
+      <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu reste un petit groupe, quelques places à la fois.</p>
       <a href="#prix" class="btn" style="background:rgba(255,165,63,0.12);">Rejoins la Tribu</a>
       <p class="cta-note" style="font-size:14px;margin-top:22px;">Tu hésites encore ? <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" style="color:#FFA53F;text-decoration:underline;">Réserve un appel de 30 minutes</a> pour en parler.</p>
     </div>
