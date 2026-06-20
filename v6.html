@@ -1295,6 +1295,22 @@
   .values-list-full { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 880px; margin: 0 auto; text-align: left; }
   @media(max-width:680px){ .values-list-full { grid-template-columns: 1fr; } }
 
+
+  .forqui-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 52px; }
+  .forqui-col { padding: 36px 34px; border-radius: 16px; }
+  .forqui-col.yes { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.2); }
+  .forqui-col.no { background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); }
+  .forqui-head { font-family: 'TTTravels','Syne',sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 20px; }
+  .forqui-col.yes .forqui-head { color: #6CC5FF; }
+  .forqui-col.no .forqui-head { color: #7a7a8a; }
+  .forqui-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .forqui-list li { font-size: 15px; line-height: 1.6; padding-left: 26px; position: relative; }
+  .forqui-col.yes .forqui-list li { color: #c8d8f0; }
+  .forqui-col.no .forqui-list li { color: #8a8a98; }
+  .forqui-col.yes .forqui-list li::before { content: '+'; position: absolute; left: 0; top: 0; color: #0278FF; font-weight: 700; font-size: 17px; }
+  .forqui-col.no .forqui-list li::before { content: '–'; position: absolute; left: 0; top: 0; color: #6a6a7a; font-weight: 700; font-size: 17px; }
+  @media(max-width:680px){ .forqui-grid { grid-template-columns: 1fr; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1324,14 +1340,14 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <div class="nav-links left">
-      <a href="#cest-quoi">La démarche</a>
-      <a href="#prestations">Le déploiement</a>
-      <a href="#prix">Rejoindre</a>
+      <a href="#cest-quoi">La Tribu</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#prix">Tarifs</a>
     </div>
     <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/><span class="nav-wordmark">LA TRIBU MORPHO</span></a>
     <div class="nav-links right">
       <a href="#faq">FAQ</a>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="nav-cta">Réserver un appel</a>
+      <a href="#prix" class="nav-cta">Rejoindre</a>
     </div>
   </div>
 </nav>
@@ -1344,39 +1360,7 @@
     <div class="accroche fade-in">
       <p class="accroche-main">Donner vie à ton projet, <span style="color:#FFA53F;">et révéler qui tu es vraiment.</span></p>
       <p class="accroche-sub">Un cercle d'artistes et d'entrepreneurs qui avancent ensemble, pour <span class="hl">se réaliser sans se trahir</span> et concrétiser ce qui compte pour eux.</p>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== CE QU'ON VIENT CHERCHER ==================== -->
-<div class="section-wrap">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Les bénéfices</div>
-      <h2 class="s-title">Ce que tu viens <span style="color:#FFA53F;">y gagner.</span></h2>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-          <div class="benefit-title">Gagner en clarté sur soi et son projet</div>
-          <p class="benefit-desc">Savoir qui tu es, où tu vas, et comment y aller <span class="hl">en restant toi-même</span>.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <div class="benefit-title">Structurer et déployer ce qui te ressemble</div>
-          <p class="benefit-desc">Ton offre, ta communication, ton univers. Une activité qui <span class="hl">reflète vraiment qui tu es</span>.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
-          <div class="benefit-title">Élargir ses perspectives</div>
-          <p class="benefit-desc">Sortir de ta tête, voir plus loin. <span class="hl">Profiter du regard d'un groupe</span> qui comprend ce que tu traverses.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-          <div class="benefit-title">Progresser sans tout porter seul</div>
-          <p class="benefit-desc">Des alliés, un espace pour déposer, du soutien concret. <span class="hl">Le collectif fait ce que la solitude ne peut pas.</span></p>
-        </div>
-      </div>
+      <a href="#cest-quoi" class="btn" style="margin-top:40px;">Découvrir la Tribu</a>
     </div>
   </div>
 </div>
@@ -1385,7 +1369,7 @@
 <div class="section-wrap">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Le constat</div>
+      <div class="s-label">Le point de départ</div>
       <h2 class="s-title">Parfois, <span style="color:#FFA53F;">tu te sens perdu.</span></h2>
       <div class="prob-grid">
         <div class="prob-card">
@@ -1413,7 +1397,7 @@
 <div class="section-wrap alt">
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
-      <div class="s-label">Les demi-solutions</div>
+      <div class="s-label">Ce que tu as déjà essayé</div>
       <h2 class="s-title">Aucune solution, seule, <span style="color:#FFA53F;">ne suffit.</span></h2>
       <p class="concept-lead">Tu as sûrement déjà essayé. Et senti que <em class="em">rien ne prenait soin de l'ensemble</em>.</p>
       <div class="sol-grid">
@@ -1459,7 +1443,7 @@
 <div class="section-wrap bg-tribu">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">La solution</div>
+      <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
       <h2 class="s-title" style="text-align:center;">Une communauté, <span style="color:#FFA53F;">et un accompagnement pour toi.</span></h2>
       <p class="modele-lead">Pas plus de contenu. Un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
       <div class="aspect-stack">
@@ -1518,32 +1502,74 @@
   </div>
 </div>
 
-<!-- ==================== VALEURS PROFONDES ==================== -->
-<div class="section-wrap bg-philo">
+<!-- ==================== CE QU'ON VIENT CHERCHER ==================== -->
+<div class="section-wrap">
   <div class="container">
-    <div class="section fade-in" style="text-align:center;">
-      <div class="s-label">Pourquoi c'est différent</div>
-      <h2 class="s-title">Revenir à soi <span style="color:#FFA53F;">pour mieux se déployer.</span></h2>
-      <p class="concept-lead">La démarche ne plaque pas de méthode. Elle te ramène à <span class="hl">qui tu es vraiment</span>, puis donne forme à cela, <em class="em">à ton rythme et dans ta couleur</em>.</p>
-      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. <em class="em">Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes.</em></p>
-    </div>
-    <div class="section fade-in" style="padding-top:0;">
-      <div class="values-list-full">
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Se réaliser sans se trahir.</strong></div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>S'incarner dans qui on est vraiment.</strong></div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Montrer toutes ses facettes</strong>, sans en sacrifier une.</div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Impacter le monde sans se perdre.</strong></div></div>
+    <div class="section fade-in">
+      <div class="s-label">Ce que tu y trouves</div>
+      <h2 class="s-title">De la clarté, de la structure, <span style="color:#FFA53F;">et des alliés.</span></h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="benefit-title">Gagner en clarté sur soi et son projet</div>
+          <p class="benefit-desc">Savoir qui tu es, où tu vas, et comment y aller <span class="hl">en restant toi-même</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="benefit-title">Structurer et déployer ce qui te ressemble</div>
+          <p class="benefit-desc">Ton offre, ta communication, ton univers. Une activité qui <span class="hl">reflète vraiment qui tu es</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <div class="benefit-title">Élargir ses perspectives</div>
+          <p class="benefit-desc">Sortir de ta tête, voir plus loin. <span class="hl">Profiter du regard d'un groupe</span> qui comprend ce que tu traverses.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="benefit-title">Progresser sans tout porter seul</div>
+          <p class="benefit-desc">Des alliés, un espace pour déposer, du soutien concret. <span class="hl">Le collectif fait ce que la solitude ne peut pas.</span></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- ==================== POUR QUI ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Pour qui</div>
+      <h2 class="s-title">Tu vas te sentir <span style="color:#FFA53F;">chez toi ici si...</span></h2>
+      <div class="forqui-grid">
+        <div class="forqui-col yes">
+          <div class="forqui-head">C'est pour toi si</div>
+          <ul class="forqui-list">
+            <li>Tu portes un projet qui te tient vraiment à cœur, artistique ou entrepreneurial.</li>
+            <li>Tu veux avancer à ta manière, sans te couler dans un moule qui ne te ressemble pas.</li>
+            <li>Tu as une sensibilité, une intériorité, et en même temps l'envie de concrétiser.</li>
+            <li>Tu sens que tu irais plus loin, et plus sereinement, entouré que seul.</li>
+          </ul>
+        </div>
+        <div class="forqui-col no">
+          <div class="forqui-head">Ce n'est pas pour toi si</div>
+          <ul class="forqui-list">
+            <li>Tu cherches une recette toute faite à appliquer sans te remettre en question.</li>
+            <li>Tu veux des résultats sans aucun travail sur toi ni sur ta clarté.</li>
+            <li>Le collectif et l'entraide ne t'intéressent pas, tu veux juste un prestataire.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="comment" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== OUTILS / PRATIQUES ==================== -->
 <div class="section-wrap bg-tools">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">Tout au même endroit</div>
-      <h2 class="s-title" style="text-align:center;">Tout ce qu'il te faut <span style="color:#FFA53F;">pour entreprendre.</span></h2>
+      <div class="s-label" style="text-align:center;">Comment ça marche</div>
+      <h2 class="s-title" style="text-align:center;">Tout ce qu'il te faut, <span style="color:#FFA53F;">au même endroit.</span></h2>
       <p class="concept-lead">Entreprendre demande bien plus qu'un métier. Ici, tu accèdes à tout le spectre, <span class="hl">sans avoir à le rassembler toi-même</span>.</p>
       <div class="tools-grid">
         <div class="tool-card">
@@ -1578,7 +1604,7 @@
         </div>
       </div>
       <div style="text-align:center; margin-top:48px;">
-        <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
+        <a href="#prix" class="btn">Rejoindre la Tribu</a>
       </div>
     </div>
   </div>
@@ -1602,119 +1628,6 @@
 </div>
 
 <span id="prix" style="display:block;position:relative;top:-70px;"></span>
-<!-- ==================== NIVEAUX ==================== -->
-<div class="section-wrap">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Rejoindre</div>
-      <h2 class="s-title">Trois façons <span style="color:#FFA53F;">d'entrer.</span></h2>
-      <div class="pricing-wrap">
-        <div class="p-card">
-          <div class="p-level">Niveau I</div>
-          <div class="p-name">Essentiel</div>
-          <div class="p-price"><sup>€</sup>49<sub>/mois</sub></div>
-          <div class="p-no-commit">sans engagement</div>
-          <div class="p-tickets">&nbsp;</div>
-          <ul class="p-feats">
-            <li>Rendez-vous collectif hebdo</li>
-            <li>Méditation + partage</li>
-            <li>Communauté privée</li>
-          </ul>
-          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
-        </div>
-        <div class="p-card hot">
-          <div class="p-level">Niveau II</div>
-          <div class="p-name">Ancrage</div>
-          <div class="p-price"><sup>€</sup>139<sub>/mois</sub></div>
-          <div class="p-no-commit">sans engagement</div>
-          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
-          <ul class="p-feats">
-            <li>Tout le Niveau I</li>
-            <li>1 ticket/mois qui s'accumule</li>
-            <li>Tech, design, Human Design, coaching</li>
-          </ul>
-          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
-        </div>
-        <div class="p-card">
-          <div class="p-level">Niveau III</div>
-          <div class="p-name">Rayonnement</div>
-          <div class="p-price"><sup>€</sup>297<sub>/mois</sub></div>
-          <div class="p-no-commit">sans engagement</div>
-          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
-          <ul class="p-feats">
-            <li>Tout le Niveau II</li>
-            <li>3 tickets/mois cumulables</li>
-            <li>Accès prioritaire</li>
-          </ul>
-          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
-        </div>
-      </div>
-      <div class="bonus-banner">
-        <div class="bonus-icon">◆</div>
-        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi en rejoignant.</div>
-      </div>
-      <div class="unit-ticket">
-        <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
-        <div class="unit-price">120 €</div>
-      </div>
-
-      <div class="worth">
-        <div class="worth-top">
-          <div class="worth-top-title">Pour situer ce que ça représente.</div>
-        </div>
-        <div class="worth-cols">
-          <div class="worth-c ours">
-            <div class="worth-tag">La Tribu, niveau Rayonnement</div>
-            <div class="worth-price">297 €<span> /mois</span></div>
-            <div class="worth-desc">Le collectif chaque semaine, l'accompagnement individuel, et 3 tickets par mois qui s'accumulent. En quelques mois, de quoi construire un site complet ou une application, tout en étant accompagné en profondeur.</div>
-          </div>
-          <div class="worth-c market">
-            <div class="worth-tag">Une agence ou un freelance senior</div>
-            <div class="worth-price">5 000 €<span> et plus</span></div>
-            <div class="worth-desc">Pour une seule application mobile. Sans l'accompagnement, sans le travail sur toi, sans le groupe autour.</div>
-          </div>
-        </div>
-        <div class="worth-foot">Et tes tickets <strong>ne se perdent jamais</strong>. Plus tu restes, plus tu construis.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
-<!-- ==================== EVENTAIL PRESTATIONS ==================== -->
-<div class="section-wrap">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Le champ des possibles</div>
-      <h2 class="s-title">Trois territoires, <span style="color:#FFA53F;">une seule personne.</span></h2>
-      <p class="concept-lead">Trois grands domaines, qui ne se séparent jamais vraiment.</p>
-      <div class="approach-list">
-        <div class="approach-row">
-          <div class="approach-left">
-            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 00-4 10.5c.6.5 1 1.2 1 2V17h6v-1.5c0-.8.4-1.5 1-2A6 6 0 0012 3z"/><path d="M9.5 20h5M10 22h4"/></svg></div>
-            <div class="approach-cat">Se comprendre<br>et s'aligner</div>
-          </div>
-          <div class="approach-body">À travers le coaching, la lecture Human Design et d'autres outils de connaissance de soi, on cherche d'abord à comprendre comment tu fonctionnes vraiment. <strong>L'objectif n'est pas de te plaquer une stratégie, mais de revenir à ta façon juste.</strong> On y travaille aussi les croyances limitantes, la légitimité, la peur de s'exposer, la clarté sur ce que tu veux réellement créer.</div>
-        </div>
-        <div class="approach-row">
-          <div class="approach-left">
-            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18c1 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16a5 5 0 005-5c0-3.9-4-7.6-9-7.6z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16.5" cy="11.5" r="1"/></svg></div>
-            <div class="approach-cat">Structurer<br>et déployer</div>
-          </div>
-          <div class="approach-body">J'ai accompagné en individuel, animé des cercles, créé des retraites et des offres. <strong>Je peux t'aider à structurer une offre qui te ressemble</strong>, à trouver ta manière authentique de communiquer, à ouvrir ton activité à de nouveaux domaines, et à incarner l'entrepreneur sans tomber dans une posture business qui sonne faux.</div>
-        </div>
-        <div class="approach-row">
-          <div class="approach-left">
-            <div class="approach-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 21h10"/></svg></div>
-            <div class="approach-cat">Donner forme<br>concrètement</div>
-          </div>
-          <div class="approach-body">Ancien ingénieur, j'ai créé des sites web, des applications, des identités visuelles. <strong>Je peux matérialiser ce que tu imagines</strong> : un logo, un univers graphique, un site, un tunnel, une application. Ce qui restait une idée dans ta tête prend forme, sans que tu aies à coordonner cinq prestataires différents.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ==================== TICKETS ==================== -->
 <div class="section-wrap alt">
   <div class="container">
@@ -1795,12 +1708,111 @@
   </div>
 </div>
 
+<!-- ==================== VALEURS PROFONDES ==================== -->
+<div class="section-wrap bg-philo">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Pourquoi c'est différent</div>
+      <h2 class="s-title">Revenir à soi <span style="color:#FFA53F;">pour mieux se déployer.</span></h2>
+      <p class="concept-lead">La démarche ne plaque pas de méthode. Elle te ramène à <span class="hl">qui tu es vraiment</span>, puis donne forme à cela, <em class="em">à ton rythme et dans ta couleur</em>.</p>
+      <p class="concept-lead" style="margin-top:24px;">C'est l'image du morpho. <em class="em">Un papillon n'a pas à devenir autre chose que lui-même pour déployer ses ailes.</em></p>
+    </div>
+    <div class="section fade-in" style="padding-top:0;">
+      <div class="values-list-full">
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Se réaliser sans se trahir.</strong></div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>S'incarner dans qui on est vraiment.</strong></div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Montrer toutes ses facettes</strong>, sans en sacrifier une.</div></div>
+        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Impacter le monde sans se perdre.</strong></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NIVEAUX ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Tarifs</div>
+      <h2 class="s-title">Trois façons <span style="color:#FFA53F;">d'entrer.</span></h2>
+      <div class="pricing-wrap">
+        <div class="p-card">
+          <div class="p-level">Niveau I</div>
+          <div class="p-name">Essentiel</div>
+          <div class="p-price"><sup>€</sup>49<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">&nbsp;</div>
+          <ul class="p-feats">
+            <li>Rendez-vous collectif hebdo</li>
+            <li>Méditation + partage</li>
+            <li>Communauté privée</li>
+          </ul>
+          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+        <div class="p-card hot">
+          <div class="p-level">Niveau II</div>
+          <div class="p-name">Ancrage</div>
+          <div class="p-price"><sup>€</sup>139<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau I</li>
+            <li>1 ticket/mois qui s'accumule</li>
+            <li>Tech, design, Human Design, coaching</li>
+          </ul>
+          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
+        </div>
+        <div class="p-card">
+          <div class="p-level">Niveau III</div>
+          <div class="p-name">Rayonnement</div>
+          <div class="p-price"><sup>€</sup>297<sub>/mois</sub></div>
+          <div class="p-no-commit">sans engagement</div>
+          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
+          <ul class="p-feats">
+            <li>Tout le Niveau II</li>
+            <li>3 tickets/mois cumulables</li>
+            <li>Accès prioritaire</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
+        </div>
+      </div>
+      <div class="bonus-banner">
+        <div class="bonus-icon">◆</div>
+        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi en rejoignant.</div>
+      </div>
+      <div class="unit-ticket">
+        <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
+        <div class="unit-price">120 €</div>
+      </div>
+
+      <div class="worth">
+        <div class="worth-top">
+          <div class="worth-top-title">Pour situer ce que ça représente.</div>
+        </div>
+        <div class="worth-cols">
+          <div class="worth-c ours">
+            <div class="worth-tag">La Tribu, niveau Rayonnement</div>
+            <div class="worth-price">297 €<span> /mois</span></div>
+            <div class="worth-desc">Le collectif chaque semaine, l'accompagnement individuel, et 3 tickets par mois qui s'accumulent. En quelques mois, de quoi construire un site complet ou une application, tout en étant accompagné en profondeur.</div>
+          </div>
+          <div class="worth-c market">
+            <div class="worth-tag">Une agence ou un freelance senior</div>
+            <div class="worth-price">5 000 €<span> et plus</span></div>
+            <div class="worth-desc">Pour une seule application mobile. Sans l'accompagnement, sans le travail sur toi, sans le groupe autour.</div>
+          </div>
+        </div>
+        <div class="worth-foot">Et tes tickets <strong>ne se perdent jamais</strong>. Plus tu restes, plus tu construis.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== CTA INTERMÉDIAIRE ==================== -->
 <div class="section-wrap">
   <div class="container">
     <div class="cta-mid fade-in">
       <div class="cta-mid-text">Tu as envie de donner forme à ce que tu portes, sans perdre ton alignement ?</div>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="cta-mid-btn">Réserver un appel</a>
+      <a href="#prix" class="cta-mid-btn">Rejoindre la Tribu</a>
     </div>
   </div>
 </div>
@@ -1875,8 +1887,8 @@
       <h2>Ça t'appelle ?<br><em>On en parle.</em></h2>
       <p class="cta-intro" style="font-size:18px;color:#c8d8f0;line-height:1.7;max-width:560px;margin:20px auto 8px;">Si quelque chose en toi a reconnu ce dont on parle ici, <span style="color:#FFA53F;">ce n'est sûrement pas un hasard.</span></p>
       <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu se construit en petit cercle, quelques places à la fois.</p>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
-      <p class="cta-note" style="font-size:14px;margin-top:18px;">Un échange de 30 minutes, pour voir si c'est le bon moment pour toi.</p>
+      <a href="#prix" class="btn" style="background:rgba(255,165,63,0.12);">Rejoindre la Tribu</a>
+      <p class="cta-note" style="font-size:14px;margin-top:22px;">Tu hésites encore ? <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" style="color:#FFA53F;text-decoration:underline;">Réserve un appel de 30 minutes</a> pour en parler.</p>
     </div>
   </div>
 </div>
