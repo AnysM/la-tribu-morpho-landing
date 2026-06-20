@@ -924,22 +924,20 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/morpho-bg.jpg');
+    background-image: url('images/hero-butterfly.jpg');
     background-size: cover;
     background-position: center center;
-    opacity: 0.7;
-    mix-blend-mode: screen;
+    opacity: 0.92;
     z-index: 0;
   }
-  /* couche teinte indigo + vignette : tout vire au bleu indigo profond */
+  /* voile sombre indigo pour la lisibilité du texte */
   .section-wrap.bg-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 65% 75% at 50% 46%, rgba(20,30,90,0) 0%, rgba(10,16,51,0.45) 55%, rgba(7,10,38,0.9) 100%),
-      linear-gradient(to bottom, rgba(12,18,58,0.55) 0%, rgba(13,20,66,0.25) 38%, rgba(8,12,42,0.7) 100%),
-      linear-gradient(120deg, rgba(40,40,150,0.35) 0%, rgba(20,40,120,0.2) 50%, rgba(15,20,80,0.4) 100%);
+      radial-gradient(ellipse 75% 80% at 50% 50%, rgba(4,5,15,0.3) 0%, rgba(4,5,15,0.6) 58%, rgba(4,5,15,0.92) 100%),
+      linear-gradient(to bottom, rgba(4,5,15,0.62) 0%, rgba(4,5,15,0.28) 42%, rgba(4,5,15,0.88) 100%);
     z-index: 1;
   }
   .section-wrap.bg-hero > * { position: relative; z-index: 1; }
@@ -1331,6 +1329,16 @@
   .td-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .td-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; color: #c8d8f0; border: 1px solid rgba(2,120,255,0.25); border-radius: 100px; padding: 8px 18px; background: rgba(2,120,255,0.04); }
 
+
+  .process-img { max-width: 760px; margin: 40px auto 8px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(2,120,255,0.15); }
+  .process-img img { width: 100%; display: block; }
+
+
+  .prix-call { text-align: center; margin: 36px auto 8px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .prix-call span { font-size: 15px; color: #9ab8db; }
+  .prix-call-btn { display: inline-block; padding: 12px 30px; border: 1.5px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'TTTravels','Syne',sans-serif; font-weight: 600; border-radius: 6px; transition: all 0.25s; }
+  .prix-call-btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1490,6 +1498,7 @@
       <div class="s-label" style="text-align:center;">Le chemin du morpho</div>
       <h2 class="s-title" style="text-align:center;">Du repli intérieur <span style="color:#FFA53F;">au plein déploiement.</span></h2>
       <p class="concept-lead">Comme le papillon, on ne se transforme pas d'un coup. On avance par étapes, à son rythme, jusqu'à déployer ses ailes.</p>
+      <div class="process-img"><img src="images/chrysalis-journey.jpg" alt="De la chrysalide au papillon" loading="lazy"/></div>
       <div class="process-flow">
         <div class="process-step">
           <div class="process-num">01</div>
@@ -1521,21 +1530,21 @@
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">Pourquoi c'est différent</div>
-      <h2 class="s-title">L'entrepreneuriat, <span style="color:#FFA53F;">une voie spirituelle.</span></h2>
-      <p class="concept-lead">Ici, le travail intérieur et la réalisation concrète ne sont pas séparés. On revient à <span class="hl">qui tu es vraiment</span>, puis on donne forme à cela dans le monde, <em class="em">à ton rythme et dans ta couleur</em>.</p>
+      <h2 class="s-title">Pour donner vie à ton projet, <span style="color:#FFA53F;">tu dois devenir qui tu es.</span></h2>
+      <p class="concept-lead">C'est le cœur de la démarche. Ton projet et toi grandissez ensemble : en revenant à <span class="hl">qui tu es vraiment</span>, tu trouves la forme juste de ce que tu veux créer. Et en lui donnant vie dans le monde, <em class="em">tu te révèles et tu t'accomplis</em>. L'un ne va pas sans l'autre.</p>
     </div>
     <div class="section fade-in" style="padding-top:0;">
       <div class="diff-cols">
         <div class="diff-col">
           <div class="diff-col-icon">◎</div>
-          <div class="diff-col-label">En profondeur</div>
-          <p class="diff-col-text">Vision, alignement, émotions, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
+          <div class="diff-col-label">Devenir qui tu es</div>
+          <p class="diff-col-text">Vision, alignement, émotions, place dans le monde. On revient à ta forme propre, à ce qui en toi ne demande qu'à exister.</p>
         </div>
-        <div class="diff-plus">+</div>
+        <div class="diff-plus">↔</div>
         <div class="diff-col">
           <div class="diff-col-icon">◈</div>
-          <div class="diff-col-label">Dans la matière</div>
-          <p class="diff-col-text">Stratégie, site, identité visuelle, app. Ce qu'on met en place est aligné avec le travail de fond. Pas un brief. Une émergence.</p>
+          <div class="diff-col-label">Donner vie à ton projet</div>
+          <p class="diff-col-text">Stratégie, site, identité, app. Ton projet prend forme dans le monde, et en retour il te révèle un peu plus à toi-même.</p>
         </div>
       </div>
       <div class="diff-quote">
@@ -1635,6 +1644,11 @@
       <div class="unit-ticket">
         <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
         <div class="unit-price">120 €</div>
+      </div>
+
+      <div class="prix-call">
+        <span>Tu n'es pas sûr du niveau qui te correspond ?</span>
+        <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="prix-call-btn">Réserver un appel de 30 minutes</a>
       </div>
 
       <div class="worth">
