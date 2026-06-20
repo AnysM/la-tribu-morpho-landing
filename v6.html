@@ -98,11 +98,9 @@
     border-bottom: 1px solid transparent;
   }
   .nav.scrolled {
-    background: rgba(8,18,36,0.72);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(2,120,255,0.14);
-    padding: 10px 0;
+    background: linear-gradient(to bottom, rgba(4,5,15,0.92) 0%, rgba(4,5,15,0.6) 55%, rgba(4,5,15,0) 100%);
+    border-bottom: none;
+    padding: 10px 0 22px;
   }
   .nav-inner {
     width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px;
@@ -486,7 +484,7 @@
   }
 
   .faq-item.open {
-    border-left-color: #0278FF;
+    border-left-color: #FFA53F;
   }
 
   .faq-q {
@@ -505,7 +503,7 @@
   .faq-q:hover { color: #e0eaff; }
 
   .faq-arrow {
-    color: #0278FF;
+    color: #FFA53F;
     font-size: 12px;
     flex-shrink: 0;
     transition: transform 0.25s;
@@ -1327,7 +1325,9 @@
   .process-step { padding: 0 22px; position: relative; }
   .process-step:not(:last-child)::after { content: ''; position: absolute; top: 24px; right: 0; width: 40px; height: 1px; background: rgba(255,255,255,0.12); }
   .process-num { font-family: 'TTTravels','Syne',sans-serif; font-size: 16px; font-weight: 700; width: 48px; height: 48px; border-radius: 50%; background: transparent; border: 1.5px solid #0278FF; color: #0278FF; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
-  .process-step:nth-child(3) .process-num { border-color: #FFA53F; color: #FFA53F; }
+  .process-step:nth-child(1) .process-num { border-color: #0263d8; color: #0263d8; }
+  .process-step:nth-child(2) .process-num { border-color: #2E8FE8; color: #2E8FE8; }
+  .process-step:nth-child(3) .process-num { border-color: #6CC5FF; color: #6CC5FF; }
   .process-step:nth-child(4) .process-num { border-color: #FFA53F; color: #FFA53F; }
   .process-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 20px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; }
   .process-desc { font-size: 14.5px; color: #9ab8db; line-height: 1.65; }
@@ -1339,7 +1339,9 @@
   .value-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 14px; font-weight: 500; color: #FFA53F; border: 1px solid rgba(255,165,63,0.3); border-radius: 100px; padding: 10px 22px; background: rgba(255,165,63,0.04); }
   .ticket-domains { text-align: center; margin: 8px 0 40px; }
   .td-label { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #5a82b0; margin-bottom: 18px; }
-  .td-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .td-chips { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 640px; margin: 0 auto; }
+  .td-chip { text-align: center; }
+  @media(max-width:560px){ .td-chips { grid-template-columns: 1fr; } }
   .td-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; color: #c8d8f0; border: 1px solid rgba(2,120,255,0.25); border-radius: 100px; padding: 8px 18px; background: rgba(2,120,255,0.04); }
 
 
@@ -1382,9 +1384,9 @@
   @media(max-width:680px){ .fq-list { grid-template-columns: 1fr; max-width: 480px; } }
 
 
-  .bio-wrap { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; margin-top: 48px; max-width: 920px; }
+  .bio-wrap { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; margin-top: 48px; max-width: 920px; }
   .bio-photo-col { display: flex; flex-direction: column; align-items: center; }
-  .bio-portrait { width: 220px; height: 220px; object-fit: cover; object-position: center top; border-radius: 50%; border: 1px solid rgba(2,120,255,0.35); box-shadow: 0 0 0 6px rgba(2,120,255,0.06), 0 12px 40px rgba(0,0,0,0.4); }
+  .bio-portrait { width: 240px; height: 300px; object-fit: cover; object-position: center; border-radius: 18px; border: 1px solid rgba(2,120,255,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.45); }
   .bio-role { font-family: 'Syne',sans-serif; font-size: 12.5px; letter-spacing: 0.06em; color: #6CC5FF; margin-bottom: 26px; line-height: 1.6; }
   .bio-content .bio-text { font-size: 16px; line-height: 1.85; color: #b8cce6; margin-bottom: 18px; }
   .bio-worlds { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
@@ -1802,16 +1804,17 @@
       <div class="s-label" style="text-align:center;">Qui je suis</div>
       <div class="bio-wrap">
         <div class="bio-photo-col">
-          <img class="bio-portrait" src="images/anys-photo.png" alt="Anys Mechkar"/>
+          <img class="bio-portrait" src="images/anys-portrait.jpg" alt="Anys Mechkar"/>
         </div>
         <div class="bio-content">
           <h2 class="s-title" style="margin-bottom:10px;">Anys Mechkar</h2>
           <div class="bio-role">Ingénieur · Développeur · Designer · Enseignant de méditation · Praticien Human Design</div>
           <p class="bio-text">Ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
-          <p class="bio-text">Aujourd'hui, je réunis <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : la technologie, le business et la spiritualité. J'accompagne en individuel, j'anime des groupes, je crée des retraites, je conçois des sites et des applications. De quoi t'aider aussi bien à te comprendre qu'à donner forme, concrètement, à ce que tu portes.</p>
+          <p class="bio-text">Aujourd'hui, je réunis <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : la technologie, l'entrepreneuriat, l'art et la spiritualité. J'accompagne en individuel, j'anime des groupes, je crée des retraites, je conçois des sites et des applications. De quoi t'aider aussi bien à te comprendre qu'à donner forme, concrètement, à ce que tu portes.</p>
           <div class="bio-worlds">
             <span>Technologie</span>
-            <span>Business</span>
+            <span>Entrepreneuriat</span>
+            <span>Art</span>
             <span>Spiritualité</span>
           </div>
           <p class="bio-text">La Tribu Morpho est l'espace que j'aurais aimé avoir. <em class="em">Je suis heureux de le construire avec toi.</em></p>
@@ -1826,8 +1829,8 @@
 <div class="section-wrap">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Questions</div>
-      <h2 class="s-title">Ce que tu te demandes sûrement.</h2>
+      <div class="s-label">FAQ</div>
+      <h2 class="s-title">Ce que tu te demandes <span style="color:#FFA53F;">sûrement.</span></h2>
       <div class="faq">
         <div class="faq-item">
           <div class="faq-q">Concrètement, qu'est-ce que je reçois chaque mois ? <span class="faq-arrow">›</span></div>
@@ -1866,7 +1869,7 @@
 <div class="section-wrap bg-galaxy">
   <div class="container">
     <div class="cta fade-in" style="text-align:center;">
-      <h2>Ça résonne en toi ?<br><em>Ta place est ici.</em></h2>
+      <h2>Ça résonne en toi ?<br><em>Rejoins-nous !</em></h2>
       <p class="cta-intro" style="font-size:18px;color:#c8d8f0;line-height:1.7;max-width:560px;margin:20px auto 8px;">Si quelque chose en toi a reconnu ce dont on parle ici, <span style="color:#FFA53F;">ce n'est sûrement pas un hasard.</span></p>
       <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu reste un petit groupe, quelques places à la fois.</p>
       <a href="#prix" class="btn" style="background:rgba(255,165,63,0.12);">Rejoins la Tribu</a>
