@@ -525,20 +525,20 @@
   .faq-item.open .faq-a { display: block; }
 
   /* CTA */
-  .cta { padding: 120px 0; }
+  .cta { padding: 80px 0; }
 
   .cta h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'TTTravels', 'Syne', sans-serif;
     font-weight: 600;
-    font-size: clamp(22px, 4vw, 34px);
-    line-height: 1.25;
-    margin-bottom: 10px;
+    font-size: clamp(30px, 5.5vw, 50px);
+    line-height: 1.15;
+    margin-bottom: 16px;
     color: #e0eaff;
   }
 
   .cta h2 em { font-style: normal; color: #FFA53F; }
 
-  .cta-sub { font-size: 12px; color: #9ab8db; margin-bottom: 28px; letter-spacing: 0.06em; }
+  .cta-sub { font-size: 15px; color: #9ab8db; margin-bottom: 36px; letter-spacing: 0.04em; }
 
   .btn {
     display: inline-block;
@@ -979,15 +979,26 @@
   .section-wrap.bg-galaxy {
     position: relative;
     background-color: #04050f;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
   }
+  .section-wrap.bg-galaxy .container { width: 100%; }
   .section-wrap.bg-galaxy::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/milkyway.jpg');
+    background-image: url('images/cta-butterfly.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.4;
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .section-wrap.bg-galaxy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 75% 80% at 50% 50%, rgba(4,5,15,0.45) 0%, rgba(4,5,15,0.72) 65%, rgba(4,5,15,0.9) 100%);
     z-index: 0;
   }
   .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
@@ -1058,8 +1069,10 @@
   .tk-step-unit { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-top: 4px; }
   .tk-step-what { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-top: 18px; line-height: 1.35; }
   .tk-step-val { font-size: 12px; color: #FFA53F; margin-top: 10px; letter-spacing: 0.04em; }
-  .gallery-label { text-align: center; font-family: 'Syne',sans-serif; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #0278FF; margin: 72px 0 12px; }
-  .gallery-sub { text-align:center; font-size: 13px; color: #5a82b0; margin-bottom: 30px; }
+  .gallery-label { text-align: center; font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(22px,3.2vw,30px); font-weight: 600; letter-spacing: 0; text-transform: none; color: #eaf2ff; margin: 90px 0 14px; }
+  .gallery-sub { text-align:center; font-size: 16px; color: #9ab8db; margin-bottom: 44px; }
+  .tk-compare { text-align:center; font-size: 16px; color: #c8d8f0; line-height: 1.7; max-width: 640px; margin: 44px auto 0; }
+  .tk-compare strong { color: #FFA53F; font-weight: 600; }
   /* sites : grandes captures paysage, 2 par ligne */
   .gal-sites { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
   /* logos : carrés réguliers, 4 par ligne */
@@ -1121,8 +1134,8 @@
   @media(max-width:600px){ .value-row { grid-template-columns: 1fr; } .value-side.ours { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.15); } }
 
 
-  .cta-mid { text-align: center; padding: 80px 0 72px; }
-  .cta-mid-text { font-family: 'Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #e8f1ff; line-height: 1.3; margin-bottom: 24px; }
+  .cta-mid { text-align: center; min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 0; }
+  .cta-mid-text { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(26px,4vw,40px); font-weight: 600; color: #e8f1ff; line-height: 1.2; margin-bottom: 32px; max-width: 780px; }
   .cta-mid-btn { display: inline-block; padding: 15px 44px; border: 1.5px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 600; border-radius: 6px; transition: all 0.25s; background: transparent; }
   .cta-mid-btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
 
@@ -1357,6 +1370,17 @@
     .cycle-node { max-width: 360px; margin-bottom: 8px; }
   }
 
+
+  .fq-list { list-style: none; padding: 0; margin: 48px auto 0; max-width: 920px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px; text-align: left; }
+  .fq-list li { position: relative; padding-left: 34px; font-size: 17px; line-height: 1.55; }
+  .fq-list.yes li { color: #d2e2f6; }
+  .fq-list.no li { color: #8a8a98; }
+  .fq-list.yes li::before { content: '+'; position: absolute; left: 0; top: -1px; color: #0278FF; font-weight: 700; font-size: 22px; }
+  .fq-list.no li::before { content: '–'; position: absolute; left: 0; top: -1px; color: #6a6a7a; font-weight: 700; font-size: 22px; }
+  .fq-values { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
+  .fq-sub { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #eaf2ff; margin-top: 80px; }
+  @media(max-width:680px){ .fq-list { grid-template-columns: 1fr; max-width: 480px; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1547,7 +1571,7 @@
   <div class="container">
     <div class="section fade-in" style="text-align:center;">
       <div class="s-label">Pourquoi c'est différent</div>
-      <h2 class="s-title">Pour donner vie à ton projet, <span style="color:#FFA53F;">tu dois devenir qui tu es.</span></h2>
+      <h2 class="s-title">Pour donner vie à ton projet,<br><span style="color:#FFA53F;">tu dois devenir qui tu es.</span></h2>
 
       <div class="cycle-diagram">
         <div class="cycle-node">
@@ -1570,7 +1594,7 @@
         </div>
       </div>
 
-      <div class="cycle-quote">"Je ne suis pas un prestataire. Ce qu'on construit émerge d'un alignement réel, dans un aller-retour constant entre ce que tu es et ce qu'on crée."</div>
+      <div class="cycle-quote">Ton projet ne se commande pas comme une prestation. Il naît de qui tu es, prend forme dans le monde, et te révèle un peu plus à toi-même en retour.</div>
     </div>
   </div>
 </div>
@@ -1578,28 +1602,27 @@
 <!-- ==================== POUR QUI ==================== -->
 <div class="section-wrap alt">
   <div class="container">
-    <div class="section fade-in">
+    <div class="section fade-in" style="text-align:center;">
       <div class="s-label">Pour qui</div>
       <h2 class="s-title">Tu vas te sentir <span style="color:#FFA53F;">chez toi ici si...</span></h2>
-      <div class="forqui-grid">
-        <div class="forqui-col yes">
-          <div class="forqui-head">C'est pour toi si</div>
-          <ul class="forqui-list">
-            <li>Tu portes un projet qui te tient vraiment à cœur, artistique ou entrepreneurial.</li>
-            <li>Tu veux avancer à ta manière, sans te couler dans un moule qui ne te ressemble pas.</li>
-            <li>Tu as une sensibilité, une intériorité, et en même temps l'envie de concrétiser.</li>
-            <li>Tu sens que tu irais plus loin, et plus sereinement, entouré que seul.</li>
-          </ul>
-        </div>
-        <div class="forqui-col no">
-          <div class="forqui-head">Ce n'est pas pour toi si</div>
-          <ul class="forqui-list">
-            <li>Tu cherches une recette toute faite à appliquer sans te remettre en question.</li>
-            <li>Tu veux des résultats sans aucun travail sur toi ni sur ta clarté.</li>
-            <li>Le collectif et l'entraide ne t'intéressent pas, tu veux juste un prestataire.</li>
-          </ul>
-        </div>
+      <ul class="fq-list yes">
+        <li>Tu portes un projet qui te tient vraiment à cœur, artistique ou entrepreneurial.</li>
+        <li>Tu veux avancer à ta manière, sans te couler dans un moule qui ne te ressemble pas.</li>
+        <li>Tu as une sensibilité, une intériorité, et en même temps l'envie de concrétiser.</li>
+        <li>Tu sens que tu irais plus loin, et plus sereinement, entouré que seul.</li>
+      </ul>
+      <div class="fq-values">
+        <span class="value-chip">Se réaliser sans se trahir</span>
+        <span class="value-chip">S'incarner dans qui on est</span>
+        <span class="value-chip">Montrer toutes ses facettes</span>
+        <span class="value-chip">Impacter sans se perdre</span>
       </div>
+      <h3 class="fq-sub">Et ce ne sera pas pour toi si...</h3>
+      <ul class="fq-list no">
+        <li>Tu cherches une recette toute faite à appliquer sans te remettre en question.</li>
+        <li>Tu veux des résultats sans aucun travail sur toi ni sur ta clarté.</li>
+        <li>Le collectif et l'entraide ne t'intéressent pas, tu veux juste un prestataire.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -1652,15 +1675,6 @@
           <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
         </div>
       </div>
-      <div class="bonus-banner">
-        <div class="bonus-icon">◆</div>
-        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi en rejoignant.</div>
-      </div>
-      <div class="unit-ticket">
-        <div class="unit-label"><strong>Ticket à l'unité</strong> — 1h avec moi, hors abonnement.</div>
-        <div class="unit-price">120 €</div>
-      </div>
-
       <div class="prix-call">
         <span>Tu n'es pas sûr du niveau qui te correspond ?</span>
         <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="prix-call-btn">Réserver un appel de 30 minutes</a>
@@ -1675,8 +1689,8 @@
 <div class="section-wrap alt">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">Combien ça coûte en tickets</div>
-      <h2 class="s-title" style="text-align:center;">Un ticket, une heure. <span style="color:#FFA53F;">Et tout ce qu'on en fait.</span></h2>
+      <div class="s-label" style="text-align:center;">Les tickets</div>
+      <h2 class="s-title" style="text-align:center;">Une heure avec moi, <span style="color:#FFA53F;">à utiliser comme tu veux.</span></h2>
       <div class="ticket-domains">
         <span class="td-label">Utilise tes tickets pour</span>
         <div class="td-chips">
@@ -1688,9 +1702,8 @@
           <span class="td-chip">La technique</span>
         </div>
       </div>
-      <p class="tk-lead">Pas du contenu. Un accès direct à mes compétences : je sors une app ou une landing page en deux jours. C'est ce type de puissance que tu as dans ta poche.</p>
-      <p class="tk-lead" style="margin-top:10px;">Les tickets s'accumulent et ne se perdent jamais. Plus tu restes, plus tu as de puissance de feu.</p>
-      <p class="tk-note">À titre indicatif. Le nombre de tickets se définit ensemble, selon ton projet.</p>
+      <p class="tk-lead">Tes tickets s'accumulent et ne se perdent jamais. Plus tu en gardes, plus tu peux voir grand.</p>
+      <p class="tk-note">À titre indicatif. On définit ensemble le nombre selon ton projet.</p>
 
       <div class="tk-bareme">
         <div class="tk-step">
@@ -1715,28 +1728,11 @@
           <div class="tk-step-num">20</div>
           <div class="tk-step-unit">tickets</div>
           <div class="tk-step-what">Un site complet ou une app</div>
-          <div class="tk-step-val">En agence : 3 000 à 10 000 €</div>
+          <div class="tk-step-val">Design, développement, mise en ligne</div>
         </div>
       </div>
 
-      <div class="worth">
-        <div class="worth-top">
-          <div class="worth-top-title">Pour situer ce que ça représente.</div>
-        </div>
-        <div class="worth-cols">
-          <div class="worth-c ours">
-            <div class="worth-tag">La Tribu, niveau Rayonnement</div>
-            <div class="worth-price">297 €<span> /mois</span></div>
-            <div class="worth-desc">Le collectif chaque semaine, l'accompagnement individuel, et 3 tickets par mois qui s'accumulent. En quelques mois, de quoi construire un site complet ou une application, tout en étant accompagné en profondeur.</div>
-          </div>
-          <div class="worth-c market">
-            <div class="worth-tag">Une agence ou un freelance senior</div>
-            <div class="worth-price">5 000 €<span> et plus</span></div>
-            <div class="worth-desc">Pour une seule application mobile. Sans l'accompagnement, sans le travail sur toi, sans le groupe autour.</div>
-          </div>
-        </div>
-        <div class="worth-foot">Et tes tickets <strong>ne se perdent jamais</strong>. Plus tu restes, plus tu construis.</div>
-      </div>
+      <p class="tk-compare">Pour comparer : une seule application, en agence, c'est <strong>3 000 à 10 000 €</strong>. Ici, elle se construit au fil de tes tickets, comprise dans ton accompagnement.</p>
 
       <div class="gallery-label">Ce que ça donne, en vrai</div>
       <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
