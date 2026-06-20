@@ -1269,6 +1269,28 @@
   .bg-diff::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.65); z-index:1; }
   .bg-diff > * { position:relative; z-index:2; }
 
+
+  /* CE QU'ON VIENT CHERCHER */
+  .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 56px; }
+  .benefit-card { padding: 40px 36px; border: 1px solid rgba(2,120,255,0.15); border-radius: 16px; background: rgba(2,120,255,0.03); transition: border-color 0.25s, transform 0.25s; }
+  .benefit-card:hover { border-color: rgba(2,120,255,0.35); transform: translateY(-3px); }
+  .benefit-ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .benefit-ico svg { width: 22px; height: 22px; color: #0278FF; }
+  .benefit-title { font-family: 'TTTravels','Syne',sans-serif; font-size: 19px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.25; }
+  .benefit-desc { font-size: 15px; color: #9ab8db; line-height: 1.7; }
+  @media(max-width:680px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+  /* LA COMMUNAUTÉ */
+  .values-wrap { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .values-lead { font-size: 17px; color: #c8d8f0; line-height: 1.85; }
+  .values-lead p { margin-bottom: 22px; }
+  .values-list { display: flex; flex-direction: column; gap: 16px; }
+  .value-item { display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px; border: 1px solid rgba(255,165,63,0.12); border-radius: 12px; background: rgba(255,165,63,0.03); }
+  .value-dot { width: 8px; height: 8px; border-radius: 50%; background: #FFA53F; flex-shrink: 0; margin-top: 7px; }
+  .value-text { font-size: 15px; color: #c8d8f0; line-height: 1.6; }
+  .value-text strong { color: #FFA53F; font-weight: 500; }
+  @media(max-width:760px){ .values-wrap { grid-template-columns: 1fr; gap: 36px; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1319,6 +1341,62 @@
       <p class="accroche-main">Donner vie à ton projet, <span style="color:#FFA53F;">et révéler qui tu es vraiment.</span></p>
       <p class="accroche-sub">Un cercle d'artistes et d'entrepreneurs qui avancent ensemble, pour <span class="hl">se réaliser sans se trahir</span> et concrétiser ce qui compte pour eux.</p>
       <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn" style="margin-top:40px;">Réserver un appel</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CE QU'ON VIENT CHERCHER ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Pourquoi on vient</div>
+      <h2 class="s-title">Ce qu'on vient chercher ici, <span style="color:#FFA53F;">et ce qu'on y trouve.</span></h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="benefit-title">Gagner en clarté sur soi et son projet</div>
+          <p class="benefit-desc">Comprendre qui tu es vraiment, où tu veux aller, et comment y aller <span class="hl">en restant toi-même</span>. Pas de méthode plaquée, une direction qui t'appartient.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="benefit-title">Structurer et déployer ce qui te ressemble</div>
+          <p class="benefit-desc">Ton offre, ta communication, ton univers. Tout ce qui fait que ton activité <span class="hl">reflète vraiment qui tu es</span>, et peut s'ancrer et impacter le monde.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <div class="benefit-title">Explorer et exprimer toutes ses facettes</div>
+          <p class="benefit-desc">S'autoriser à montrer son côté artistique, spirituel, créatif, technique. <span class="hl">S'étendre sans se fragmenter</span>, dans un espace où toutes tes dimensions ont leur place.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="benefit-title">Progresser sans tout porter seul</div>
+          <p class="benefit-desc">Des alliés qui comprennent ce chemin, un espace pour déposer ce qu'on porte, et du soutien concret. <span class="hl">Le collectif fait ce que la solitude ne peut pas faire.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LA COMMUNAUTÉ ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">La communauté</div>
+      <h2 class="s-title">Un cercle de gens qui partagent <span style="color:#FFA53F;">les mêmes valeurs profondes.</span></h2>
+      <div class="values-wrap">
+        <div class="values-lead">
+          <p>La Tribu Morpho, c'est avant tout une communauté. Des artistes, des accompagnants, des entrepreneurs, et des gens avec un projet de vie qui les tient profondément à cœur.</p>
+          <p>Ce qui nous rassemble, ce n'est pas un secteur d'activité. C'est une façon d'être : <em class="em">vouloir se réaliser pleinement, sans sacrifier qui on est pour y arriver.</em></p>
+          <p>On y vient pour avancer, pour être vus, pour trouver des alliés qui comprennent ce chemin. Et on repart avec plus de clarté, plus d'élan, et le sentiment de ne plus le faire seul.</p>
+        </div>
+        <div class="values-list">
+          <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Se réaliser sans se trahir</strong> — avancer sans avoir à abandonner ce qui compte le plus.</div></div>
+          <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>S'incarner dans qui on est vraiment</strong> — pas un personnage, mais soi, entier.</div></div>
+          <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Montrer toutes ses facettes</strong> — l'artistique, le spirituel, le technique, le créatif. Sans choisir.</div></div>
+          <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Concrétiser et ancrer</strong> — ce qui reste dans la tête ne change pas le monde. On va jusqu'au bout.</div></div>
+          <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong>Impacter sans se perdre</strong> — contribuer au monde, dans sa couleur unique.</div></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
