@@ -5,11 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="only dark">
 <title>La Tribu Morpho</title>
-<link rel="icon" type="image/jpeg" href="images/morpho-logo.jpeg">
+<link rel="icon" type="image/svg+xml" href="images/morpho-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravels.ttf') format('truetype');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'TTTravels';
+    src: url('fonts/TTTravelsItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face {
+    font-family: 'Bright Giftak';
+    src: url('fonts/BrightGiftak.ttf') format('truetype');
+    font-weight: normal;
+    font-display: swap;
+  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
     background-color: #04050f !important;
@@ -29,9 +48,9 @@
   }
 
   .container {
-    max-width: 800px;
+    max-width: 1040px;
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 40px;
   }
 
   .line {
@@ -68,48 +87,95 @@
     font-weight: 400;
   }
 
+
+  /* NAV sticky transparente, logo centré */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px 0;
+    background: transparent;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.scrolled {
+    background: linear-gradient(to bottom, rgba(4,5,15,0.92) 0%, rgba(4,5,15,0.6) 55%, rgba(4,5,15,0) 100%);
+    border-bottom: none;
+    padding: 10px 0 22px;
+  }
+  .nav-inner {
+    width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links.right { justify-content: flex-end; }
+  .nav-links a {
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8ab0d8; text-decoration: none; transition: color 0.2s ease; white-space: nowrap;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.nav-cta {
+    color: #FFA53F; border: 1.5px solid #FFA53F; border-radius: 6px;
+    padding: 8px 16px; letter-spacing: 0.16em; text-transform: uppercase; font-family: 'TTTravels','Syne',sans-serif; font-weight: 600; font-size: 11px;
+  }
+  .nav-links a.nav-cta:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+  .nav-logo { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-decoration: none; }
+  .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+  .nav-wordmark { font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.22em; color: #8ab0d8; line-height: 1; white-space: nowrap; text-transform: uppercase; }
+  .nav-spacer { height: 0; }
+  @media(max-width:760px){
+    .nav-links { display: none; }
+    .nav-inner { grid-template-columns: 1fr; justify-items: center; }
+  }
+
   /* ACCROCHE */
   .accroche {
-    padding: 56px 0 48px;
+    padding: 100px 0 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .accroche-main {
-    font-size: 19px;
-    line-height: 1.8;
-    color: #c8d8f0;
-    max-width: 620px;
-    margin-bottom: 20px;
-    font-weight: 400;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-size: clamp(24px, 3.4vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #e8f1ff;
+    max-width: 780px;
+    margin: 0 auto 26px;
+    font-weight: 600;
   }
 
   .accroche-sub {
-    font-size: 14px;
-    color: #3a5a8a;
-    line-height: 1.6;
-    max-width: 520px;
+    font-size: 17px;
+    color: #9ab8db;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   /* SECTION GÉNÉRIQUE */
   .section {
-    padding: 56px 0;
+    padding: 140px 0;
   }
 
   .s-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.3em;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.34em;
     text-transform: uppercase;
     color: #0278FF;
-    margin-bottom: 14px;
-    font-weight: 500;
+    margin-bottom: 24px;
+    font-weight: 600;
   }
 
   .s-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'TTTravels', 'Syne', sans-serif;
     font-weight: 600;
-    font-size: clamp(20px, 3.5vw, 28px);
-    line-height: 1.25;
-    margin-bottom: 32px;
+    font-size: clamp(22px, 3.1vw, 31px);
+    line-height: 1.3;
+    margin-bottom: 52px;
     color: #e0eaff;
   }
 
@@ -254,16 +320,16 @@
 
   .pillar-name {
     font-family: 'Syne', sans-serif;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     color: #e0eaff;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .pillar-sub {
-    font-size: 11px;
-    color: #3a5a8a;
-    line-height: 1.4;
+    font-size: 14px;
+    color: #8ab0d8;
+    line-height: 1.6;
   }
 
   .pillar.gold .pillar-num { color: #FFA53F; }
@@ -377,22 +443,22 @@
     font-weight: 700;
   }
 
-  .p-level { font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 10px; font-family: 'Syne', sans-serif; font-weight: 500; }
-  .p-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #e0eaff; }
+  .p-level { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: #0278FF; margin-bottom: 10px; font-family: 'Syne', sans-serif; font-weight: 500; }
+  .p-name { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #e0eaff; }
   .p-price { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 700; line-height: 1; margin-bottom: 4px; color: #e0eaff; }
   .p-price sup { font-size: 14px; vertical-align: super; }
   .p-price sub { font-size: 11px; color: #2d4a7a; font-weight: 400; }
   .p-no-commit {
-    font-size: 9px;
+    font-size: 11px;
     color: #2d4a7a;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
 
-  .p-tickets { font-size: 10px; color: #FFA53F; margin-bottom: 18px; min-height: 14px; }
+  .p-tickets { font-size: 12px; color: #FFA53F; margin-bottom: 20px; min-height: 14px; }
   .p-feats { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .p-feats li { font-size: 13px; color: #8ab0d8; line-height: 1.6; padding-left: 14px; position: relative; }
+  .p-feats li { font-size: 14.5px; color: #8ab0d8; line-height: 1.65; padding-left: 16px; position: relative; }
   .p-feats li::before { content: '/'; position: absolute; left: 0; color: #0278FF; }
 
   .unit-ticket {
@@ -418,12 +484,12 @@
   }
 
   .faq-item.open {
-    border-left-color: #0278FF;
+    border-left-color: #FFA53F;
   }
 
   .faq-q {
     padding: 16px 16px;
-    font-size: 14px;
+    font-size: 17px;
     color: #c8d8f0;
     cursor: pointer;
     display: flex;
@@ -437,7 +503,7 @@
   .faq-q:hover { color: #e0eaff; }
 
   .faq-arrow {
-    color: #0278FF;
+    color: #FFA53F;
     font-size: 12px;
     flex-shrink: 0;
     transition: transform 0.25s;
@@ -448,51 +514,52 @@
 
   .faq-a {
     display: none;
-    padding: 0 16px 16px;
-    font-size: 13px;
-    color: #3a5a8a;
-    line-height: 1.7;
+    padding: 0 16px 18px;
+    font-size: 15.5px;
+    color: #9ab8db;
+    line-height: 1.75;
   }
 
   .faq-item.open .faq-a { display: block; }
 
   /* CTA */
-  .cta { padding: 72px 0; }
+  .cta { padding: 80px 0; }
 
   .cta h2 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'TTTravels', 'Syne', sans-serif;
     font-weight: 600;
-    font-size: clamp(22px, 4vw, 34px);
-    line-height: 1.25;
-    margin-bottom: 10px;
+    font-size: clamp(30px, 5.5vw, 50px);
+    line-height: 1.15;
+    margin-bottom: 16px;
     color: #e0eaff;
   }
 
   .cta h2 em { font-style: normal; color: #FFA53F; }
 
-  .cta-sub { font-size: 12px; color: #2d4a7a; margin-bottom: 28px; letter-spacing: 0.06em; }
+  .cta-sub { font-size: 15px; color: #9ab8db; margin-bottom: 36px; letter-spacing: 0.04em; }
 
   .btn {
     display: inline-block;
-    padding: 14px 40px;
-    border: 1px solid #0278FF;
-    color: #e0eaff;
+    padding: 12px 34px;
+    border: 1.5px solid #FFA53F;
+    color: #FFA53F;
     text-decoration: none;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    font-weight: 500;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
     transition: all 0.25s;
     background: transparent;
+    border-radius: 6px;
     cursor: pointer;
   }
 
-  .btn:hover { background: rgba(2, 120, 255, 0.1); border-color: #FFA53F; color: #FFA53F; }
-  .cta-note { font-size: 11px; color: #2d4a7a; margin-top: 12px; }
+  .btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+  .cta-note { font-size: 11px; color: #8ab0d8; margin-top: 14px; }
 
   footer { padding: 28px 0; border-top: 1px solid rgba(2, 120, 255, 0.1); }
-  .footer-txt { font-size: 10px; color: #2d4a7a; letter-spacing: 0.12em; }
+  .footer-txt { font-size: 10px; color: #6a8fc0; letter-spacing: 0.12em; }
 
 
   /* BOUTONS PRICING */
@@ -539,28 +606,28 @@
   .p-btn {
     display: block;
     margin-top: 20px;
-    padding: 10px 0;
+    padding: 12px 0;
     text-align: center;
-    border: 1px solid rgba(2, 120, 255, 0.35);
-    color: #c8d8f0;
+    border: 1.5px solid #FFA53F;
+    color: #FFA53F;
     text-decoration: none;
-    font-size: 10px;
-    letter-spacing: 0.18em;
+    font-size: 11px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-family: 'Syne', sans-serif;
-    font-weight: 500;
+    font-family: 'TTTravels', 'Syne', sans-serif;
+    font-weight: 600;
     transition: all 0.25s;
     background: transparent;
+    border-radius: 6px;
   }
 
-  .p-btn:hover { background: rgba(2,120,255,0.1); border-color: #0278FF; }
+  .p-btn:hover { background: rgba(2,120,255,0.12); color: #6CC5FF; border-color: #0278FF; }
 
   .p-btn-hot {
-    border-color: rgba(255, 165, 63, 0.5);
-    color: #FFA53F;
+    background: rgba(255,165,63,0.08);
   }
 
-  .p-btn-hot:hover { background: rgba(255,165,63,0.08); border-color: #FFA53F; }
+  .p-btn-hot:hover { background: rgba(2,120,255,0.15); color: #6CC5FF; border-color: #0278FF; }
 
   /* 6 MOIS */
   .six-mois {
@@ -626,9 +693,9 @@
   .bio-block { max-width: 580px; }
 
   .bio-text {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.85;
-    color: #6a8fc0;
+    color: #9ab8db;
   }
 
 
@@ -824,10 +891,7 @@
 
 
   .bg-hero {
-    background-image: url('images/bg-hero.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: local;
+    background-color: #04050f;
   }
 
 
@@ -846,28 +910,37 @@
   /* BACKGROUNDS 30% visibles */
   .section-wrap.bg-hero {
     position: relative;
-    background-color: #04050f;
+    background-color: #0a1033;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
   }
+  .section-wrap.bg-hero .container { width: 100%; }
+  /* couche image : le morpho, fondu lumineux */
   .section-wrap.bg-hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/bg-hero.png');
+    background-image: url('images/hero-butterfly.jpg');
     background-size: cover;
-    background-position: center top;
-    opacity: 0.3;
+    background-position: center center;
+    opacity: 0.92;
     z-index: 0;
   }
+  /* voile sombre indigo pour la lisibilité du texte */
   .section-wrap.bg-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(4,5,15,0.95) 0%, rgba(4,5,15,0.9) 45%, rgba(4,5,15,0.8) 70%);
+    background:
+      radial-gradient(ellipse 75% 80% at 50% 50%, rgba(4,5,15,0.3) 0%, rgba(4,5,15,0.6) 58%, rgba(4,5,15,0.92) 100%),
+      linear-gradient(to bottom, rgba(4,5,15,0.62) 0%, rgba(4,5,15,0.28) 42%, rgba(4,5,15,0.88) 100%);
     z-index: 1;
   }
   .section-wrap.bg-hero > * { position: relative; z-index: 1; }
 
-  .accroche { padding: 80px 0; max-width: 580px; }
+  /* (regle accroche dedupliquee) */
 
   .hero-btn {
     display: inline-block;
@@ -904,15 +977,26 @@
   .section-wrap.bg-galaxy {
     position: relative;
     background-color: #04050f;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
   }
+  .section-wrap.bg-galaxy .container { width: 100%; }
   .section-wrap.bg-galaxy::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('images/bg-end.jpg');
+    background-image: url('images/cta-final.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.10;
+    opacity: 0.25;
+    z-index: 0;
+  }
+  .section-wrap.bg-galaxy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 75% 80% at 50% 50%, rgba(4,5,15,0.45) 0%, rgba(4,5,15,0.72) 65%, rgba(4,5,15,0.9) 100%);
     z-index: 0;
   }
   .section-wrap.bg-galaxy > * { position: relative; z-index: 1; }
@@ -928,7 +1012,7 @@
   .diff-col { padding: 24px; border: 1px solid rgba(2,120,255,0.15); background: rgba(2,120,255,0.04); }
   .diff-col-icon { font-size: 18px; color: #0278FF; margin-bottom: 10px; }
   .diff-col-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; }
-  .diff-col-text { font-size: 13px; color: #6a8fc0; line-height: 1.7; }
+  .diff-col-text { font-size: 14px; color: #8ab0d8; line-height: 1.7; }
   .diff-plus { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 300; color: #FFA53F; align-self: center; text-align: center; }
   .diff-quote {
     font-family: 'Syne', sans-serif;
@@ -945,355 +1029,856 @@
     .diff-cols { grid-template-columns: 1fr; }
     .diff-plus { display: none; }
   }
+
+
+  .ic { width: 26px; height: 26px; color: #0278FF; margin-bottom: 14px; display: block; }
+  .prob-card .ic { color: #FFA53F; }
+  .diff-card .ic { color: #0278FF; }
+
+
+  .prest-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .prest-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 30px 26px; }
+  .prest-card .ic { width: 24px; height: 24px; color: #0278FF; margin-bottom: 12px; }
+  .prest-cat { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-bottom: 12px; }
+  .prest-list { list-style: none; padding: 0; margin: 0; }
+  .prest-list li { font-size: 13.5px; color: #8ab0d8; line-height: 1.9; padding-left: 16px; position: relative; }
+  .prest-list li::before { content: '·'; position: absolute; left: 4px; color: #FFA53F; font-weight: 700; }
+  @media(max-width:700px){ .prest-grid { grid-template-columns: 1fr; } }
+
+
+  .temo-intro { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 600px; margin: 0 auto 8px; text-align: center; }
+  .temo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .temo-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 30px; position: relative; }
+  .temo-quote { font-size: 16px; line-height: 1.7; color: #d4e2f5; font-style: italic; }
+  .temo-quote::before { content: '\201C'; font-family: 'Syne',sans-serif; font-size: 44px; color: rgba(2,120,255,0.35); line-height: 0; position: absolute; top: 26px; left: 22px; }
+  .temo-card .temo-quote { padding-left: 22px; }
+  .temo-who { margin-top: 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5a82b0; padding-left: 22px; }
+  .temo-full { grid-column: 1 / -1; }
+  @media(max-width:700px){ .temo-grid { grid-template-columns: 1fr; } }
+
+
+  /* TICKETS v2 : barème + galerie */
+  .tk-note { font-size: 13px; color: #5a82b0; text-align: center; max-width: 480px; margin: 10px auto 0; font-style: italic; }
+  .tk-lead { font-size: 16px; color: #9ab8db; line-height: 1.7; max-width: 560px; margin: 0 auto 8px; text-align: center; }
+  .tk-bareme { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 40px; }
+  .tk-step { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 28px 22px; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+  .tk-step:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .tk-step-num { font-family: 'Syne',sans-serif; font-size: 40px; font-weight: 700; color: #0278FF; line-height: 1; }
+  .tk-step-unit { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-top: 4px; }
+  .tk-step-what { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #e0eaff; margin-top: 18px; line-height: 1.35; }
+  .tk-step-val { font-size: 12px; color: #FFA53F; margin-top: 10px; letter-spacing: 0.04em; }
+  .gallery-label { text-align: center; font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(22px,3.2vw,30px); font-weight: 600; letter-spacing: 0; text-transform: none; color: #eaf2ff; margin: 90px 0 14px; }
+  .gallery-sub { text-align:center; font-size: 16px; color: #9ab8db; margin-bottom: 44px; }
+  .tk-compare { text-align:center; font-size: 16px; color: #c8d8f0; line-height: 1.7; max-width: 640px; margin: 44px auto 0; }
+  .tk-compare strong { color: #FFA53F; font-weight: 600; }
+  /* sites : grandes captures paysage, 2 par ligne */
+  .gal-sites { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+  /* logos : carrés réguliers, 4 par ligne */
+  .gal-logos { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 16px; }
+  .g-item { position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(2,120,255,0.12); background: #0a1228; display: block; }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .g-item:hover img { transform: scale(1.04); }
+  .gal-sites .g-item { aspect-ratio: 16/9; }
+  .gal-logos .g-item { aspect-ratio: 1/1; }
+  .g-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 18px 14px; background: linear-gradient(to top, rgba(4,8,24,0.92), rgba(4,8,24,0)); }
+  .g-type { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #6CC5FF; }
+  .g-name { font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 600; color: #fff; margin-top: 2px; }
+  .gal-logos .g-name { font-size: 13px; }
+  @media(max-width:760px){
+    .gal-sites { grid-template-columns: 1fr; }
+    .gal-logos { grid-template-columns: repeat(2,1fr); }
+  }
+
+  @media(max-width:860px){
+    .tk-bareme { grid-template-columns: repeat(2,1fr); }
+    .g-tall { grid-column: span 6; }
+    .g-wide { grid-column: span 12; }
+    .g-sq { grid-column: span 6; }
+  }
+  @media(max-width:480px){
+    .tk-bareme { grid-template-columns: 1fr; }
+    .g-tall, .g-wide, .g-sq { grid-column: span 12; }
+  }
+
+
+  /* ESSENCE : liste éditoriale verticale */
+  .essence-list { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-direction: column; gap: 0; }
+  .essence-item { display: flex; align-items: flex-start; gap: 36px; padding: 40px 0; border-bottom: 1px solid rgba(2,120,255,0.1); }
+  .essence-item:last-child { border-bottom: none; }
+  .essence-num { font-family: 'Syne',sans-serif; font-size: 11px; letter-spacing: 0.2em; color: #0278FF; text-transform: uppercase; min-width: 20px; padding-top: 4px; }
+  .essence-title { font-family: 'Syne',sans-serif; font-size: 20px; font-weight: 600; color: #e0eaff; margin-bottom: 10px; line-height: 1.2; }
+  .essence-body { font-size: 15px; color: #8ab0d8; line-height: 1.7; max-width: 620px; }
+  .essence-body strong { color: #c8d8f0; font-weight: 500; }
+
+
+  /* LE MODÈLE : incubateur unique + valeur */
+  .modele-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 620px; margin: 0 auto 44px; text-align: center; }
+  .modele-lead strong { color: #fff; font-weight: 600; }
+  .value-box { border: 1px solid rgba(255,165,63,0.3); border-radius: 16px; padding: 0; overflow: hidden; max-width: 760px; margin: 0 auto; }
+  .value-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .value-side { padding: 38px 34px; }
+  .value-side.ours { background: rgba(2,120,255,0.06); border-right: 1px solid rgba(2,120,255,0.15); }
+  .value-side.market { background: rgba(255,255,255,0.015); }
+  .value-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5a82b0; margin-bottom: 14px; }
+  .value-side.market .value-tag { color: #6a6a7a; }
+  .value-price { font-family: 'Syne',sans-serif; font-size: 38px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+  .value-side.ours .value-price { color: #0278FF; }
+  .value-side.market .value-price { color: #8a8a98; }
+  .value-unit { font-size: 14px; font-weight: 400; }
+  .value-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; margin-top: 14px; }
+  .value-side.market .value-desc { color: #6a6a7a; }
+  .value-foot { text-align: center; font-size: 15px; color: #c8d8f0; line-height: 1.7; margin-top: 28px; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .value-foot strong { color: #FFA53F; font-weight: 600; }
+  @media(max-width:600px){ .value-row { grid-template-columns: 1fr; } .value-side.ours { border-right: none; border-bottom: 1px solid rgba(2,120,255,0.15); } }
+
+
+  .cta-mid { text-align: center; min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 0; }
+  .cta-mid-text { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(26px,4vw,40px); font-weight: 600; color: #e8f1ff; line-height: 1.2; margin-bottom: 32px; max-width: 780px; }
+  .cta-mid-btn { display: inline-block; padding: 15px 44px; border: 1.5px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-family: 'TTTravels', 'Syne', sans-serif; font-weight: 600; border-radius: 6px; transition: all 0.25s; background: transparent; }
+  .cta-mid-btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+
+
+  /* Partie blanche des titres split : plus petite */
+  .s-title .white-sm {
+    font-size: 0.62em;
+    color: #c8d8f0;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+
+  /* ===== BATCH v5 : nouveaux formats ===== */
+
+  /* 1. SOLUTIONS CLASSIQUES : grille 2x2, chaque option avec un "manque" */
+  .sol-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-top: 56px; text-align: left; }
+  .sol-card { background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 30px 28px; position: relative; }
+  .sol-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .sol-ico { width: 34px; height: 34px; border-radius: 9px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .sol-ico svg { width: 18px; height: 18px; color: #6a8fc0; }
+  .sol-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 16px; font-weight: 600; color: #d8e6fa; }
+  .sol-desc { font-size: 14px; color: #8ab0d8; line-height: 1.65; }
+  .sol-lack { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 14.5px; color: #b06a5a; display: flex; align-items: center; gap: 9px; line-height: 1.5; }
+  .sol-lack svg { width: 17px; height: 17px; color: #c5604f; flex-shrink: 0; }
+  .sol-bridge { text-align: center; margin-top: 44px; font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(18px,2.6vw,24px); color: #FFA53F; line-height: 1.4; }
+  @media(max-width:680px){ .sol-grid { grid-template-columns: 1fr; } }
+
+  /* 2. TRIBU 3 ASPECTS : grandes cartes premium alternées avec gros numéro filigrane */
+  .aspect-stack { display: flex; flex-direction: column; gap: 28px; margin-top: 60px; }
+  .aspect-card { position: relative; overflow: hidden; border: 1px solid rgba(2,120,255,0.15); border-radius: 18px; padding: 44px 48px; background: linear-gradient(135deg, rgba(2,120,255,0.05), rgba(2,120,255,0.01)); display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
+  .aspect-card:nth-child(even) { background: linear-gradient(135deg, rgba(255,165,63,0.04), rgba(2,120,255,0.01)); }
+  .aspect-ico { width: 64px; height: 64px; border-radius: 16px; background: rgba(2,120,255,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .aspect-ico svg { width: 32px; height: 32px; color: #0278FF; }
+  .aspect-card:nth-child(even) .aspect-ico { background: rgba(255,165,63,0.1); }
+  .aspect-card:nth-child(even) .aspect-ico svg { color: #FFA53F; }
+  .aspect-kicker { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #5a82b0; margin-bottom: 8px; }
+  .aspect-title { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(19px,2.6vw,24px); font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.25; }
+  .aspect-body { font-size: 15px; color: #9ab8db; line-height: 1.7; max-width: 620px; }
+  @media(max-width:680px){ .aspect-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 26px; text-align: left; } }
+
+  /* 3. PRESTATIONS EXPLICITÉES : 3 grands blocs verticaux, chacun développé */
+  .approach-list { display: flex; flex-direction: column; gap: 16px; margin-top: 44px; }
+  .approach-row { display: grid; grid-template-columns: 280px 1fr; gap: 56px; padding: 44px 0; border-top: 1px solid rgba(2,120,255,0.12); align-items: start; }
+  .approach-row:last-child { border-bottom: 1px solid rgba(2,120,255,0.12); }
+  .approach-left { display: flex; align-items: flex-start; gap: 16px; }
+  .approach-ico { width: 40px; height: 40px; border-radius: 11px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .approach-ico svg { width: 21px; height: 21px; color: #0278FF; }
+  .approach-cat { font-family: 'TTTravels','Syne',sans-serif; font-size: 19px; font-weight: 600; color: #eaf2ff; line-height: 1.2; padding-top: 8px; }
+  .approach-body { font-size: 15px; color: #9ab8db; line-height: 1.75; }
+  .approach-body strong { color: #c8d8f0; font-weight: 500; }
+  @media(max-width:760px){ .approach-row { grid-template-columns: 1fr; gap: 16px; } }
+
+  /* 4. ARGUMENT VALEUR après les prix : bande comparative épurée */
+  .worth { margin-top: 56px; border: 1px solid rgba(255,165,63,0.25); border-radius: 16px; overflow: hidden; }
+  .worth-top { text-align: center; padding: 28px 30px 22px; }
+  .worth-top-title { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(18px,2.4vw,22px); color: #eaf2ff; line-height: 1.4; }
+  .worth-cols { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid rgba(255,165,63,0.18); }
+  .worth-c { padding: 30px 32px; }
+  .worth-c.ours { background: rgba(2,120,255,0.05); border-right: 1px solid rgba(255,165,63,0.18); }
+  .worth-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5a82b0; margin-bottom: 10px; }
+  .worth-c.market .worth-tag { color: #6a6a7a; }
+  .worth-price { font-family: 'TTTravels','Syne',sans-serif; font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: 8px; }
+  .worth-c.ours .worth-price { color: #0278FF; }
+  .worth-c.market .worth-price { color: #8a8a98; }
+  .worth-price span { font-size: 14px; font-weight: 400; }
+  .worth-desc { font-size: 13.5px; line-height: 1.6; color: #8ab0d8; }
+  .worth-c.market .worth-desc { color: #6a6a7a; }
+  .worth-foot { text-align: center; font-size: 14px; color: #c8d8f0; padding: 22px 30px; border-top: 1px solid rgba(255,165,63,0.18); }
+  .worth-foot strong { color: #FFA53F; font-weight: 600; }
+  @media(max-width:600px){ .worth-cols { grid-template-columns: 1fr; } .worth-c.ours { border-right: none; border-bottom: 1px solid rgba(255,165,63,0.18); } }
+
+
+  /* Mises en valeur inline */
+  .hl { color: #FFA53F; font-weight: 500; }
+  .em { font-style: italic; color: #c8d8f0; }
+  .hlb { color: #6CC5FF; font-weight: 500; }
+
+
+  .section-wrap.bg-morpho {
+    position: relative;
+    background-color: #04050f;
+    overflow: hidden;
+  }
+  .section-wrap.bg-morpho::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('images/morpho-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    z-index: 0;
+  }
+  .section-wrap.bg-morpho::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(10,16,51,0.3) 0%, rgba(4,5,15,0.82) 70%, rgba(4,5,15,0.95) 100%);
+    z-index: 1;
+  }
+  .section-wrap.bg-morpho > * { position: relative; z-index: 2; }
+
+
+  /* OUTILS / PRATIQUES */
+  .tools-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+  .tool-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 14px; padding: 36px 30px; transition: border-color 0.25s, transform 0.25s; }
+  .tool-card:hover { border-color: rgba(2,120,255,0.35); transform: translateY(-3px); }
+  .tool-ico { width: 40px; height: 40px; border-radius: 11px; background: rgba(2,120,255,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .tool-ico svg { width: 21px; height: 21px; color: #0278FF; }
+  .tool-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 17px; font-weight: 600; color: #eaf2ff; margin-bottom: 10px; }
+  .tool-desc { font-size: 14px; color: #9ab8db; line-height: 1.65; }
+  @media(max-width:760px){ .tools-grid { grid-template-columns: 1fr; } }
+
+
+  /* Fonds section v5 - nouvelles images */
+
+  .bg-philo { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-philo::after { content:''; position:absolute; inset:0; background-image:url('images/butterfly-dark.jpg'); background-size:cover; background-position:center; opacity:0.30; z-index:0; }
+  .bg-philo::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 72% 78% at 50% 48%, rgba(4,5,15,0.5) 0%, rgba(4,5,15,0.82) 68%, rgba(4,5,15,0.96) 100%); z-index:1; }
+  .bg-philo > * { position:relative; z-index:2; }
+
+  .bg-tools { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tools::after { content:''; position:absolute; inset:0; background-image:url('images/wing-blue.jpg'); background-size:cover; background-position:center; opacity:0.18; mix-blend-mode:screen; z-index:0; }
+  .bg-tools::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.7); z-index:1; }
+  .bg-tools > * { position:relative; z-index:2; }
+
+  .bg-tribu { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-tribu::after { content:''; position:absolute; inset:0; background-image:url('images/feathers-dark.jpg'); background-size:cover; background-position:center top; opacity:0.30; z-index:0; }
+  .bg-tribu::before { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(4,5,15,0.38) 0%, rgba(4,5,15,0.2) 50%, rgba(4,5,15,0.55) 100%); z-index:1; }
+  .bg-tribu > * { position:relative; z-index:2; }
+
+  .bg-bio { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-bio::after { content:''; position:absolute; inset:0; background-image:url('images/leaves-night.jpg'); background-size:cover; background-position:center; opacity:0.35; z-index:0; }
+  .bg-bio::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.62); z-index:1; }
+  .bg-bio > * { position:relative; z-index:2; }
+
+  .bg-diff { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-diff::after { content:''; position:absolute; inset:0; background-image:url('images/fluid-dark.jpg'); background-size:cover; background-position:center; opacity:0.30; z-index:0; }
+  .bg-diff::before { content:''; position:absolute; inset:0; background:rgba(4,5,15,0.65); z-index:1; }
+  .bg-diff > * { position:relative; z-index:2; }
+
+
+  /* CE QU'ON VIENT CHERCHER */
+  .benefits-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 56px; }
+  .benefit-card { padding: 40px 36px; border: 1px solid rgba(2,120,255,0.15); border-radius: 16px; background: rgba(2,120,255,0.03); transition: border-color 0.25s, transform 0.25s; }
+  .benefit-card:hover { border-color: rgba(2,120,255,0.35); transform: translateY(-3px); }
+  .benefit-ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(2,120,255,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .benefit-ico svg { width: 22px; height: 22px; color: #0278FF; }
+  .benefit-title { font-family: 'TTTravels','Syne',sans-serif; font-size: 19px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.25; }
+  .benefit-desc { font-size: 15px; color: #9ab8db; line-height: 1.7; }
+  @media(max-width:680px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+  /* LA COMMUNAUTÉ */
+  .values-wrap { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .values-lead { font-size: 17px; color: #c8d8f0; line-height: 1.85; }
+  .values-lead p { margin-bottom: 22px; }
+  .values-list { display: flex; flex-direction: column; gap: 16px; }
+  .value-item { display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px; border: 1px solid rgba(255,165,63,0.12); border-radius: 12px; background: rgba(255,165,63,0.03); }
+  .value-dot { width: 8px; height: 8px; border-radius: 50%; background: #FFA53F; flex-shrink: 0; margin-top: 7px; }
+  .value-text { font-size: 15px; color: #c8d8f0; line-height: 1.6; }
+  .value-text strong { color: #FFA53F; font-weight: 500; }
+  @media(max-width:760px){ .values-wrap { grid-template-columns: 1fr; gap: 36px; } }
+
+
+  .values-list-full { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 880px; margin: 0 auto; text-align: left; }
+  @media(max-width:680px){ .values-list-full { grid-template-columns: 1fr; } }
+
+
+  .forqui-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 52px; }
+  .forqui-col { padding: 36px 34px; border-radius: 16px; }
+  .forqui-col.yes { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.2); }
+  .forqui-col.no { background: rgba(255,255,255,0.015); border: 1px solid rgba(255,255,255,0.06); }
+  .forqui-head { font-family: 'TTTravels','Syne',sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 20px; }
+  .forqui-col.yes .forqui-head { color: #6CC5FF; }
+  .forqui-col.no .forqui-head { color: #7a7a8a; }
+  .forqui-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .forqui-list li { font-size: 15px; line-height: 1.6; padding-left: 26px; position: relative; }
+  .forqui-col.yes .forqui-list li { color: #c8d8f0; }
+  .forqui-col.no .forqui-list li { color: #8a8a98; }
+  .forqui-col.yes .forqui-list li::before { content: '+'; position: absolute; left: 0; top: 0; color: #0278FF; font-weight: 700; font-size: 17px; }
+  .forqui-col.no .forqui-list li::before { content: '–'; position: absolute; left: 0; top: 0; color: #6a6a7a; font-weight: 700; font-size: 17px; }
+  @media(max-width:680px){ .forqui-grid { grid-template-columns: 1fr; } }
+
+
+  .process-flow { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 56px; position: relative; }
+  .process-step { padding: 0 22px; position: relative; }
+  .process-step:not(:last-child)::after { content: ''; position: absolute; top: 24px; right: 0; width: 40px; height: 1px; background: rgba(255,255,255,0.12); }
+  .process-num { font-family: 'TTTravels','Syne',sans-serif; font-size: 16px; font-weight: 700; width: 48px; height: 48px; border-radius: 50%; background: transparent; border: 1.5px solid #0278FF; color: #0278FF; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
+  .process-step:nth-child(1) .process-num { border-color: #0263d8; color: #0263d8; }
+  .process-step:nth-child(2) .process-num { border-color: #2E8FE8; color: #2E8FE8; }
+  .process-step:nth-child(3) .process-num { border-color: #6CC5FF; color: #6CC5FF; }
+  .process-step:nth-child(4) .process-num { border-color: #FFA53F; color: #FFA53F; }
+  .process-name { font-family: 'TTTravels','Syne',sans-serif; font-size: 20px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; }
+  .process-desc { font-size: 14.5px; color: #9ab8db; line-height: 1.65; }
+  @media(max-width:760px){ .process-flow { grid-template-columns: 1fr 1fr; gap: 40px 0; } .process-step:nth-child(2)::after { display: none; } }
+  @media(max-width:480px){ .process-flow { grid-template-columns: 1fr; gap: 32px; } .process-step::after { display: none !important; } }
+
+
+  .values-inline { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
+  .value-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 14px; font-weight: 500; color: #FFA53F; border: 1px solid rgba(255,165,63,0.3); border-radius: 100px; padding: 10px 22px; background: rgba(255,165,63,0.04); }
+  .ticket-domains { text-align: center; margin: 8px 0 40px; }
+  .td-label { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #5a82b0; margin-bottom: 18px; }
+  .td-chips { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-width: 640px; margin: 0 auto; }
+  .td-chip { text-align: center; }
+  @media(max-width:560px){ .td-chips { grid-template-columns: 1fr; } }
+  .td-chip { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; color: #c8d8f0; border: 1px solid rgba(2,120,255,0.25); border-radius: 100px; padding: 8px 18px; background: rgba(2,120,255,0.04); }
+
+
+  .bg-chrysalis { position: relative; background-color: #04050f; overflow: hidden; }
+  .bg-chrysalis::after { content:''; position:absolute; inset:0; background-image:url('images/processus-morpho.jpg'); background-size:cover; background-position:center; opacity:0.36; z-index:0; }
+  .bg-chrysalis::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 78% 82% at 50% 50%, rgba(4,5,15,0.4) 0%, rgba(4,5,15,0.72) 68%, rgba(4,5,15,0.92) 100%); z-index:1; }
+  .bg-chrysalis > * { position:relative; z-index:2; }
+
+
+  .prix-call { text-align: center; margin: 68px auto 8px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .prix-call span { font-size: 15px; color: #9ab8db; }
+  .prix-call-btn { display: inline-block; padding: 12px 30px; border: 1.5px solid #FFA53F; color: #FFA53F; text-decoration: none; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'TTTravels','Syne',sans-serif; font-weight: 600; border-radius: 6px; transition: all 0.25s; }
+  .prix-call-btn:hover { background: rgba(255,165,63,0.12); color: #fff; border-color: #fff; }
+
+
+  .cycle-diagram { display: flex; align-items: center; justify-content: center; gap: 8px; max-width: 820px; margin: 56px auto 0; }
+  .cycle-node { flex: 1; max-width: 300px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cycle-ico { width: 92px; height: 92px; border-radius: 50%; border: 1.5px solid; display: flex; align-items: center; justify-content: center; font-size: 38px; margin-bottom: 22px; }
+  .cycle-ico.blue { border-color: #0278FF; color: #0278FF; }
+  .cycle-ico.gold { border-color: #FFA53F; color: #FFA53F; }
+  .cycle-title { font-family: 'TTTravels','Syne',sans-serif; font-size: 21px; font-weight: 600; color: #eaf2ff; margin-bottom: 12px; line-height: 1.2; }
+  .cycle-text { font-size: 15.5px; color: #9ab8db; line-height: 1.6; }
+  .cycle-arrows { flex-shrink: 0; margin-bottom: 60px; }
+  .cycle-quote { font-family: 'Syne',sans-serif; font-size: clamp(15px,2vw,18px); color: #d8e6fb; line-height: 1.7; max-width: 680px; margin: 64px auto 0; font-style: italic; }
+  @media(max-width:680px){
+    .cycle-diagram { flex-direction: column; gap: 0; }
+    .cycle-arrows { margin: 8px 0 8px; transform: rotate(90deg); }
+    .cycle-node { max-width: 360px; margin-bottom: 8px; }
+  }
+
+
+  .fq-list { list-style: none; padding: 0; margin: 48px auto 0; max-width: 920px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px; text-align: left; }
+  .fq-list li { position: relative; padding-left: 34px; font-size: 17px; line-height: 1.55; }
+  .fq-list.yes li { color: #d2e2f6; }
+  .fq-list.no li { color: #8a8a98; }
+  .fq-list.yes li::before { content: '+'; position: absolute; left: 0; top: -1px; color: #0278FF; font-weight: 700; font-size: 22px; }
+  .fq-list.no li::before { content: '–'; position: absolute; left: 0; top: -1px; color: #6a6a7a; font-weight: 700; font-size: 22px; }
+  .fq-values { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 48px; }
+  .fq-sub { font-family: 'TTTravels','Syne',sans-serif; font-size: clamp(20px,3vw,26px); font-weight: 600; color: #eaf2ff; margin-top: 80px; }
+  @media(max-width:680px){ .fq-list { grid-template-columns: 1fr; max-width: 480px; } }
+
+
+  .bio-wrap { display: grid; grid-template-columns: 240px 1fr; gap: 56px; align-items: start; margin-top: 48px; max-width: 920px; }
+  .bio-photo-col { display: flex; flex-direction: column; align-items: center; }
+  .bio-portrait { width: 240px; height: 300px; object-fit: cover; object-position: center; border-radius: 18px; border: 1px solid rgba(2,120,255,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.45); }
+  .bio-role { font-family: 'Syne',sans-serif; font-size: 12.5px; letter-spacing: 0.06em; color: #6CC5FF; margin-bottom: 26px; line-height: 1.6; }
+  .bio-content .bio-text { font-size: 16px; line-height: 1.85; color: #b8cce6; margin-bottom: 18px; }
+  .bio-worlds { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0; }
+  .bio-worlds span { font-family: 'TTTravels','Syne',sans-serif; font-size: 13px; font-weight: 500; color: #FFA53F; border: 1px solid rgba(255,165,63,0.3); border-radius: 100px; padding: 8px 20px; background: rgba(255,165,63,0.04); }
+  @media(max-width:720px){
+    .bio-wrap { grid-template-columns: 1fr; gap: 28px; justify-items: center; text-align: center; }
+    .bio-content { text-align: left; }
+    .bio-worlds { justify-content: flex-start; }
+  }
+
+
+  .temoin { max-width: 780px; margin: 40px auto 0; text-align: center; position: relative; }
+  .temoin-quote { font-family: 'DM Sans',sans-serif; font-weight: 300; font-size: 17px; line-height: 1.8; color: #cdddf2; font-style: normal; }
+  .temoin-quote::before { content: '\201C'; display: block; font-family: 'TTTravels','Syne',sans-serif; font-size: 64px; color: rgba(255,165,63,0.45); line-height: 0.2; margin-bottom: 22px; }
+  .temoin-who { margin-top: 30px; font-family: 'Syne',sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #FFA53F; }
+
+  /* V4 extras */
+  .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
+  .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
+  .prob-word { font-family: 'Syne',sans-serif; font-size: 22px; font-weight: 700; color: #FFA53F; margin-bottom: 10px; }
+  .prob-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 12px; }
+  .diff-card { background: rgba(2,120,255,0.04); border: 1px solid rgba(2,120,255,0.12); border-radius: 12px; padding: 32px 26px; }
+  .diff-name { font-family: 'Syne',sans-serif; font-size: 16px; font-weight: 600; color: #e0eaff; margin-bottom: 8px; }
+  .diff-desc { font-size: 14px; color: #8ab0d8; line-height: 1.6; }
+  .concept-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 12px; }
+  .cstat { text-align: center; padding: 38px 28px; border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; transition: border-color 0.25s, transform 0.25s; }
+  .cstat:hover { border-color: rgba(2,120,255,0.4); transform: translateY(-3px); }
+  .cstat-accent { font-family: 'Syne',sans-serif; font-size: 24px; font-weight: 700; color: #0278FF; line-height: 1.15; margin-bottom: 16px; }
+  .cstat-name { font-family: 'Syne',sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #e0eaff; margin-bottom: 12px; }
+  .cstat-label { font-size: 14px; color: #8ab0d8; line-height: 1.65; }
+  .concept-lead { font-size: 17px; color: #c8d8f0; line-height: 1.7; max-width: 680px; margin: 0 auto; text-align: center; }
+  @media(max-width:700px){
+    .prob-grid { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .concept-stats { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ==================== HEADER ==================== -->
-<div class="line"></div>
-<div class="container">
-  <header>
-    <div class="drop">
-      <img src="images/morpho-logo.jpeg" alt="Morpho" style="width:36px;height:36px;object-fit:contain;"/>
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-links left">
+      <a href="#cest-quoi">La Tribu</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#prix">Tarifs</a>
     </div>
-    <div class="header-text">
-      <div class="wordmark">La Tribu Morpho</div>
-      <div class="tagline">Se déployer ensemble.</div>
+    <a href="#top" class="nav-logo"><img src="images/morpho-mark.svg" alt="La Tribu Morpho"/><span class="nav-wordmark">LA TRIBU MORPHO</span></a>
+    <div class="nav-links right">
+      <a href="#faq">FAQ</a>
+      <a href="#prix" class="nav-cta">Rejoindre</a>
     </div>
-  </header>
-</div>
+  </div>
+</nav>
+<span id="top"></span>
 <div class="line"></div>
 
-<!-- ==================== ACCROCHE ==================== -->
+<!-- ==================== HERO ==================== -->
 <div class="section-wrap bg-hero">
   <div class="container">
     <div class="accroche fade-in">
-      <p class="accroche-main">La Tribu Morpho,<br><span style="color:#FFA53F;font-weight:600;">l'endroit où ce que tu portes prend forme.</span><br><br><span class="hl-blue">Artistes. Entrepreneurs. Accompagnants.<br>Multipotentiels. Esprits singuliers.</span><br><br>Un rendez-vous collectif chaque semaine.<br>Un <strong>accompagnement individuel</strong> sous forme de mentorat, de conseil ou de service direct. Ce dont tu as besoin au moment où tu en as besoin.</p>
-      <p class="accroche-sub"><span class="services-list">Mentorat &nbsp;·&nbsp; Stratégie &nbsp;·&nbsp; Human Design &nbsp;·&nbsp; Design &nbsp;·&nbsp; Développement web &nbsp;·&nbsp; App mobile &nbsp;·&nbsp; Tunnel de vente</span></p>
-      <a href="#impact" class="hero-btn">Découvrir comment ça marche →</a>
+      <p class="accroche-main">Donner vie à ton projet.<br><span style="color:#FFA53F;">Révéler qui tu es vraiment.</span></p>
+      <p class="accroche-sub">Une tribu d'artistes et d'entrepreneurs qui avancent ensemble, pour mettre <span class="hl">toutes leurs facettes</span> au service de ce qu'ils créent.</p>
+      <a href="#cest-quoi" class="btn" style="margin-top:40px;">Découvrir la Tribu</a>
     </div>
   </div>
 </div>
 
-<!-- ==================== IMPACT ==================== -->
-<span id="impact" style="display:block;position:relative;top:-60px;"></span>
+<!-- ==================== PROBLÈME ==================== -->
 <div class="section-wrap">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Ce que ça change concrètement</div>
-      <h2 class="s-title">Ce que tu construis en faisant partie de la tribu.</h2>
-      <div class="points">
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Tu <strong>lances ou fais grandir ton activité, ton projet artistique, ta pratique</strong>, avec une offre claire, des outils qui fonctionnent, et quelqu'un pour t'aider à les construire.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Tu trouves <strong>de la stabilité financière</strong>, pas en cherchant plus de clients, mais en construisant quelque chose de solide qui te ressemble.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Tu gagnes en <strong>solidité dans tes relations</strong>, parce que quand tu avances sur toi, tout le reste se réaligne.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Tu t'accomplis. Tu <strong>sors ce que tu as à offrir</strong>, une oeuvre, un projet, une app, un site, une marque, un service. Quelque chose de réel dans le monde.</div></div>
-        <div class="point highlight"><div class="point-icon">◈</div><div class="point-text">Et tu fais tout ça entouré d'une <strong>communauté orientée croissance et transformation.</strong> Pas des gens qui regardent. Des gens qui avancent avec toi.</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== CONCEPT ==================== -->
-
-<span id="concept"></span>
-<div class="section-wrap alt">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Le concept</div>
-      <h2 class="s-title">Créer, entreprendre, accompagner, c'est un chemin qui touche tout.</h2>
-      <div class="points">
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Ton activité, ton corps, tes relations, ta vitalité, <strong>tout est connecté.</strong> Ce qui se passe dans un domaine affecte les autres.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">La plupart des gens autour de toi <strong>ne comprennent pas ce chemin.</strong> Pas parce qu'ils sont mauvais. Parce qu'ils ne sont pas dessus.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Avancer entouré, c'est différent. <strong>Tu résonnes, tu tiens, tu vas plus loin.</strong> Le groupe fait ce que la solitude ne peut pas faire.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">L'idée c'est de <strong>se déployer</strong>, comme le papillon morpho. Pas juste performer. Se révéler vraiment.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Que tu sois artiste, entrepreneur, multipotentiel ou esprit singulier, <strong>tu as ta place ici.</strong> Ce qui compte c'est l'intention de construire ce qui te ressemble vraiment.</div></div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==================== CE QUI EST UNIQUE ==================== -->
-<div class="section-wrap">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Ce qui est unique</div>
-      <h2 class="s-title">Un modèle d'incubateur qui n'existe pas ailleurs.</h2>
-      <div class="points">
-        <div class="point"><div class="point-icon">→</div><div class="point-text">La plupart des communautés te vendent du contenu. Ici, tu as <strong>accès à mes compétences techniques et créatives</strong>, directement, concrètement.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Je sors une app mobile ou une landing page <strong>en deux jours de travail.</strong> C'est ce type de compétences que tu as dans ta poche.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text">Un ticket c'est une heure avec moi sur <strong>ce dont t'as besoin</strong> : tech, design, Human Design, session de clarté, stratégie.</div></div>
-        <div class="point"><div class="point-icon">→</div><div class="point-text"><strong>Les tickets s'accumulent et ne se perdent pas.</strong> Plus tu restes, plus tu as de puissance de feu.</div></div>
-        <div class="point highlight"><div class="point-icon">◈</div><div class="point-text"><em>10 mois à 200€ = 2 000€.</em> Pour ce prix tu peux avoir une app mobile fonctionnelle. <strong>En agence : 5 000 à 10 000€.</strong> Sans l'accompagnement. Sans le groupe.</div></div>
-      </div>
-      <div class="compare-block">
-        <div class="compare-item">
-          <div class="compare-label">Rayonnement, Niveau III</div>
-          <div class="compare-price ours">200 €<span style="font-size:14px;font-weight:400"> /mois</span></div>
-          <div class="compare-desc">Communauté + rendez-vous hebdo + 3 tickets/mois cumulables</div>
+      <div class="s-label">Le point de départ</div>
+      <h2 class="s-title">Tu es un créateur inspiré,<br><span style="color:#FFA53F;">mais parfois tu te sens perdu ou bloqué.</span></h2>
+      <div class="prob-grid">
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+          <div class="prob-word">Seul</div>
+          <div class="prob-desc">Ton entourage <span class="hl">ne comprend pas toujours ce chemin</span>. Peu de gens saisissent qui tu es et ce que tu construis.</div>
         </div>
-        <div class="compare-vs">vs</div>
-        <div class="compare-item">
-          <div class="compare-label">Agence ou freelance senior</div>
-          <div class="compare-price market">15 000 €<span style="font-size:14px;font-weight:400"> +</span></div>
-          <div class="compare-desc">Pour une app mobile. Sans accompagnement. Sans communauté.</div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+          <div class="prob-word">Dispersé</div>
+          <div class="prob-desc">Tu maîtrises ton métier, mais <span class="hl">entreprendre demande tellement plus</span>. Et personne ne t'a appris le reste.</div>
+        </div>
+        <div class="prob-card">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>
+          <div class="prob-word">Sous pression</div>
+          <div class="prob-desc">Légitimité, comparaison, peur de s'exposer, argent. Tout cela <span class="hl">remue beaucoup, en silence</span>.</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== PILIERS ==================== -->
-<div class="section-wrap alt">
+<span id="cest-quoi" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== LA TRIBU MORPHO (réponse) ==================== -->
+<div class="section-wrap bg-tribu">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Les piliers</div>
-      <h2 class="s-title">Ce sur quoi on avance ensemble.</h2>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Activité & création</div><div class="pillar-sub">Souveraineté financière, offre, positionnement, projet artistique, croissance</div></div>
-        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Corps & vitalité</div><div class="pillar-sub">Énergie, sommeil, mouvement, présence physique</div></div>
-        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Relations</div><div class="pillar-sub">Souveraineté relationnelle, liens, espace personnel</div></div>
-        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Déploiement</div><div class="pillar-sub">Sortir ce que tu as à offrir. Le mettre dans le monde. Rayonner.</div></div>
-        <div class="pillar gold" style="grid-column: 1 / -1;"><div class="pillar-num">+</div><div class="pillar-name">Accompagnement individuel</div><div class="pillar-sub">Disponible via les tickets, tech, design, Human Design, coaching, stratégie</div></div>
+      <div class="s-label" style="text-align:center;">La Tribu Morpho</div>
+      <h2 class="s-title" style="text-align:center;">Une communauté,<br><span style="color:#FFA53F;">et un accompagnement sur mesure.</span></h2>
+      <p class="modele-lead">Tu as sûrement déjà essayé d'en parler, de te former, de te faire accompagner. Mais rien ne prenait soin de l'ensemble. Ici, tu trouves un groupe qui t'épaule, quelqu'un qui te comprend, et de quoi donner forme à tes idées. <strong>Trois aspects qui n'en font qu'un.</strong></p>
+      <div class="aspect-stack">
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 14c2.5 0 5 1.8 5 5"/></svg></div>
+          <div>
+            <div class="aspect-kicker">Le collectif</div>
+            <div class="aspect-title">Le groupe, pour revenir à toi</div>
+            <p class="aspect-body">Un rendez-vous hebdomadaire pour sortir de l'agitation du quotidien, déposer ce que tu portes, et te retrouver. C'est un <span class="hl">rendez-vous avec toi-même, mais vécu en groupe</span>. On commence souvent par une méditation, parce que <em class="em">tout part de la présence</em>.</p>
+          </div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a7 7 0 00-4 12.7c.6.5 1 1.2 1 2V19h6v-1.3c0-.8.4-1.5 1-2A7 7 0 0012 3z"/><path d="M9.5 22h5"/></svg></div>
+          <div>
+            <div class="aspect-kicker">L'individuel</div>
+            <div class="aspect-title">L'accompagnement, pour aller en profondeur</div>
+            <p class="aspect-body">Un temps rien qu'à toi pour <span class="hl">mieux comprendre qui tu es et t'aligner</span>, avec des outils de connaissance de soi comme le Human Design. On y libère les blocages et les croyances qui freinent, et on structure tes offres, ta communication, ton déploiement.</p>
+          </div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <div>
+            <div class="aspect-kicker">Le concret</div>
+            <div class="aspect-title">Donner forme à tes idées</div>
+            <p class="aspect-body">Tout ce que tu imagines peut prendre forme : un logo, un univers graphique, un site web, des supports, une application. <span class="hl">Ce qui restait une idée dans ta tête devient réel</span>, et te ressemble.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- ==================== CE QU'ON VIENT CHERCHER ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">Ce que tu y trouves</div>
+      <h2 class="s-title">Clarté, structure<br><span style="color:#FFA53F;">et soutien.</span></h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div class="benefit-title">Gagner en clarté sur soi et son projet</div>
+          <p class="benefit-desc">Savoir qui tu es, où tu vas, et comment y aller <span class="hl">en restant toi-même</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="benefit-title">Structurer et déployer ce qui te ressemble</div>
+          <p class="benefit-desc">Ton offre, ta communication, ton univers. Une activité qui <span class="hl">reflète vraiment qui tu es</span>.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M8 12s1.5-2 4-2 4 2 4 2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <div class="benefit-title">Voir ce que tu ne vois pas seul</div>
+          <p class="benefit-desc">Sortir de ta tête, voir plus loin. <span class="hl">Profiter du regard d'un groupe</span> qui comprend ce que tu traverses.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="benefit-title">Progresser sans tout porter seul</div>
+          <p class="benefit-desc">Des alliés, un espace pour déposer, du soutien concret. <span class="hl">Le collectif fait ce que la solitude ne peut pas.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="comment" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== LE PROCESSUS ==================== -->
+<div class="section-wrap bg-chrysalis">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Le chemin du morpho</div>
+      <h2 class="s-title" style="text-align:center;">Du repli intérieur<br><span style="color:#FFA53F;">au plein déploiement.</span></h2>
+      <p class="concept-lead">Comme le papillon, on ne se transforme pas d'un coup. On avance par étapes, à son rythme, jusqu'à déployer ses ailes.</p>
+      <div class="process-flow">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-name">Se poser</div>
+          <div class="process-desc">Revenir au calme et à la présence. Sortir de l'agitation pour voir clair, comme dans le cocon.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-name">Se révéler</div>
+          <div class="process-desc">Comprendre qui tu es vraiment, ta forme propre, ton énergie juste. Là où tout commence.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-name">Donner forme</div>
+          <div class="process-desc">Structurer, créer, matérialiser. Faire passer tes idées dans le réel, étape par étape.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-name">Se déployer</div>
+          <div class="process-desc">Rayonner et impacter le monde, dans ta couleur unique. Les ailes enfin ouvertes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== POURQUOI DIFFÉRENT ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Pourquoi c'est différent</div>
+      <h2 class="s-title">Pour donner vie à ton projet,<br><span style="color:#FFA53F;">tu dois devenir qui tu es.</span></h2>
+
+      <div class="cycle-diagram">
+        <div class="cycle-node">
+          <div class="cycle-ico blue">◎</div>
+          <div class="cycle-title">Devenir qui tu es</div>
+          <div class="cycle-text">Vision, alignement, place dans le monde.</div>
+        </div>
+        <div class="cycle-arrows">
+          <svg viewBox="0 0 150 90" width="150" height="90" fill="none" aria-hidden="true">
+            <path d="M16 45 Q75 6 134 45" stroke="#FFA53F" stroke-width="2.2" stroke-linecap="round"/>
+            <polygon points="126,39 137,45 126,51" fill="#FFA53F"/>
+            <path d="M134 45 Q75 84 16 45" stroke="#0278FF" stroke-width="2.2" stroke-linecap="round"/>
+            <polygon points="24,39 13,45 24,51" fill="#0278FF"/>
+          </svg>
+        </div>
+        <div class="cycle-node">
+          <div class="cycle-ico gold">◈</div>
+          <div class="cycle-title">Donner vie à ton projet</div>
+          <div class="cycle-text">Stratégie, identité, site, application.</div>
+        </div>
+      </div>
+
+      <div class="cycle-quote">Ton projet ne se commande pas comme une prestation. Il naît de qui tu es, prend forme dans le monde, et te révèle un peu plus à toi-même en retour.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== POUR QUI ==================== -->
+<div class="section-wrap alt">
+  <div class="container">
+    <div class="section fade-in" style="text-align:center;">
+      <div class="s-label">Pour qui</div>
+      <h2 class="s-title">Tu vas te sentir<br><span style="color:#FFA53F;">chez toi ici si...</span></h2>
+      <ul class="fq-list yes">
+        <li>Tu portes un projet qui te tient vraiment à cœur, artistique ou entrepreneurial.</li>
+        <li>Tu veux avancer à ta manière, sans te couler dans un moule qui ne te ressemble pas.</li>
+        <li>Tu as une sensibilité, une intériorité, et en même temps l'envie de concrétiser.</li>
+        <li>Tu sens que tu irais plus loin, et plus sereinement, entouré que seul.</li>
+      </ul>
+      <h3 class="fq-sub">Et ce ne sera pas pour toi si...</h3>
+      <ul class="fq-list no">
+        <li>Tu cherches une recette toute faite à appliquer sans te remettre en question.</li>
+        <li>Tu veux des résultats sans aucun travail sur toi ni sur ta clarté.</li>
+        <li>Le collectif et l'entraide ne t'intéressent pas, tu veux juste un prestataire.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TÉMOIGNAGE ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label" style="text-align:center;">Témoignage</div>
+      <div class="temoin">
+        <p class="temoin-quote">Avant, j'avançais seule et je tournais souvent en rond. Ici, j'ai trouvé un endroit où déposer ce que je traverse et être vraiment comprise. La méditation me recentre, et derrière, on m'aide à avancer concrètement sur mon projet. Je repars de chaque séance plus claire, et plus moi-même.</p>
+        <div class="temoin-who">Stéphanie, membre de la Tribu</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span id="prix" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== NIVEAUX ==================== -->
 <div class="section-wrap">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">La structure</div>
-      <h2 class="s-title">Tu choisis l'accès qui correspond à où tu en es.</h2>
+      <div class="s-label">Tarifs</div>
+      <h2 class="s-title">Trois façons<br><span style="color:#FFA53F;">d'entrer.</span></h2>
       <div class="pricing-wrap">
         <div class="p-card">
           <div class="p-level">Niveau I</div>
           <div class="p-name">Essentiel</div>
-          <div class="p-price"><sup>€</sup>30<sub>/mois</sub></div>
+          <div class="p-price"><sup>€</sup>49<sub>/mois</sub></div>
           <div class="p-no-commit">sans engagement</div>
-            <div class="p-tickets">&nbsp;</div>
+          <div class="p-tickets">&nbsp;</div>
           <ul class="p-feats">
+            <li>Rendez-vous collectif hebdo</li>
+            <li>Méditation + partage</li>
             <li>Communauté privée</li>
-            <li>Rendez-vous hebdo collectif</li>
-            <li>Ressources partagées</li>
           </ul>
-          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoindre</a>
+          <a href="https://buy.stripe.com/9B6fZiaKdacp7us6LybjW0d" target="_blank" class="p-btn">Rejoins la Tribu</a>
         </div>
         <div class="p-card hot">
           <div class="p-level">Niveau II</div>
           <div class="p-name">Ancrage</div>
-          <div class="p-price"><sup>€</sup>80<sub>/mois</sub></div>
+          <div class="p-price"><sup>€</sup>139<sub>/mois</sub></div>
           <div class="p-no-commit">sans engagement</div>
-            <div class="p-tickets">+ 1 ticket / mois cumulable</div>
+          <div class="p-tickets">+ 1 ticket / mois cumulable</div>
           <ul class="p-feats">
             <li>Tout le Niveau I</li>
             <li>1 ticket/mois qui s'accumule</li>
             <li>Tech, design, Human Design, coaching</li>
-            <li>Plus tu restes, plus tu construis</li>
           </ul>
-          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoindre</a>
+          <a href="https://buy.stripe.com/bJeaEY7y14S5bKI5HubjW0f" target="_blank" class="p-btn p-btn-hot">Rejoins la Tribu</a>
         </div>
         <div class="p-card">
           <div class="p-level">Niveau III</div>
           <div class="p-name">Rayonnement</div>
-          <div class="p-price"><sup>€</sup>200<sub>/mois</sub></div>
+          <div class="p-price"><sup>€</sup>297<sub>/mois</sub></div>
           <div class="p-no-commit">sans engagement</div>
-            <div class="p-tickets">+ 3 tickets / mois cumulables</div>
+          <div class="p-tickets">+ 3 tickets / mois cumulables</div>
           <ul class="p-feats">
             <li>Tout le Niveau II</li>
             <li>3 tickets/mois cumulables</li>
             <li>Accès prioritaire</li>
-            <li>En 4 mois : une app ou un site complet</li>
           </ul>
-          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoindre</a>
+          <a href="https://buy.stripe.com/5kQ14o5pT2JXcOM4DqbjW0e" target="_blank" class="p-btn">Rejoins la Tribu</a>
         </div>
       </div>
-      <div class="bonus-banner">
-        <div class="bonus-icon">◆</div>
-        <div class="bonus-text"><strong>On a déjà travaillé ensemble ?</strong> Rejoins en Ancrage ou Rayonnement et reçois <span class="hl-gold">1 ticket bonus offert</span> sur ton premier mois. Écris-moi juste un message en rejoignant.</div>
+      <div class="prix-call">
+        <span>Tu n'es pas sûr du niveau qui te correspond ?</span>
+        <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="prix-call-btn">Réserver un appel de 30 minutes</a>
       </div>
-      <div class="six-mois">
-        <div class="s-label" style="margin-bottom:16px;">Ce que ça donne sur 6 mois</div>
-        <div class="six-grid">
-          <div class="six-item">
-            <div class="six-level">Niveau II, 80€/mois</div>
-            <div class="six-total">480 € sur 6 mois</div>
-            <div class="six-result">= <strong>6 tickets accumulés</strong></div>
-            <div class="six-desc">Une landing page complète ou 6 sessions de travail avec moi. Valeur marché : <strong style="color:#c8d8f0">1 500€+</strong></div>
-          </div>
-          <div class="six-item six-item-gold">
-            <div class="six-level">Niveau III, 200€/mois</div>
-            <div class="six-total">1 200 € sur 6 mois</div>
-            <div class="six-result">= <strong>18 tickets accumulés</strong></div>
-            <div class="six-desc">Un site complet ou une application mobile simple. Valeur marché : <strong style="color:#c8d8f0">3 000 à 10 000€+</strong></div>
-          </div>
-        </div>
-      </div>
-      <div class="unit-ticket">
-        <div class="unit-label"><strong>Ticket à l'unité, 1h mentorat, conseil ou service</strong> Tu n'es pas membre mais tu veux accéder à mon temps.</div>
-        <div class="unit-price">90 €</div>
-      </div>
+
     </div>
   </div>
 </div>
 
-<!-- ==================== CE QUI REND CA DIFFERENT ==================== -->
-<div class="section-wrap bg-spiral">
-  <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Ce qui rend ça différent</div>
-      <h2 class="s-title">La plupart du temps tu choisis entre<br>la profondeur et le concret.<br><span style="color:#FFA53F;">Ici tu as les deux.</span></h2>
-      <div class="diff-cols">
-        <div class="diff-col">
-          <div class="diff-col-icon">◎</div>
-          <div class="diff-col-label">En profondeur</div>
-          <p class="diff-col-text">Vision, alignement, émotions, perception de soi, place dans le monde. Des discussions vraies sur ce qu'on vit et ce qu'on porte.</p>
-        </div>
-        <div class="diff-plus">+</div>
-        <div class="diff-col">
-          <div class="diff-col-icon">◈</div>
-          <div class="diff-col-label">Dans la matière</div>
-          <p class="diff-col-text">Stratégie, site, tunnel, identité visuelle, app. Ce qu'on met en place est aligné avec le travail fait en profondeur. Pas un brief. Une émergence.</p>
-        </div>
-      </div>
-      <div class="diff-quote">
-        "Ce qu'on construit ensemble émerge d'un alignement réel.<br>Je ne suis pas un prestataire. On fait des allers-retours constants<br>entre ce que tu es et ce qu'on crée."
-      </div>
-    </div>
-  </div>
-</div>
-
+<span id="prestations" style="display:block;position:relative;top:-70px;"></span>
 <!-- ==================== TICKETS ==================== -->
 <div class="section-wrap alt">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Ce que tes tickets permettent de construire</div>
-      <h2 class="s-title">1 ticket = 1h avec moi, sur ce dont t'as besoin.</h2>
-      <div class="ticket-intro-sub">Ils s'accumulent. Ils ne se perdent pas.</div>
-      <div class="ticket-table">
-        <div class="ticket-row">
-          <div class="t-num">1<small>ticket</small></div>
-          <div class="t-desc">Session de clarté<small>Stratégie, blocage, Human Design, positionnement</small></div>
-          <div class="t-val"><strong>90 €</strong><span>ce que ça te coûte</span></div>
+      <div class="s-label" style="text-align:center;">Les tickets</div>
+      <h2 class="s-title" style="text-align:center;">Une heure d'accompagnement,<br><span style="color:#FFA53F;">à utiliser comme tu veux.</span></h2>
+      <div class="ticket-domains">
+        <span class="td-label">Utilise tes tickets pour</span>
+        <div class="td-chips">
+          <span class="td-chip">La présence</span>
+          <span class="td-chip">La connaissance de soi</span>
+          <span class="td-chip">Le déblocage</span>
+          <span class="td-chip">Le marketing &amp; la communication</span>
+          <span class="td-chip">Le design</span>
+          <span class="td-chip">La technique</span>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">3<small>tickets</small></div>
-          <div class="t-desc">Clarté approfondie ou stratégie<small>3 sessions, accompagnement sur la durée</small></div>
-          <div class="t-val"><strong>270 €</strong><span>ce que ça te coûte</span></div>
+      </div>
+      <p class="tk-lead">Tes tickets s'accumulent et ne se perdent jamais. Plus tu en gardes, plus tu peux voir grand.</p>
+      <p class="tk-note">À titre indicatif. On définit ensemble le nombre selon ton projet.</p>
+
+      <div class="tk-bareme">
+        <div class="tk-step">
+          <div class="tk-step-num">1</div>
+          <div class="tk-step-unit">ticket</div>
+          <div class="tk-step-what">Une session de clarté</div>
+          <div class="tk-step-val">Stratégie, Human Design, déblocage</div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">5<small>tickets</small></div>
-          <div class="t-desc">Identité visuelle<small>Logo, palette, direction de marque</small></div>
-          <div class="t-val"><strong>500 €</strong><span>ce que ça te coûte</span></div>
+        <div class="tk-step">
+          <div class="tk-step-num">5</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Ton identité visuelle</div>
+          <div class="tk-step-val">Logo, palette, direction de marque</div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts5">
-            <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><div class="ts-type">Identité visuelle</div><div class="ts-name">La Main Hopi</div></div>
-            <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Anys Mechkar</div></div>
-            <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Saônessence</div></div>
-            <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Smoos</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><div class="ts-type">Identité visuelle</div><div class="ts-name">Archipel Kyosei</div></div>
-            <div class="ts-slide"><img src="images/main-hopi.png" alt="La Main Hopi"/><div class="ts-type">Identité visuelle</div><div class="ts-name">La Main Hopi</div></div>
-            <div class="ts-slide"><img src="images/anys-logo.jpg" alt="Anys Mechkar"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Anys Mechkar</div></div>
-            <div class="ts-slide"><img src="images/saonessence.webp" alt="Saônessence"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Saônessence</div></div>
-            <div class="ts-slide"><img src="images/smoos.jpg" alt="Smoos"/><div class="ts-type">Identité visuelle</div><div class="ts-name">Smoos</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei.jpg" alt="Kyosei"/></a><div class="ts-type">Identité visuelle</div><div class="ts-name">Archipel Kyosei</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts5',-1)">‹</button><button onclick="slideTs('ts5',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+        <div class="tk-step">
+          <div class="tk-step-num">10</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Une landing ou un tunnel</div>
+          <div class="tk-step-val">Design, copy, intégration, mise en ligne</div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">10<small>tickets</small></div>
-          <div class="t-desc">Landing page ou tunnel<small>Design, intégration, copy, mise en ligne</small></div>
-          <div class="t-val"><strong>900 €+</strong><span>ce que ça te coûte</span></div>
+        <div class="tk-step">
+          <div class="tk-step-num">20</div>
+          <div class="tk-step-unit">tickets</div>
+          <div class="tk-step-what">Un site complet ou une app</div>
+          <div class="tk-step-val">Design, développement, mise en ligne</div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts10">
-            <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><div class="ts-type">Tunnel de conversion</div><div class="ts-name">Tunnel IN CARNE</div></div>
-            <div class="ts-slide"><a href="https://laforge-app.netlify.app" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Landing page</div><div class="ts-name">LA FORGE Application</div></div>
-            <div class="ts-slide"><a href="https://libere-ton-royaume.neoqii.com" target="_blank"><img src="images/incarne.jpeg" alt="Tunnel IN CARNE"/></a><div class="ts-type">Tunnel de conversion</div><div class="ts-name">Tunnel IN CARNE</div></div>
-            <div class="ts-slide"><a href="https://laforge-app.netlify.app" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Landing page</div><div class="ts-name">LA FORGE Application</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts10',-1)">‹</button><button onclick="slideTs('ts10',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+      </div>
+
+      <p class="tk-compare">Pour comparer : une seule application, en agence, c'est <strong>3 000 à 10 000 €</strong>. Ici, elle se construit au fil de tes tickets, comprise dans ton accompagnement.</p>
+
+      <div class="gallery-label">Ce que ça donne, en vrai</div>
+      <div class="gallery-sub">Des sites, des identités et des outils créés avec les membres.</div>
+      <div class="gal-sites">
+        <a href="https://archipelkyosei.com" target="_blank" class="g-item">
+          <img src="images/kyosei-web.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Archipel Kyosei</div></div>
+        </a>
+        <div class="g-item">
+          <img src="images/silent-lake.jpg" alt="Silent Lake II"/>
+          <div class="g-cap"><div class="g-type">Site événement</div><div class="g-name">Silent Lake II</div></div>
         </div>
-        <div class="ticket-row">
-          <div class="t-num">20<small>tickets</small></div>
-          <div class="t-desc">Site complet ou application mobile<small>En agence : 3 000 à 10 000 €</small></div>
-          <div class="t-val"><strong>1 800 €+</strong><span>ce que ça te coûte</span></div>
+        <div class="g-item">
+          <img src="images/desert-mirage.jpg" alt="Desert Mirage Journey"/>
+          <div class="g-cap"><div class="g-type">Site résidence</div><div class="g-name">Desert Mirage Journey</div></div>
         </div>
-        <div class="ticket-slider">
-          <div class="ts-label">Exemple de réalisation</div>
-          <div class="ts-track" id="ts20">
-            <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><div class="ts-type">Site complet</div><div class="ts-name">Souffle en Corps</div></div>
-            <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Application mobile</div><div class="ts-name">LA FORGE</div></div>
-            <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><div class="ts-type">Site complet</div><div class="ts-name">Vari Vena</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><div class="ts-type">Site complet</div><div class="ts-name">Archipel Kyosei</div></div>
-            <div class="ts-slide"><a href="https://souffle-en-corps.fr" target="_blank"><img src="images/souffle2.jpeg" alt="Souffle en Corps"/></a><div class="ts-type">Site complet</div><div class="ts-name">Souffle en Corps</div></div>
-            <div class="ts-slide"><a href="https://la-forge.neoqii.com" target="_blank"><img src="images/laforge.jpeg" alt="LA FORGE"/></a><div class="ts-type">Application mobile</div><div class="ts-name">LA FORGE</div></div>
-            <div class="ts-slide"><a href="https://varivena.com" target="_blank"><img src="images/varivena2.jpeg" alt="Vari Vena"/></a><div class="ts-type">Site complet</div><div class="ts-name">Vari Vena</div></div>
-            <div class="ts-slide"><a href="https://archipelkyosei.com" target="_blank"><img src="images/kyosei2.jpeg" alt="Archipel Kyosei"/></a><div class="ts-type">Site complet</div><div class="ts-name">Archipel Kyosei</div></div>
-          </div>
-          <div class="ts-nav"><button onclick="slideTs('ts20',-1)">‹</button><button onclick="slideTs('ts20',1)">›</button></div>
-          <p class="ts-note">Exemples indicatifs, sans valeur contractuelle.</p>
+        <a href="https://souffle-en-corps.fr" target="_blank" class="g-item">
+          <img src="images/souffle-web.jpg" alt="Souffle en Corps"/>
+          <div class="g-cap"><div class="g-type">Site complet</div><div class="g-name">Souffle en Corps</div></div>
+        </a>
+      </div>
+      <div class="gal-logos">
+        <div class="g-item">
+          <img src="images/main-hopi.png" alt="La Main Hopi"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">La Main Hopi</div></div>
         </div>
+        <div class="g-item">
+          <img src="images/saonessence.webp" alt="Saônessence"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Saônessence</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/smoos.jpg" alt="Smoos"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Smoos</div></div>
+        </div>
+        <div class="g-item">
+          <img src="images/kyosei.jpg" alt="Archipel Kyosei"/>
+          <div class="g-cap"><div class="g-type">Identité</div><div class="g-name">Kyosei</div></div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ==================== FAQ ==================== -->
+<!-- ==================== CTA INTERMÉDIAIRE ==================== -->
 <div class="section-wrap">
   <div class="container">
-    <div class="section fade-in">
-      <div class="s-label">Questions fréquentes</div>
-      <h2 class="s-title">Ce que tu te demandes sûrement.</h2>
-      <div class="faq">
-        <div class="faq-item">
-          <div class="faq-q">C'est quoi exactement un ticket ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Un ticket c'est une heure de mon temps. Tu peux l'utiliser pour une session de clarté, une lecture Human Design, du travail technique, du design, de la stratégie. Tu choisis selon ce dont t'as besoin au moment où t'en as besoin.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Les tickets se perdent si je ne les utilise pas ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Non. Les tickets s'accumulent d'un mois sur l'autre. Si tu prends le niveau II à 80€/mois et que tu n'utilises pas ton ticket pendant 10 mois, tu as 10 heures de travail disponibles. C'est ça la puissance du système.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">C'est pour quel type de projet ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Tout ce qui touche à construire quelque chose qui te ressemble : une activité, une pratique artistique, une offre, un site, une app, une marque. Artiste, entrepreneur, accompagnant, multipotentiel, peu importe où t'en es. Ce qui compte c'est l'intention d'avancer.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Le rendez-vous hebdo c'est quoi concrètement ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Un appel collectif chaque semaine, ouvert à tous les niveaux. On partage où on en est, ce qui avance, ce qui coince. C'est le coeur du groupe, l'endroit où tu n'es plus seul avec ce que tu construis.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Je peux rejoindre juste pour la communauté sans tickets ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Oui, c'est le niveau I à 30€/mois. Tu as accès à la communauté privée et au rendez-vous hebdomadaire collectif. Si à un moment tu veux accéder à mon temps, tu peux passer au niveau supérieur ou acheter des tickets à l'unité.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Quand ça commence ? <span class="faq-arrow">›</span></div>
-          <div class="faq-a">Ouverture le 4 avril. Les premières places sont pour les gens que je connais déjà. Si tu veux en être, on se parle d'abord, 30 minutes pour voir si c'est le bon moment pour toi.</div>
-        </div>
-      </div>
+    <div class="cta-mid fade-in">
+      <div class="cta-mid-text">Tu as envie de donner forme à ce que tu portes, sans perdre ton alignement ?</div>
+      <a href="#prix" class="cta-mid-btn">Rejoins la Tribu</a>
     </div>
   </div>
 </div>
 
 <!-- ==================== QUI JE SUIS ==================== -->
-<div class="section-wrap alt">
+<div class="section-wrap bg-bio">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label">Qui je suis</div>
-      <div class="bio-header">
-        <img src="images/anys-photo.png" alt="Anys Mechkar" class="bio-photo"/>
-        <h2 class="s-title">Anys Mechkar</h2>
+      <div class="s-label" style="text-align:center;">Qui je suis</div>
+      <div class="bio-wrap">
+        <div class="bio-photo-col">
+          <img class="bio-portrait" src="images/anys-portrait.jpg" alt="Anys Mechkar"/>
+        </div>
+        <div class="bio-content">
+          <h2 class="s-title" style="margin-bottom:10px;">Anys Mechkar</h2>
+          <div class="bio-role">Ingénieur · Développeur · Designer · Enseignant de méditation · Praticien Human Design</div>
+          <p class="bio-text">Ancien ingénieur informatique devenu enseignant de méditation pleine conscience. J'ai longtemps exploré les mondes spirituels, et j'en suis <span class="hl">revenu à la simplicité</span>, en laissant de côté ce qui était trop perché.</p>
+          <p class="bio-text">Aujourd'hui, je réunis <span class="hl">ce qui ne va d'habitude jamais ensemble</span> : la technologie, l'entrepreneuriat, l'art et la spiritualité. J'accompagne en individuel, j'anime des groupes, je crée des retraites, je conçois des sites et des applications. De quoi t'aider aussi bien à te comprendre qu'à donner forme, concrètement, à ce que tu portes.</p>
+          <div class="bio-worlds">
+            <span>Technologie</span>
+            <span>Entrepreneuriat</span>
+            <span>Art</span>
+            <span>Spiritualité</span>
+          </div>
+          <p class="bio-text">La Tribu Morpho est l'espace que j'aurais aimé avoir. <em class="em">Je suis heureux de le construire avec toi.</em></p>
+        </div>
       </div>
-      <div class="bio-block">
-        <p class="bio-text">Ingénieur informatique, designer, développeur, praticien Human Design, enseignant en méditation pleine conscience et mentor. Un multipotentiel, comme on dit.</p>
-        <p class="bio-text" style="margin-top:14px;">Ça fait plusieurs années que j'accompagne des personnes qui veulent se réaliser à travers un projet artistique ou entrepreneurial. Et ça fait plusieurs années que j'avais cette idée de Tribu Morpho. Pas le bon timing, pas le bon angle. Là c'est une révélation. Je suis trop heureux de mettre ça en place.</p>
-        <p class="bio-text" style="margin-top:14px;">Pour l'instant j'invite principalement des gens que je connais déjà, avec qui j'ai travaillé. J'ai hâte de créer cette dynamique, que vous puissiez vous révéler, construire des choses belles et impactantes, et trouver cet alignement et cette authenticité qui font toute la différence.</p>
+    </div>
+  </div>
+</div>
+
+<span id="faq" style="display:block;position:relative;top:-70px;"></span>
+<!-- ==================== FAQ ==================== -->
+<div class="section-wrap">
+  <div class="container">
+    <div class="section fade-in">
+      <div class="s-label">FAQ</div>
+      <h2 class="s-title">Ce que tu te demandes<br><span style="color:#FFA53F;">sûrement.</span></h2>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Concrètement, qu'est-ce que je reçois chaque mois ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Selon ton niveau : l'accès au rendez-vous hebdomadaire en groupe et à la communauté privée, et à partir d'Ancrage, un accompagnement individuel avec des tickets qui s'accumulent. Le groupe nourrit la régularité, l'individuel permet d'aller en profondeur sur ce qui est à toi.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Un ticket, c'est quoi exactement ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Un ticket vaut une heure avec moi, en individuel. Tu l'utilises comme tu veux, quand tu veux : du coaching, une lecture Human Design, de la stratégie, du design, ou du développement de ton site ou de ton application. C'est toi qui décides selon ce dont tu as besoin sur le moment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Les tickets expirent-ils si je ne les utilise pas ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Jamais. Ils s'accumulent d'un mois sur l'autre, sans limite de temps. Tu peux les garder plusieurs mois pour financer un projet plus ambitieux, comme un site complet ou une application. Plus tu restes, plus tu construis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">En quoi c'est différent d'un coach ou d'une formation ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Un coach travaille ton intérieur, mais ne construit pas ton site. Une formation te donne du contenu, mais te laisse seul pour l'appliquer. Ici, tu as les deux réunis : l'accompagnement en profondeur et la réalisation concrète, par la même personne, dans un cadre qui te connaît dans la durée.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Et si je ne suis pas à l'aise avec le côté spirituel, ou pas technique ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Aucun prérequis. La méditation reste simple et ancrée, jamais perchée. Et tu n'as pas besoin d'être technique : c'est justement mon rôle de prendre en charge la partie concrète. Tu viens avec ce que tu es, on avance à partir de là.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Suis-je engagé sur la durée ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Non, il n'y a pas d'engagement minimum. Tu restes le temps qui a du sens pour toi, et tu peux arrêter quand tu le souhaites. Les tickets déjà accumulés te restent acquis.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Est-ce que c'est fait pour moi ? <span class="faq-arrow">›</span></div>
+          <div class="faq-a">Si tu portes un projet qui te tient à cœur, que tu veux le faire à ta manière sans te trahir, et que tu sens que tu avancerais mieux entouré, alors oui. Que tu sois artiste, accompagnant ou entrepreneur, ce qui compte c'est cette intention-là.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1302,11 +1887,12 @@
 <!-- ==================== CTA ==================== -->
 <div class="section-wrap bg-galaxy">
   <div class="container">
-    <div class="cta fade-in">
-      <h2>Ça t'intéresse ?<br><em>On en parle.</em></h2>
-      <p class="cta-sub">Ouverture le 4 avril, quelques places disponibles</p>
-      <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" class="btn">Réserver un appel</a>
-      <p class="cta-note">30 minutes pour voir si c'est le bon moment pour toi.</p>
+    <div class="cta fade-in" style="text-align:center;">
+      <h2>Ça résonne en toi ?<br><em>Rejoins-nous !</em></h2>
+      <p class="cta-intro" style="font-size:18px;color:#c8d8f0;line-height:1.7;max-width:560px;margin:20px auto 8px;">Si quelque chose en toi a reconnu ce dont on parle ici, <span style="color:#FFA53F;">ce n'est sûrement pas un hasard.</span></p>
+      <p class="cta-sub" style="font-size:15px;margin-bottom:32px;">La Tribu reste un petit groupe, quelques places à la fois.</p>
+      <a href="#prix" class="btn" style="background:rgba(255,165,63,0.12);">Rejoins la Tribu</a>
+      <p class="cta-note" style="font-size:14px;margin-top:22px;">Tu hésites encore ? <a href="https://calendly.com/a-mechkar/on-papote" target="_blank" style="color:#FFA53F;text-decoration:underline;">Réserve un appel de 30 minutes</a> pour en parler.</p>
     </div>
   </div>
 </div>
@@ -1315,8 +1901,8 @@
 
 <div class="container">
   <footer style="display:flex;align-items:center;gap:12px;">
-    <img src="images/morpho-logo.jpeg" alt="Morpho" style="width:24px;height:24px;object-fit:contain;opacity:0.6;"/>
-    <div class="footer-txt">Créé avec <span style="color:#e05050;">♥</span> par <span style="color:#e0eaff;font-weight:500;">Anys Mechkar</span> &nbsp;·&nbsp; Se déployer ensemble.</div>
+    <img src="images/morpho-mark.svg" alt="Morpho" style="width:26px;height:26px;object-fit:contain;opacity:0.7;"/>
+    <div class="footer-txt">Créé avec <span style="color:#e05050;">♥</span> par <span style="color:#e0eaff;font-weight:500;">Anys Mechkar</span></div>
   </footer>
 </div>
 
@@ -1352,6 +1938,12 @@
     track.style.transition = 'transform 0.35s ease';
     track.style.transform = `translateX(-${tsState[id] * slideW}px)`;
   }
+
+
+  const nav = document.getElementById('nav');
+  const onScroll = () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', () => {
