@@ -1425,6 +1425,24 @@
   .temoin-who { margin-top: 24px; font-family: 'Syne',sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFA53F; }
   @media(max-width:760px){ .temoins-grid { grid-template-columns: 1fr; gap: 20px; max-width: 560px; } }
 
+  .tcar { position: relative; max-width: 820px; margin: 44px auto 0; }
+  .tcar-stage { overflow: hidden; }
+  .tcar-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 38px 40px; text-align: left; transition: opacity .18s ease; min-height: 230px; }
+  .tcar-card::before { content: '\201C'; font-family: 'TTTravels','Syne',sans-serif; font-size: 52px; color: rgba(255,165,63,0.42); line-height: 0.1; display: block; margin-bottom: 14px; }
+  .tcar-q { font-family: 'DM Sans',sans-serif; font-weight: 300; font-size: 16px; line-height: 1.8; color: #cdddf2; }
+  .tcar-q strong { color: #eef4ff; font-weight: 500; }
+  .tcar-who { margin-top: 24px; font-family: 'Syne',sans-serif; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFA53F; }
+  .tcar-role { color: #7f9bc0; text-transform: none; letter-spacing: 0; }
+  .tcar-arrow { position: absolute; top: calc(50% - 24px); transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(8,18,36,0.6); color: #cdddf2; font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color .2s, color .2s; z-index: 2; }
+  .tcar-arrow:hover { border-color: #0278FF; color: #fff; }
+  .tcar-arrow.prev { left: -58px; }
+  .tcar-arrow.next { right: -58px; }
+  .tcar-dots { display: flex; justify-content: center; gap: 9px; margin-top: 26px; }
+  .tcar-dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(255,255,255,0.18); cursor: pointer; padding: 0; transition: background .2s, width .2s; }
+  .tcar-dots button.on { background: #FFA53F; width: 22px; border-radius: 4px; }
+  @media(max-width: 920px){ .tcar-arrow.prev{ left: 4px; } .tcar-arrow.next{ right: 4px; } .tcar-arrow{ background: rgba(8,18,36,0.85); } }
+  @media(max-width: 560px){ .tcar-card{ padding: 30px 24px; } }
+
   /* V4 extras */
   .prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 20px; }
   .prob-card { background: rgba(2,120,255,0.05); border: 1px solid rgba(2,120,255,0.15); border-radius: 12px; padding: 40px 32px; }
@@ -1678,16 +1696,18 @@
 <div class="section-wrap">
   <div class="container">
     <div class="section fade-in">
-      <div class="s-label" style="text-align:center;">Témoignages</div>
-      <div class="temoins-grid">
-        <div class="temoin-card">
-          <p class="temoin-q">Voilà plusieurs années que je bénéficie de l'accompagnement d'Anys. Ayant moi-même parcouru un long chemin de conscience et exerçant également dans l'accompagnement, je suis particulièrement exigeante et sensible à la qualité de présence, à l'authenticité et à la profondeur des personnes auxquelles je choisis de confier mes projets, mes questionnements et mes doutes. Anys réunit à mes yeux des qualités précieuses : une grande rigueur, une réflexion fine, une remarquable capacité de discernement, mais aussi une présence profondément humaine. Il sait créer un espace à la fois contenant et structurant, dans lequel les projets, les idées et les questionnements peuvent prendre forme et mûrir sereinement.</p>
-          <div class="temoin-who">Stéphanie, accompagnante et membre de la Tribu</div>
+      <div class="s-label" style="text-align:center;">Ils l'ont vécu</div>
+      <h2 class="s-title" style="text-align:center;">Ce que ça change,<br><span style="color:#FFA53F;">dans leurs mots.</span></h2>
+      <div class="tcar">
+        <button class="tcar-arrow prev" aria-label="Témoignage précédent">&#8249;</button>
+        <div class="tcar-stage">
+          <div class="tcar-card">
+            <p class="tcar-q" id="tcarQ"></p>
+            <div class="tcar-who" id="tcarWho"></div>
+          </div>
         </div>
-        <div class="temoin-card">
-          <p class="temoin-q">Anys, je voulais te remercier pour avoir créé cet espace. Il s'agit d'une rencontre importante à mes yeux puisqu'elle permet de déposer et d'écouter les joies, les peines et/ou les problématiques de chacun(e) tout en ayant comme point commun le cheminement de l'être. Après ces trois semaines de diète, je décide d'arrêter les thérapies en cours, puisqu'elles n'ont plus lieu d'être, et de garder précieusement ce rendez-vous du mardi qui se suffit à lui-même. Aujourd'hui ce seul échange me confirme que je ne suis pas seule et que tout peut être dit et entendu si la position du cœur est au centre. Merci Anys, merci pour cette belle initiative, trois fois merci. Aho</p>
-          <div class="temoin-who">Moÿ, membre de la Tribu</div>
-        </div>
+        <button class="tcar-arrow next" aria-label="Témoignage suivant">&#8250;</button>
+        <div class="tcar-dots" id="tcarDots"></div>
       </div>
     </div>
   </div>
@@ -1990,6 +2010,52 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
+</script>
+<script>
+(function(){
+  var T = [
+    {q:"Voilà plusieurs années que je bénéficie de l'accompagnement d'Anys. Ayant moi-même parcouru un long chemin de conscience et exerçant également dans l'accompagnement, je suis particulièrement exigeante et sensible à la qualité de présence, à l'authenticité et à la profondeur des personnes auxquelles je choisis de confier mes projets, mes questionnements et mes doutes. Anys réunit à mes yeux des qualités précieuses : une grande rigueur, une réflexion fine, une remarquable capacité de discernement, mais aussi une présence profondément humaine. Il sait créer un espace à la fois contenant et structurant, dans lequel les projets, les idées et les questionnements peuvent prendre forme et mûrir sereinement.", a:"Stéphanie", r:"Accompagnante, membre de la Tribu"},
+    {q:"Anys, je voulais te remercier pour avoir créé cet espace. Il s'agit d'une rencontre importante à mes yeux puisqu'elle permet de déposer et d'écouter les joies, les peines et/ou les problématiques de chacun(e) tout en ayant comme point commun le cheminement de l'être. Après ces trois semaines de diète, je décide d'arrêter les thérapies en cours, puisqu'elles n'ont plus lieu d'être, et de garder précieusement ce rendez-vous du mardi qui se suffit à lui-même. Aujourd'hui ce seul échange me confirme que je ne suis pas seule et que tout peut être dit et entendu si la position du cœur est au centre. Merci Anys, merci pour cette belle initiative, trois fois merci. Aho", a:"Moÿ", r:"Membre de la Tribu"},
+    {q:"Anys m'a accompagné pendant une période de 6 mois, au moment où je démarrais un projet qui me demandait de sortir de mes zones de confort. Il m'a permis de <strong>ne pas me sentir seul</strong>, de remettre en perspective mes interrogations et de trouver en moi les ressources dont je pouvais avoir besoin. Mon projet a pu prendre forme. Merci pour ton regard holistique qui m'a permis d'ouvrir mon esprit et de passer des caps qui m'étaient difficiles.", a:"Sweet Katman", r:""},
+    {q:"Ces rencontres successives ont jalonné des moments cruciaux de ma vie. Dans toute sa sollicitude, sa présence et sa douceur, Anys a su m'accompagner <strong>sans complaisance</strong>. Son regard, son écoute ont contribué à me connecter à la foi, la confiance en moi et en l'autre.", a:"Polette C.", r:""},
+    {q:"De la recherche du nom, en passant par différents concepts, à la réalisation de mon site web et de ma charte graphique. Anys est une personne avec de réelles <strong>qualités d'écoute et de conseils</strong>, ce qui nous a permis de travailler ensemble et de propulser mon activité. J'ai toujours à ce jour des compliments de mes clients concernant mon site et mon logo.", a:"CS", r:"CEO"},
+    {q:"Anys a une grande sensibilité qui le rend très créatif. Ses propositions créatives sont aussi belles qu'ergonomiques. Il a aussi un très bon esprit de synthèse qui rend ses messages et présentations <strong>extrêmement clairs et percutants</strong>. Anys est quelqu'un de très à l'écoute.", a:"Guillaume Andre-Wallut", r:"Consultant en économie circulaire, Vertuose"},
+    {q:"J'aime travailler avec lui sur l'identité visuelle et les sites de mes clients pour sa <strong>capacité d'écoute et de compréhension des enjeux globaux</strong>, sa sensibilité lui permettant de retranscrire de manière juste la singularité d'une entreprise et sa créativité permettant de sortir des sentiers battus.", a:"Amandine Lantelme", r:"Consultante en stratégie de marque, Made with Curiosity"}
+  ];
+  var i = 0, timer = null;
+  var card = document.querySelector('.tcar-card');
+  var qEl = document.getElementById('tcarQ');
+  var whoEl = document.getElementById('tcarWho');
+  var dotsEl = document.getElementById('tcarDots');
+  if(!card) return;
+  function render(n){
+    i = (n + T.length) % T.length;
+    card.style.opacity = 0;
+    setTimeout(function(){
+      qEl.innerHTML = T[i].q;
+      whoEl.innerHTML = T[i].a + (T[i].r ? ' <span class="tcar-role">— ' + T[i].r + '</span>' : '');
+      for(var k=0;k<dotsEl.children.length;k++){ dotsEl.children[k].className = (k===i ? 'on' : ''); }
+      card.style.opacity = 1;
+    }, 170);
+  }
+  T.forEach(function(_, idx){
+    var b = document.createElement('button');
+    b.addEventListener('click', function(){ render(idx); restart(); });
+    dotsEl.appendChild(b);
+  });
+  function next(){ render(i+1); }
+  function prev(){ render(i-1); }
+  function restart(){ if(timer) clearInterval(timer); timer = setInterval(next, 8000); }
+  var nx = document.querySelector('.tcar-arrow.next'), pv = document.querySelector('.tcar-arrow.prev');
+  if(nx) nx.addEventListener('click', function(){ next(); restart(); });
+  if(pv) pv.addEventListener('click', function(){ prev(); restart(); });
+  var x0 = null, stage = document.querySelector('.tcar-stage');
+  if(stage){
+    stage.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    stage.addEventListener('touchend', function(e){ if(x0===null) return; var dx = e.changedTouches[0].clientX - x0; if(dx>40){ prev(); restart(); } else if(dx<-40){ next(); restart(); } x0=null; }, {passive:true});
+  }
+  render(0); restart();
+})();
 </script>
 </body>
 </html>
